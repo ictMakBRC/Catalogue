@@ -93,8 +93,8 @@
     <script>
         $(document).ready(function() {
             $('#tableEx').DataTable({
-                lengthChange: true,
-                searching: true,
+                lengthChange: false,
+                searching: false,
                 autoWidth: false,
                 responsive: true,
             });

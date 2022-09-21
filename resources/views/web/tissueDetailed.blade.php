@@ -6,7 +6,7 @@
     <div class="page--header pt--60 pb--60 text-center" data-bg-img="{{url('site/img/page-header-img/tissuebg.jpg')}}" data-overlay="0.75">
         <div class="container">
             <div class="title">
-                <h2 class="h1 text-white">{{$name}}</h2>
+                <h2 class="h1 text-white">{{$name}} Details</h2>
             </div>
 
             <ul class="breadcrumb text-gray ff--primary">
@@ -16,114 +16,29 @@
         </div>
     </div>
         <!-- Page Header End -->
-
+       
         <!-- Page Wrapper Start -->
         <section class="page--wrapper pt--80 pb--20">
             <div class="container">
-                @if(count($tissues)>0)
-                @foreach($tissues as $value)
+              
                 <div class="row">
                     <!-- Main Content Start -->
                     <div class="main--content col-md-8" data-trigger="stickyScroll">
                         <div class="main--content-inner">
-                            <form action="{{ url('cart/add') }}" method="POST">
-                            <div class="row">
-
-
-                                <div class="col-md-12 col-sm-6 pb--60">
-                                    <!-- Product Summery Start -->
-                                    <div class="product--summery fs--14">
-                                        <div class="title">
-                                            <h3 class="h4">Tissues/{{$name}}</h3>
-                                        </div>
-
-                                        <table class="table table table-bordered table-hover table-md m-4" widith="100%">
-                                            <tr>
-                                                <th>Project name</th>
-                                                <td>{{$value->project_name}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Project Acronym</th>
-                                                <td>{{ $value->project_acronym}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Category</th>
-                                                <td>{{ $value->category}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Specimen type</th>
-                                                <td>{{$value->specimen_type}}</td>
-                                            </tr>
-                                            {{-- <tr>
-                                                <th>Participant ID</th>
-                                                <td>{{ $value->participant_id}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Sample Id</th>
-                                                <td>{{ $value->sample_id}}</td>
-                                            </tr> --}}
-                                            <tr>
-                                                <th>Aliqout Type</th>
-                                                <td>{{$value->aliqout_type}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Age</th>
-                                                <td>{{ $value->age}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Gender</th>
-                                                 <td>{{ $value->gender}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>BMI</th>
-                                                 <td>{{$value->BMI}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Ethinicity</th>
-                                                 <td>{{ $value->ethinicity}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Collection Date</th>
-                                            <td>{{ $value->collection_date}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Stored For</th>
-                                                <td>{{$value->stored_for}}</td>
-                                            </tr>
-
-                                        </table>
-
-
-
-                                    </div>
-                                    <input type="hidden"  value="Tissue" class="form-control" name="item_type">
-                                    <input type="hidden"  value="{{ $value->sample_id}}" class="form-control" name="sample_id">
-                                    <input type="hidden"  value="{{ $value->age}}" class="form-control" name="age">
-                                    <input type="hidden"  value="{{ $value->ethinicity}}" class="form-control" name="ethinicity">
-                                    <input type="hidden"  value="{{ $value->gender}}" class="form-control" name="gender">
-                                    <input type="hidden"  value="{{ $value->specimen_type}}" class="form-control" name="specimen_type">
-                                    <input type="hidden"  value="{{ $value->aliqout_type}}" class="form-control" name="aliqout_type">
-                                    <input type="hidden"  value="{{ $value->donor_status}}" class="form-control" name="donor_status">
-                                    <input type="hidden" name="project_acronym" value="{{$value->project_acronym}}">
-                                    @csrf
-                                    <button type="submit" class="btn btn-default float-center">Add To my list</button>
-                                    <!-- Product Summery End -->
-                                </div>
+                            <div class="title">
+                                <h3 class="h4">Tissues/{{$name}}</h3>
                             </div>
-                </form>
-                @endforeach
-                @endif
                             <!-- Product Details Nav Start -->
                             <div class="product--details-nav">
                                 <ul class="nav ff--primary fs--18 fw--600 text-black bg-lighter">
                                     <li class="active">
+                                        <a href="#produtDetailsTab03" data-toggle="tab">Specimen Details</a>
+                                    </li>
+                                    <li>
                                         <a href="#produtDetailsTab01" data-toggle="tab">Project Description</a>
                                     </li>
                                     <li>
                                         <a href="#produtDetailsTab02" data-toggle="tab">Sites of collection</a>
-                                    </li>
-                                    <li>
-                                        <a href="#produtDetailsTab03" data-toggle="tab">Specimen Details</a>
                                     </li>
                                 </ul>
                             </div>
@@ -132,7 +47,7 @@
                             <!-- Product Details Start -->
                             <div class="product--details tab-content pb--60">
                                 <!-- Tab Pane Start -->
-                                <div class="tab-pane fade in active" id="produtDetailsTab01">
+                                <div class="tab-pane fade" id="produtDetailsTab01">
                                     <div class="content--inner fs--14">
                                         <h5>{{ $value->project_name}}.</h5>
                                         <div class="mb-3">
@@ -197,31 +112,87 @@
                                 <!-- Tab Pane End -->
 
                                 <!-- Tab Pane Start -->
-                                <div class="tab-pane fade" id="produtDetailsTab03">
+                                <div class="tab-pane fade in active" id="produtDetailsTab03">
                                     <h4 class="h4 pt--20 pb--20">Sepecimen details</h4>
-
-                                    <!-- Review Items Start -->
-                                    <table id="example3" class="table table-striped table-bordered" style="width:100%">
-                                        <thead>
-                                            <tr>
-
-                                                <th>Specimen Type Name</th>
-                                                <th>Storage Temperature</th>
-                                                <th>ContainerType</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>{{$value->specimen_type}}</td>
-                                                <td>{{ $value->storage_temperature}}</td>
-                                                <td>{{ $value->container_type}}</td>
-                                            </tr>
-
-
-
-                                        </tbody>
-                                    </table>
+                               
+                                    <form action="{{ url('cart/add') }}" method="POST">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-6 pb--60">
+                                                <!-- Product Summery Start -->
+                                                <div class="product--summery fs--14">
+            
+                                                    <table class="table table table-bordered table-hover table-md m-4" widith="100%">
+                                                        <tr>
+                                                            <th>Project name</th>
+                                                            <td>{{$value->project_name}}</td>
+                                                            <th>Project Acronym</th>
+                                                            <td>{{ $value->project_acronym}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Category</th>
+                                                            <td>{{ $value->category}}</td>
+                                                            <th>Specimen type</th>
+                                                            <td>{{$value->specimen_type}}</td>
+                                                        </tr>
+                                                        {{-- <tr>
+                                                            <th>Participant ID</th>
+                                                            <td>{{ $value->participant_id}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Sample Id</th>
+                                                            <td>{{ $value->sample_id}}</td>
+                                                        </tr> --}}
+                                                        <tr>
+                                                            <th>Aliqout Type</th>
+                                                            <td>{{$value->aliqout_type}}</td>
+                                                            <th>Age</th>
+                                                            <td>{{ $value->age}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Gender</th>
+                                                             <td>{{ $value->gender}}</td>
+                                                            <th>BMI</th>
+                                                             <td>{{$value->BMI}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Ethinicity</th>
+                                                             <td>{{ $value->ethinicity}}</td>
+                                                            <th>Collection Date</th>
+                                                        <td>{{ $value->collection_date}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Stored For</th>
+                                                            <td>{{$value->stored_for}}</td>
+                                                            <th>Specimen Type Name</th>
+                                                            <td>{{$value->specimen_type}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Storage Temperature</th>
+                                                            <td>{{ $value->storage_temperature}}</td>
+                                                            <th>ContainerType</th>
+                                                            <td>{{ $value->container_type}}</td>
+                                                        </tr>
+                                                    </table>
+            
+            
+            
+                                                </div>
+                                                <input type="hidden"  value="Tissue" class="form-control" name="item_type">
+                                                <input type="hidden"  value="{{ $value->sample_id}}" class="form-control" name="sample_id">
+                                                <input type="hidden"  value="{{ $value->age}}" class="form-control" name="age">
+                                                <input type="hidden"  value="{{ $value->ethinicity}}" class="form-control" name="ethinicity">
+                                                <input type="hidden"  value="{{ $value->gender}}" class="form-control" name="gender">
+                                                <input type="hidden"  value="{{ $value->specimen_type}}" class="form-control" name="specimen_type">
+                                                <input type="hidden"  value="{{ $value->aliqout_type}}" class="form-control" name="aliqout_type">
+                                                <input type="hidden"  value="{{ $value->donor_status}}" class="form-control" name="donor_status">
+                                                <input type="hidden" name="project_acronym" value="{{$value->project_acronym}}">
+                                                @csrf
+                                                <br>
+                                                <button type="submit" class="btn btn-default float-center float-end mt-8">Add To my list</button>
+                                                <!-- Product Summery End -->
+                                            </div>
+                                        </div>
+                                    </form>
 
                                     <!-- Review Form End -->
                                 </div>

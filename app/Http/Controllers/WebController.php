@@ -222,10 +222,10 @@ public function bioDeatiled($id,$name)
         $this->cartcount();
         $carts = cart::where('session_id', session(['guest']))->limit(5)->get();
 
-        $tissues = Tissue::leftJoin('specimen_types', 'tissues.specimen_type', '=', 'specimen_types.specimen_type')
+        $value = Tissue::leftJoin('specimen_types', 'tissues.specimen_type', '=', 'specimen_types.specimen_type')
         ->leftJoin('projects', 'tissues.project_acronym', '=', 'projects.project_acronym')
         ->select('*','tissues.id as tissue_id')
-        ->where('tissues.id', $id)->get();
+        ->where('tissues.id', $id)->first();
         $countries = Tissue::leftJoin('projects', 'tissues.project_acronym', '=', 'projects.project_acronym')
         ->leftJoin('countries', 'projects.pcode', '=', 'countries.project_code')
         ->where('tissues.id', $id)->get();
@@ -247,7 +247,7 @@ public function bioDeatiled($id,$name)
         ->select('*','tissues.id as tissue_id','tissues.is_active as state')
         ->limit(4)
         ->get();
-        return view('web.tissueDetailed',compact('tissues','countries','sites','objectives','name','types','tissueSimi','carts'));
+        return view('web.tissueDetailed',compact('value','countries','sites','objectives','name','types','tissueSimi','carts'));
 
     }
     public function viewRequest($id)

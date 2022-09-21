@@ -30,46 +30,52 @@
                         <div class="main--content-inner">
                             <h4 class="text-success text-center">Item list</h4>
                             <div class="cart-items pb--60">
-                                    <table class="table table-striped" style="width:100%" id="tableEx">
-                                        <thead>
-                                            <tr>
-                                                <th>Item Type</th>
-                                                <th>Specimen type</th>
-                                                <th>Description</th>
-                                                <th>Project</th>
-                                                <th>&nbsp;</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="fs--14 text-darkest">
-                                            @if(count($cartitems)>0)
-                                            @foreach($cartitems as $value)
-                                            @if($value->item =='Tissue')
-                                            <tr>
-                                                <td data-label="Rate">
-                                                    {{ $value->item}}
-                                                </td>
-                                                <td data-label="Products">
-                                                    {{ $value->specimen_type}}
-                                                </td>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped" style="width:100%" id="tableEx">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Item Type</th>
+                                                        <th>Specimen type</th>
+                                                        <th>Description</th>
+                                                        <th>Project</th>
+                                                        <th>&nbsp;</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="fs--14 text-darkest">
+                                                    @if(count($cartitems)>0)
+                                                    @foreach($cartitems as $value)
+                                                    @if($value->item =='Tissue')
+                                                    <tr>
+                                                        <td data-label="Rate">
+                                                            {{ $value->item}}
+                                                        </td>
+                                                        <td data-label="Products">
+                                                            {{ $value->specimen_type}}
+                                                        </td>
 
-                                                <td data-label="Total Price">
-                                                    <p>Gender: {{ $value->gender}}</p>
-                                                    <p>Age: {{ $value->age}}</p>
-                                                   <p>Ethinicity: {{ $value->ethinicity}}</p>
-                                                   <p>Donor Status: {{ $value->donor_status}}</p>
-                                                </td>
-                                                <td>{{$value->project_acronym}}</td>
-                                                <td>
-                                                    <a href="{{url('cart/delete/'.$value->id)}}" class="text-danger" > <i class="fa fa-trash"></i> </a>
+                                                        <td data-label="Total Price">
+                                                            <p>Gender: {{ $value->gender}}, 
+                                                                Age: {{ $value->age}}, 
+                                                                Ethinicity: {{ $value->ethinicity}},
+                                                                Donor Status: {{ $value->donor_status}}
+                                                            </p>
+                                                        </td>
+                                                        <td>{{$value->project_acronym}}</td>
+                                                        <td>
+                                                            <a href="{{url('cart/delete/'.$value->id)}}" class="text-danger" > <i class="fa fa-trash"></i> </a>
 
-                                                </td>
-                                            </tr>
-                                            @endif
-                                            @endforeach
-                                            @endif
-                                        </tbody>
-                                    </table>
-
+                                                        </td>
+                                                    </tr>
+                                                    @endif
+                                                    @endforeach
+                                                    @endif
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- Cart Items End -->
 
