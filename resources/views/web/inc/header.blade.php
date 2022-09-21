@@ -37,12 +37,7 @@
             {{-- {{ Session::get('guestuser') }} --}}
             <!-- Header Topbar Links Start -->
             <ul class="header--topbar-links nav ff--primary float--right">
-                <li>
-                    <a href="{{url('cart')}}" title="List" data-toggle="tooltip" data-placement="bottom">
-                        <i class="fa fa-shopping-basket"></i>
-                        <span class="badge">{{ Session::get('items') }}</span>
-                    </a>
-                </li>
+                <livewire:cart-counter /> 
                 <li class="dropdown">
                     @if (Route::has('login'))
 

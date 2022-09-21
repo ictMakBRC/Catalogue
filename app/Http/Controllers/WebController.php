@@ -46,7 +46,8 @@ class WebController extends Controller
         // $ip = '102.222.235.145';
         // $data = Location::get($ip);
         // return $data;
-    return view('web.home',compact('specimenTypes','biospecimens','tissues'));
+        $preloader=true;
+    return view('web.home',compact('specimenTypes','biospecimens','tissues','preloader'));
     }
     public function account()
 
@@ -207,19 +208,13 @@ public function bioDeatiled($id,$name)
     public function tissueAll($specimen,$project)
     {
         $this->cartcount();
-        $tissuecount = Tissue::where('tissues.specimen_type',$specimen)->where('tissues.project_acronym',$project)->count();
-        $tissues = Tissue::orderBy('tissues.id', 'desc')
-        ->leftJoin('specimen_types', 'tissues.specimen_type', '=', 'specimen_types.specimen_type')
-        ->leftJoin('projects', 'tissues.project_acronym', '=', 'projects.project_acronym')
-        ->where('tissues.specimen_type',$specimen)
-        ->where('tissues.project_acronym',$project)
-        ->select('*','tissues.id as tissue_id','tissues.is_active as state')
-        ->paginate(9);
+       
+     
         $types = Tissue::leftJoin('specimen_types', 'tissues.specimen_type', '=', 'specimen_types.specimen_type')
         ->groupBy('tissues.specimen_type')
         ->select('tissues.specimen_type as myspecimen', DB::raw('count(tissues.id) as count'))
         ->get();
-        return view('web.tissueItems',compact('tissues','tissuecount','project','specimen','types'));
+        return view('web.tissueItems',compact('project','specimen','types'));
     }
     public function tissueDeatiled($id,$name)
     {
