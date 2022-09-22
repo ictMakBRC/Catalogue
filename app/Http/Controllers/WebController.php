@@ -60,7 +60,7 @@ class WebController extends Controller
     public function Allprojects()
     {
         $projects = project::orderBy('id', 'desc')->paginate(6);
-        return view('projects',compact('projects'));
+        return view('web.projects',compact('projects'));
     }
     public function faq()
     {

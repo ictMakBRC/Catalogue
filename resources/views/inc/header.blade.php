@@ -43,6 +43,7 @@
                     </li>
                     <li><a href="{{url('biospecimen')}}">Biospecimen</a></li>
                     <li><a href="{{url('tissues')}}">Tissues</a></li>
+                    <li><a href="{{url('tissues')}}">Organs</a></li>
                     <li>
                         <a href="{{url('projects/')}}">Projects</a>
                     </li>

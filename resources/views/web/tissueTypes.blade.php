@@ -47,11 +47,13 @@
                                                 <p>Project Acronym: {{ $value->project_acronym}}</p>
                                                 <p class="card-text">{{ $value->project_description}}</p>
                                             </div>
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">Aliqout type: {{ $value->aliqout_type}}</li>
-                                                <li class="list-group-item">Available Tissues: {{ $value->tcount}}</li>
-
-                                            </ul>
+                                            <table class="table">
+                                                <tr>
+                                                    <td><b>Aliqout type:</b>{{ $value->aliqout_type}}</td>
+                                                    <td><b>Available Tissues:<b>{{ $value->tcount}}</td>
+                                                </tr>
+                                            </table>
+               
                                             <div class="card-footer">
                                                 <ul class="subforums nav mt--10 text-darkest">
                                                     <li> <a target="_blank" href="{{ url('project/view/'.$value->pcode.'/'.$value->project_acronym) }}" class="the_permalink text-info">Show full project record<i class="icofont-arrow-right"></i></a></li>

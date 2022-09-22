@@ -85,7 +85,7 @@
                                                         <div class="col-lg-4 col-sm-6">
                                                             <div class="team-member">
 
-                                                                <h4><a href="{{ url('project/view/'.$value->id.'/'.$value->pcode.'/'.$value->project_acronym) }}">{{$value->project_name}}</a></h4>
+                                                                <h4><a href="{{ url('project/view/'.$value->pcode.'/'.$value->project_acronym) }}">{{$value->project_name}}</a></h4>
                                                                 <p><a href="{{ url('project/view/'.$value->pcode.'/'.$value->project_acronym) }}">{{ $value->project_acronym}}</a></p>
                                                             </div>
                                                         </div>
@@ -101,9 +101,9 @@
 
                                             <div class="links--widget">
                                                 <ul class="nav">
-                                                    <li><a href="sub-forums.html"> Biospecimens: <span class="count">>({{$biospecimens}})</span></a></li>
-                                                    <li><a href="sub-forums.html">Organs <span class="count">(07)</span></a></li>
-                                                    <li><a href="sub-forums.html">Tissues <span class="count">({{$tissues}})</span></a></li>
+                                                    <li><a href=""> Biospecimens: <span class="count">>({{$biospecimens}})</span></a></li>
+                                                    <li><a href="sub-forums.html">Organs <span class="count">(0)</span></a></li>
+                                                    <li><a href="{{url('tissues/all/'.$value->project_acronym)}}">Tissues <span class="count">({{$tissues}})</span></a></li>
 
                                                 </ul>
                                             </div>
@@ -126,7 +126,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if (isset($blank))                                        
                                     <button onclick="back()" class="btn btn-info">Done</button>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -135,15 +137,13 @@
                     </div>
                     <!-- Main Content End -->
 
-                    <!-- Main Sidebar Start -->
-
-                    <!-- Main Sidebar End -->
                 </div>
             </div>
         </section>
         <script>
              function back() {
               window.close();
-            } </script>
+            } 
+        </script>
 
         @endsection
