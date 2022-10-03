@@ -102,7 +102,6 @@
             <div id="headerNav" class="navbar-collapse collapse float--right">
                 <!-- Header Nav Links Start -->
                 <ul class="header--nav-links style--1 nav ff--primary">
-
                     <li><a  href="{{url('home')}}"><span>Home</span></a></li>
                     <li><a target="_blank" href="https://www.ibru.mak.ac.ug/"><span>About</span></a></li>
                     <li><a href="{{url('biospecimens')}}"><span>Biospecimens</span></a></li>
