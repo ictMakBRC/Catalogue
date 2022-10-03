@@ -4,16 +4,18 @@
 		<div class="section-authentication-login d-flex align-items-center justify-content-center">
 			<div class="row">
 				<div class="col-12 col-lg-10 mx-auto">
-					<div class="card radius-15">
+					<div class="">
 						<div class="row no-gutters">
 							<div class="col-lg-6">
-								<div class="card-body p-md-5">
+								<div class="card-body p-md-5 mt-20">
+									<br>
+									<br>
 									<div class="text-center">
-										<img src="assets/images/logo-icon.png" width="80" alt="">
-										<h3 class="mt-4 font-weight-bold">Welcome Back</h3>
+										<img src="assets/images/logo.png" width="120px" alt="">
+										<h3 class="mt-4 font-weight-bold d-none">Welcome Back</h3>
 									</div>
                                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
-									<div class="login-separater text-center"> <span>OR LOGIN WITH EMAIL</span>
+									<div class="login-separater text-center"> <span>LOGIN WITH EMAIL</span>
 										<hr/>
 									</div>
                              <form method="POST" action="{{ route('login') }}">
@@ -56,7 +58,7 @@
 								</div>
 							</div>
 							<div class="col-lg-6">
-								<img src="assets/images/login-images/login-frent-img.jpg" class="card-img login-img h-100" alt="...">
+								<img src="assets/images/login-images/login-img.jpg" class="card-img login-img h-100" alt="...">
 							</div>
 						</div>
 						<!--end row-->

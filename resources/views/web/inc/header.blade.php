@@ -37,12 +37,7 @@
             {{-- {{ Session::get('guestuser') }} --}}
             <!-- Header Topbar Links Start -->
             <ul class="header--topbar-links nav ff--primary float--right">
-                <li>
-                    <a href="{{url('cart')}}" title="List" data-toggle="tooltip" data-placement="bottom">
-                        <i class="fa fa-shopping-basket"></i>
-                        <span class="badge">{{ Session::get('items') }}</span>
-                    </a>
-                </li>
+                <livewire:cart-counter /> 
                 <li class="dropdown">
                     @if (Route::has('login'))
 
@@ -111,8 +106,9 @@
                     <li><a  href="{{url('home')}}"><span>Home</span></a></li>
                     <li><a target="_blank" href="https://www.ibru.mak.ac.ug/"><span>About</span></a></li>
                     <li><a href="{{url('biospecimens')}}"><span>Biospecimens</span></a></li>
-                    {{-- <li><a href="{{url('organs')}}"><span>Organs</span></a></li> --}}
+                    <li><a href="{{url('tissues')}}"><span>Organs</span></a></li>
                     <li><a href="{{url('tissues')}}"><span>Tissues</span></a></li>
+                    <li><a href="{{url('projects/')}}">Projects</a></li>
                     <li><a href="{{url('faq')}}"><span>FAQ</span></a></li>
                     <li><a href="{{url('register')}}"><span>Register</span></a></li>
                     <li><a href="{{url('contact')}}"><span>Contact</span></a></li>

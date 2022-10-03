@@ -44,15 +44,18 @@
         <script src="https://oss.maxcdn.com/libs/respond.js')}}/1.4.2/respond.min.js')}}"></script>
 
     <![endif]-->
-
+    @livewireStyles
 </head>
 <body>
 
-    <!-- Preloader Start -->
-    <div id="preloader">
-        <div class="preloader--inner"></div>
-    </div>
-    <!-- Preloader End -->
+        @if (isset($preloader))
+            <!-- Preloader Start -->
+            <div if id="preloader">
+                <div class="preloader--inner"></div>
+            </div>
+            <!-- Preloader End --> 
+        @endif
+
 
     <!-- Wrapper Start -->
     <div class="wrapper">
@@ -90,7 +93,7 @@
     <script>
         $(document).ready(function() {
             $('#tableEx').DataTable({
-                lengthChange: true,
+                lengthChange: false,
                 searching: false,
                 autoWidth: false,
                 responsive: true,
@@ -111,5 +114,6 @@
     });
 
 </script>
+@livewireScripts
 </body>
 </html>

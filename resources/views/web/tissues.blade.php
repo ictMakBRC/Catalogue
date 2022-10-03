@@ -19,13 +19,33 @@
         <section class="page--wrapper pt--80 pb--20">
             <div class="container">
                 <div class="row">
+                            <!-- Main Content Start -->
+                            {{-- <div class="main--content col-md-12 pb--30">
+                                <div class="main--content-inner">
+                                   
+        
+                                    <!-- Page Count Start -->
+                                    <div class="page--count pb--30">
+                                        <label class="ff--primary fs--14 fw--500 text-darker">
+                                            <span>Viewing</span>
+        
+                                            <a href="#" class="btn-link"><i class="fa fa-caret-left"></i></a>
+                                            <input type="number" name="page-count" value="01" class="form-control form-sm">
+                                            <a href="#" class="btn-link"><i class="fa fa-caret-right"></i></a>
+        
+                                            <span>of 28</span>
+                                        </label>
+                                    </div>
+                                    <!-- Page Count End -->
+                                </div>
+                            </div> --}}
                     <!-- Main Content Start -->
                     <div class="main--content col-md-8 pb--60" data-trigger="stickyScroll">
                         <div class="main--content-inner">
                             <!-- Filter Nav Start -->
                             <div class="filter--nav pb--30 clearfix">
                                 <div class="filter--link float--left">
-                                    <h2 class="h4">All tissues : @money($tissuecount )</h2>
+                                    <h2 class="h4">Viewing all available Tissues : @money($tissuecount )</h2>
                                 </div>
 
                                 <div class="filter--options float--right">
@@ -40,9 +60,57 @@
                                 </div>
                             </div>
                             <!-- Filter Nav End -->
+                           
+                            <div class="row AdjustRow">
+                                @if(count($tissues)>0)
+                                @foreach($tissues as $value)
+                                <div class="col-md-3 col-xs-6 col-xxs-12 pb--30">
+                                    <!-- Product Item Start -->
+                                    <div class="product--item" data-scroll-reveal="bottom">
+                                        <!-- Product Image Start -->
+                                        <div class="product--img">
+                                            <img src="{{url('site/img/tissues/tissues.jpg')}}" alt="">
 
+                                            <div class="action">
+                                                <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}">
+                                                    <i class="fa fa-eye"></i>
+                                                    <span>View Details</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Product Image End -->
+
+                                        <!-- Product Info Start -->
+                                        <div class="product--info text-center">
+                                            <div class="cart">
+                                                <p><i class="mr--8 fas fa-briefcase-medical"></i>Specimen Type</p>
+                                            </div>
+                                            <div class="name">
+                                                <h3 class="h4 fs--16 text-primary">
+                                                    <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}" class="btn-link">{{ $value->myspecimen}}</a>
+                                                </h3>
+                                            </div>
+                                            <div class=" text-center">
+                                                <h5>Qty: {{ $value->count}}</h5>
+                                            </div>
+
+                                            <div class="action fs--14">
+                                                <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}" title="View available samples in {{ $value->myspecimen}}" class="btn-link" data-toggle="tooltip" data-placement="bottom">
+                                                    <i class="fa fa-eye"></i> View all
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Product Info End -->
+                                    </div>
+                                    <!-- Product Item End -->
+                                </div>
+
+                                @endforeach
+                                @endif
+                             
+                            </div>
                             <!-- Member Items Start -->
-                            <div class="member--items">
+                            {{-- <div class="member--items d-none">
                                 <div class="row gutter--15 AdjustRow">
                                     @if(count($tissues)>0)
                                     @foreach($tissues as $value)
@@ -59,18 +127,13 @@
                                             <div class="activity">
                                                 <p><i class="mr--8 fas fa-briefcase-medical"></i>Specimen Type</p>
                                             </div>
-
                                             <div class="name">
                                                 <h3 class="h4 fs--16 text-primary">
                                                     <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}" class="btn-link">{{ $value->myspecimen}}</a>
                                                 </h3>
                                             </div>
-
-
-
                                             <div class=" text-center">
                                                 <h5>Qty: {{ $value->count}}</h5>
-
                                             </div>
                                             <div class="actions">
                                                 <ul class="nav">
@@ -87,12 +150,11 @@
                                         <!-- Member Item End -->
                                     </div>
                                     @endforeach
-
                                     @endif
 
 
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- Member Items End -->
 
                             <!-- Page Count Start -->
