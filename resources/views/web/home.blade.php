@@ -19,15 +19,15 @@
                                         <!-- Banner Content Start -->
                                         <div class="banner--content pt--70 pb--80 text-center">
                                             <div class="title">
-                                                <h1 class="h1 text-lightgray">Welcome To MAKBRC</h1>
+                                                <h1 class="h1 text-lightgray">The Catalogue</h1>
                                             </div>
 
                                             <div class="sub-title">
-                                                <h2 class="h2 text-lightgray">Discover &amp; Engage</h2>
+                                                <h3 class="h2 text-lightgray">Biospecimens, Organs &amp; Tissues</h3>
                                             </div>
 
                                             <div class="desc text-gray fs--16">
-                                                <p>A Web-Based Biospecimen Catalog. OpenSpecimen is an established biospecimen informatics platform used in 70+ biobanks across. SpecimenCatalog Helps Researchers Find Biospecimens of Interest.</p>
+                                                <p>A single convenient point of access to a pool of Biospecimens, Human Organs and Tissues.</p>
                                             </div>
 
                                             <div class="action text-uppercase">
@@ -54,20 +54,20 @@
                                         <!-- Banner Content Start -->
                                         <div class="banner--content pt--70 pb--80 text-center">
                                             <div class="title">
-                                                <h1 class="h1 text-lightgray">BIOSPECIMEMS</h1>
+                                                <h1 class="h1 text-lightgray">The Biospecimens</h1>
                                             </div>
 
                                             <div class="sub-title">
-                                                <h2 class="h2 text-lightgray">Find &amp; Request</h2>
+                                                <h3 class="h2 text-lightgray">Search &amp; Request</h3>
                                             </div>
 
                                             <div class="desc text-gray fs--16">
-                                                <p>Specimens for research PCR testing include nasopharyngeal swabs, secretions from the respiratory tract including sputum and bronchoalveolar lavage fluid.</p>
+                                                <p>We have well annotated and quality controlled Nucleic acids (DNA & RNA), PLASMA, PBMCs, stool and many other Biospecimens.</p>
                                             </div>
 
                                             <div class="action text-uppercase">
                                                 <a href="#" class="btn btn-white">Learn More</a>
-                                                <a href="#" class="btn btn-primary">See specimens</a>
+                                                <a href="#" class="btn btn-primary">Make a Request</a>
                                             </div>
                                         </div>
                                         <!-- Banner Content End -->
@@ -89,11 +89,11 @@
                                         <!-- Banner Content Start -->
                                         <div class="banner--content pt--70 pb--80 text-center">
                                             <div class="title">
-                                                <h1 class="h1 text-lightgray">ORGANS</h1>
+                                                <h1 class="h1 text-lightgray">Human Organs</h1>
                                             </div>
 
                                             <div class="sub-title">
-                                                <h2 class="h2 text-lightgray">Browse, Request &amp; Engage</h2>
+                                                <h3 class="h2 text-lightgray">Browse  &amp; Request</h3>
                                             </div>
 
                                             <div class="desc text-gray fs--16">
@@ -102,7 +102,7 @@
 
                                             <div class="action text-uppercase">
                                                 <a href="#" class="btn btn-white">Learn More</a>
-                                                <a href="#" class="btn btn-primary">View all</a>
+                                                <a href="#" class="btn btn-primary">Make a Request</a>
                                             </div>
                                         </div>
                                         <!-- Banner Content End -->
@@ -119,51 +119,138 @@
         <!-- Banner Section End -->
 
         <!-- Features Section Start -->
-        <section class="section bg-lighter pt--80 pb--40">
+        <section class="section bg-lighter pt--40 pb--10">
             <div class="container">
                 <div class="row AdjustRow">
-                    <div class="col-md-12 col-xs-12 col-xxs-12 pb--40">
+                    <div class="col-md-12 col-xs-12 col-xxs-12 pb--20">
                         <!-- Feature Item Start -->
-                        <div class="section--title pb--50 text-center">
-                            <h2 id="About"> The Catalog </h2>
-                            <h4> The Catalog is updated regularly with the latest data from the LIMS for all the studies at the <a href="https://www.ibru.mak.ac.ug/" target="_blank">IBRH3AU</a> Biorepository, We're trusted by many leading research institutions, academic institutes and biomedical companies for diagnostics, health care or basic research. Through the catalog you are able to search and request for biospecimens or
-                                human tissues/organs for health care or basic research needs.</h4>
-                            <h3 class="h2">OUR SERVICES</h3>
-                            <p>The following list is not exhaustive;
-                                please contact us with details of your requirements and we will be delighted to help.</p>
+                        <div class="section--title pb--20 text-center">
+                            <h2 id="About" class="h2 fw--600"> About the Catalog </h2>
+                            <h4> The Catalog provides access to a pool of well annotated Biospecimens, organs and tissues. It gives the researchers the ability to browse the available biospecimens, study descriptions, and allows them to request access to these items. 
+                                It is a single convenient point of access to a pool of different sample types.</h4>
                         </div>
                         <!-- Feature Item End -->
                     </div>
-
-
-                    @if(count($specimenTypes)>0)
-                    @php($i=1)
-                    @foreach($specimenTypes as $value)
-                    <div class="col-md-3 col-xs-6 col-xxs-6 pb--40">
-                        <!-- Feature Item Start -->
-                        <div class="feature--item bg-default text-center">
-
-
-                            <div class="sub-title">
-                                <h3 class="h2 fs--16">{{$value->specimen_type}}</h3>
-                            </div>
-
-                            <div class="desc">
-                                <p>Stored in {{$value->container_type}} at a temperature of {{$value->storage_temperature}}.</p>
-                            </div>
-                        </div>
-                        <!-- Feature Item End -->
-                    </div>
-                    @endforeach
-                    @endif
-
-
-
-
                 </div>
             </div>
         </section>
         <!-- Features Section End -->
+
+        <!-- Why Choose Us Section Start -->
+        <section class="section bg-lighter pt--10 pb--10">
+            <div class="container">
+                <div class="row row--md-vc">
+                    <div class="col-md-6 pb--10">
+                        <!-- Text Block Start -->
+                        <div class="text--block pb--10">
+                            <div class="title">
+                                <h2 class="h2 fw--600">Why Choose Us?</h2>
+                            </div>
+
+                            <div class="content fs--14">
+                                <p>We're trusted by many leading research institutions, academic institutes and biomedical companies for diagnostics, health care and basic research.</p>
+                            </div>
+                        </div>
+                        <!-- Text Block End -->
+
+                        <div class="row AdjustRow">
+                            <div class="col-xs-6 col-xxs-12 pb--10">
+                                <!-- Feature Block Start -->
+                                <div class="feature--block mb--6 clearfix">
+                                    <div class="icon fs--18 text-primary mr--20 float--left">
+                                        <i class="fa fa-vial"></i>
+                                    </div>
+
+                                    <div class="info ov--h">
+                                        <div class="title">
+                                            <h2 class="h6 fw--700">SARS-COV-2</h2>
+                                        </div>
+
+                                        <div class="desc mt--8">
+                                            <p>We have Nasopharyngeal and Oralpharyngeal swabs, blood, urine, stool, plasma and PBMCS from CoVID-19 cases and controls available to aid your research</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Feature Block End -->
+                            </div>
+
+                            <div class="col-xs-6 col-xxs-12 pb--10">
+                                <!-- Feature Block Start -->
+                                <div class="feature--block mb--6 clearfix">
+                                    <div class="icon fs--18 text-primary mr--20 float--left">
+                                        <i class="fa fa-wrench"></i>
+                                    </div>
+
+                                    <div class="info ov--h">
+                                        <div class="title">
+                                            <h2 class="h6 fw--700">Human Organs</h2>
+                                        </div>
+
+                                        <div class="desc mt--8">
+                                            <p>We are developing capacity to process and store well annotated and quality controlled human biosamples needed for diagnostics, drug, or basic research.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Feature Block End -->
+                            </div>
+
+                            <div class="col-xs-6 col-xxs-12 pb--10">
+                                <!-- Feature Block Start -->
+                                <div class="feature--block mb--6 clearfix">
+                                    <div class="icon fs--18 text-primary mr--20 float--left">
+                                        <i class="fa fa-group"></i>
+                                    </div>
+
+                                    <div class="info ov--h">
+                                        <div class="title">
+                                            <h2 class="h6 fw--700">Human Tissues</h2>
+                                        </div>
+
+                                        <div class="desc mt--8">
+                                            <p>We are excited to help you with your project by providing you with quality controlled human tissues for clinical or basic research purposes.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Feature Block End -->
+                            </div>
+
+                            <div class="col-xs-6 col-xxs-12 pb--10">
+                                <!-- Feature Block Start -->
+                                <div class="feature--block mb--6 clearfix">
+                                    <div class="icon fs--18 text-primary mr--20 float--left">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+
+                                    <div class="info ov--h">
+                                        <div class="title">
+                                            <h2 class="h6 fw--700">Other Biospecimens</h2>
+                                        </div>
+
+                                        <div class="desc mt--8">
+                                            <p>We have well annotated and quality controlled Nucleic acids (DNA & RNA), PLASMA, PBMCs, stool and many other Biospecimens</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Feature Block End -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 pb--10">
+                        <!-- Video Popup Start -->
+                        <div class="video--popup style--1" data-overlay="0.1">
+                            <img src="{{url('site/img/why-choose-us-img/video-poster-1.jpg')}}" alt="" style="height:100%; width:100%">
+
+                            <a href="https://www.youtube.com/watch?v=Zs5-_Je8DOY" class="btn-link" data-trigger="video_popup">
+                                <span><i class="fa fa-play"></i></span>
+                            </a>
+                        </div>
+                        <!-- Video Popup End -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Why Choose Us Section End -->
 
         <!-- How It Works Section Start -->
         <section class="section pt--70 pb--40">
@@ -172,10 +259,6 @@
                 <div class="section--title pb--50 text-center">
                     <div class="title">
                         <h2 class="h2">How It Works?</h2>
-                    </div>
-
-                    <div class="sub-title">
-                        <h6>The Catalog provides an unlimited easy access to high quality Biospecimens, human tissues and organs by potential recipients or researchers. It is a single convenient point of access to a pool of Biospecimens.</h6>
                     </div>
                 </div>
                 <!-- Section Title End -->
@@ -310,122 +393,48 @@
         <!-- Members and Testimonial Section Start -->
 
         <!-- Members and Testimonial Section End -->
+        
 
-        <!-- Why Choose Us Section Start -->
-        <section class="section bg-lighter pt--80 pb--20">
+        <!-- Summary Biospecimen Section Start -->
+        <section class="section bg-lighter pt--10 pb--10">
             <div class="container">
-                <div class="row row--md-vc">
-                    <div class="col-md-6 pb--50">
-                        <!-- Text Block Start -->
-                        <div class="text--block pb--10">
-                            <div class="title">
-                                <h2 class="h2 fw--600">Why Choose Us?</h2>
-                            </div>
-
-                            <div class="content fs--14">
-                                <p>The Catalog provides an unlimited access to well annotated Biospecimens and human tissues.</p>
-                            </div>
+                <div class="row AdjustRow">
+                    <div class="col-md-12 col-xs-12 col-xxs-12 pb--10">
+                        <!-- Feature Item Start -->
+                        <div class="section--title pb--10 text-center">
+                            <h3 id="About"> A snipet of the available Biospecimen </h3>
                         </div>
-                        <!-- Text Block End -->
-
-                        <div class="row AdjustRow">
-                            <div class="col-xs-6 col-xxs-12 pb--10">
-                                <!-- Feature Block Start -->
-                                <div class="feature--block mb--6 clearfix">
-                                    <div class="icon fs--18 text-primary mr--20 float--left">
-                                        <i class="fa fa-comments-o"></i>
-                                    </div>
-
-                                    <div class="info ov--h">
-                                        <div class="title">
-                                            <h2 class="h6 fw--700">SARS-COV-2</h2>
-                                        </div>
-
-                                        <div class="desc mt--8">
-                                            <p>We have Nasopharyngeal and Oralpharyngeal swabs, blood, urine, stool, plasma and PBMCS from CoVID-19 cases and controls available to aid your research</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Feature Block End -->
-                            </div>
-
-                            <div class="col-xs-6 col-xxs-12 pb--10">
-                                <!-- Feature Block Start -->
-                                <div class="feature--block mb--6 clearfix">
-                                    <div class="icon fs--18 text-primary mr--20 float--left">
-                                        <i class="fa fa-wrench"></i>
-                                    </div>
-
-                                    <div class="info ov--h">
-                                        <div class="title">
-                                            <h2 class="h6 fw--700">Whole Human Organs</h2>
-                                        </div>
-
-                                        <div class="desc mt--8">
-                                            <p>We are developing capacity to process and store well annotated and quality controlled human biosamples needed for diagnostics, drug, or basic research.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Feature Block End -->
-                            </div>
-
-                            <div class="col-xs-6 col-xxs-12 pb--10">
-                                <!-- Feature Block Start -->
-                                <div class="feature--block mb--6 clearfix">
-                                    <div class="icon fs--18 text-primary mr--20 float--left">
-                                        <i class="fa fa-group"></i>
-                                    </div>
-
-                                    <div class="info ov--h">
-                                        <div class="title">
-                                            <h2 class="h6 fw--700">Human Tissues</h2>
-                                        </div>
-
-                                        <div class="desc mt--8">
-                                            <p>We are excited to help you with your project by providing you with quality controlled human tissues for clinical or basic research purposes.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Feature Block End -->
-                            </div>
-
-                            <div class="col-xs-6 col-xxs-12 pb--10">
-                                <!-- Feature Block Start -->
-                                <div class="feature--block mb--6 clearfix">
-                                    <div class="icon fs--18 text-primary mr--20 float--left">
-                                        <i class="fa fa-clock-o"></i>
-                                    </div>
-
-                                    <div class="info ov--h">
-                                        <div class="title">
-                                            <h2 class="h6 fw--700">Other Biospecimens</h2>
-                                        </div>
-
-                                        <div class="desc mt--8">
-                                            <p>We have well annotated and quality controlled Nucleic acids (DNA & RNA), PLASMA, PBMCs, stool and many other Biospecimens</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Feature Block End -->
-                            </div>
-                        </div>
+                        <!-- Feature Item End -->
                     </div>
 
-                    <div class="col-md-6 pb--60">
-                        <!-- Video Popup Start -->
-                        <div class="video--popup style--1" data-overlay="0.1">
-                            <img src="{{url('site/img/why-choose-us-img/video-poster-1.jpg')}}" alt="">
+                    @if(count($specimenTypes)>0)
+                    @php($i=1)
+                    @foreach($specimenTypes as $value)
+                    <div class="col-md-3 col-xs-6 col-xxs-6 pb--40">
+                        <!-- Feature Item Start -->
+                        <div class="feature--item bg-default text-center">
 
-                            <a href="https://www.youtube.com/watch?v=YE7VzlLtp-4" class="btn-link" data-trigger="video_popup">
-                                <span><i class="fa fa-play"></i></span>
-                            </a>
+
+                            <div class="sub-title">
+                                <h3 class="h2 fs--16">{{$value->specimen_type}}</h3>
+                            </div>
+
+                            <div class="desc">
+                                <p>Stored in {{$value->container_type}} at a temperature of {{$value->storage_temperature}}.</p>
+                            </div>
                         </div>
-                        <!-- Video Popup End -->
+                        <!-- Feature Item End -->
                     </div>
+                    @endforeach
+                    @endif
+
+
+
+
                 </div>
             </div>
         </section>
-        <!-- Why Choose Us Section End -->
+        <!-- Summary Biospecimen Section End -->
 
         <!-- FAQ and Download Section Start -->
         <section class="section pt--70 pb--20">
