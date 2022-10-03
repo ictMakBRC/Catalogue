@@ -29,30 +29,26 @@
                                     <div class="col-md-9">
                                                 <div class="single_service_content">
 
-                                                    <h2 class="the_service_title">{{ $value->project_name}} Details</h2>
-                                                    <span class=" h4">Project Design: </span>
+                                                    <h2 class="the_service_title">Project details</h2>
+                                                    <span><strong class="h4"> Study acronym</strong>: {{$value->project_acronym}}</span><br>
+                                                    <span><strong class="h4"> Study name</strong>: {{$value->project_name}}</span><br>
+                                                    <span class="h4">Study Design: </span>
                                         <p class="card-text fs-6">
                                             {{ $value->project_design}}
                                         </p>
                                         <hr>
                                         <br>
-                                        <span class=" h4 mt-4">Project Description: </span>
+                                        <span class=" h4 mt-4">Study Description: </span>
                                         <p class="card-text fs-6">
                                             {{ $value->project_description}}
                                         </p>
-                                        <dl class="row mt-4">
-                                            <dt class="col-sm-4">Disease</dt>
-                                            <dd class="col-sm-8">{{ $value->disease}}</dd>
-
-                                            <dt class="col-sm-4">Project Funder</dt>
-                                            <dd class="col-sm-8">{{$value->project_funder}}</dd>
-
-                                            <dt class="col-sm-4">H3 Africa Affiliated</dt>
-                                            <dd class="col-sm-8">{{$value->H3_africa_affiliated}}</dd>
-                                        </dl>
+                                        <p><strong>Disease:</strong> {{ $value->disease}}</p>
+                                        <p><strong>Funder:</strong> {{$value->project_funder}}</p>
+                                        <p><strong>H3Africa Affiliated:</strong> {{$value->H3_africa_affiliated}}</p>
+                 
                                         <hr>
                                                 @if(count($countries)>0)
-                                                <span class=" h4 mt-4">Collection countries </span>
+                                                <span class=" h4 mt-4">Country of collection:</span>
                                                     <ul>
                                                         @foreach($countries as $country)
                                                         <li class="">{{$country->country}}</li>
@@ -78,7 +74,9 @@
                                                     @endforeach
                                                     </ol>
                                                     @endif
+                                                    <hr>
                                                     <div class="row mt-xl-5 mt-3 mb-125">
+                                                        <h3 class="text-center"> Other Projects</h3>
                                                         @if(count($otherprojects)>0)
                                                         @php($i=1)
                                                         @foreach($otherprojects as $value)
@@ -101,14 +99,14 @@
 
                                             <div class="links--widget">
                                                 <ul class="nav">
-                                                    <li><a href=""> Biospecimens: <span class="count">>({{$biospecimens}})</span></a></li>
-                                                    <li><a href="sub-forums.html">Organs <span class="count">(0)</span></a></li>
+                                                    <li><a href=""> Biospecimens <span class="count">({{$biospecimens}})</span></a></li>
+                                                    <li><a href="">Organs <span class="count">(0)</span></a></li>
                                                     <li><a href="{{url('tissues/all/'.$value->project_acronym)}}">Tissues <span class="count">({{$tissues}})</span></a></li>
 
                                                 </ul>
                                             </div>
-                                            <div class="service-widget widget-download-files">
-                                                <h2 class="h4 fw--700 widget--title">Documents</h2>
+                                            <div class="service-widget widget-download-files mt--20">
+                                                <h2 class="h4 fw--700 widget--title">Study Publications</h2>
                                                 <ul>
                                                     <li>
                                                         <a href="#">

@@ -42,10 +42,23 @@
                     <!-- Main Content Start -->
                     <div class="main--content col-md-8 pb--60" data-trigger="stickyScroll">
                         <div class="main--content-inner">
+                            <div class="main--content-inner drop--shadow">
+                                <!-- Topics List Start -->
+                                <div class="box--items">
+                                    <div class="row gutter--15 AdjustRow">
+                                        <div class="col-md-12 col-xxs-12 col-xxs-12">
+                                            <h4 class="card-title">Our Tissue Inventory</h4>
+                                            <p>Through collaborations involving organ donation organizations and transplantation programs across Africa we are working to increase organ and tissue donation, access to transplants and improve patient care. 
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
                             <!-- Filter Nav Start -->
                             <div class="filter--nav pb--30 clearfix">
                                 <div class="filter--link float--left">
-                                    <h2 class="h4">Viewing all available Tissues : @money($tissuecount )</h2>
+                                    <h2 class="h4">List of all available Tissues : @money($tissuecount )</h2>
                                 </div>
 
                                 <div class="filter--options float--right">
@@ -64,47 +77,46 @@
                             <div class="row AdjustRow">
                                 @if(count($tissues)>0)
                                 @foreach($tissues as $value)
-                                <div class="col-md-3 col-xs-6 col-xxs-12 pb--30">
-                                    <!-- Product Item Start -->
-                                    <div class="product--item" data-scroll-reveal="bottom">
-                                        <!-- Product Image Start -->
-                                        <div class="product--img">
-                                            <img src="{{url('site/img/tissues/tissues.jpg')}}" alt="">
+                                    <div class="col-md-3 col-xs-6 col-xxs-12 pb--30 drop--shadow">
+                                        <!-- Product Item Start -->
+                                        <div class="product--item drop--shadow"  data-scroll-reveal="bottom">
+                                            <!-- Product Image Start -->
+                                            <div class="product--img">
+                                                <img src="{{url('site/img/tissues/tissues.jpg')}}" alt="">
 
-                                            <div class="action">
-                                                <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}">
-                                                    <i class="fa fa-eye"></i>
-                                                    <span>View Details</span>
-                                                </a>
+                                                <div class="action">
+                                                    <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}">
+                                                        <i class="fa fa-eye"></i>
+                                                        <span>View Details</span>
+                                                    </a>
+                                                </div>
                                             </div>
+                                            <!-- Product Image End -->
+
+                                            <!-- Product Info Start -->
+                                            <div class="product--info text-center">
+                                                <div class="cart">
+                                                    <p><i class="mr--8 fas fa-briefcase-medical"></i>Specimen Type</p>
+                                                </div>
+                                                <div class="name">
+                                                    <h3 class="h4 fs--16 text-primary">
+                                                        <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}" class="btn-link">{{ $value->myspecimen}}</a>
+                                                    </h3>
+                                                </div>
+                                                <div class=" text-center">
+                                                    <h5>Qty: {{ $value->count}}</h5>
+                                                </div>
+
+                                                <div class="action fs--14">
+                                                    <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}" title="View available samples in {{ $value->myspecimen}}" class="btn-link" data-toggle="tooltip" data-placement="bottom">
+                                                        <i class="fa fa-eye"></i> View all
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- Product Info End -->
                                         </div>
-                                        <!-- Product Image End -->
-
-                                        <!-- Product Info Start -->
-                                        <div class="product--info text-center">
-                                            <div class="cart">
-                                                <p><i class="mr--8 fas fa-briefcase-medical"></i>Specimen Type</p>
-                                            </div>
-                                            <div class="name">
-                                                <h3 class="h4 fs--16 text-primary">
-                                                    <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}" class="btn-link">{{ $value->myspecimen}}</a>
-                                                </h3>
-                                            </div>
-                                            <div class=" text-center">
-                                                <h5>Qty: {{ $value->count}}</h5>
-                                            </div>
-
-                                            <div class="action fs--14">
-                                                <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}" title="View available samples in {{ $value->myspecimen}}" class="btn-link" data-toggle="tooltip" data-placement="bottom">
-                                                    <i class="fa fa-eye"></i> View all
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Product Info End -->
+                                        <!-- Product Item End -->
                                     </div>
-                                    <!-- Product Item End -->
-                                </div>
-
                                 @endforeach
                                 @endif
                              

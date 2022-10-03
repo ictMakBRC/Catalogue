@@ -20,58 +20,56 @@
         <!-- Page Wrapper Start -->
         <section class="page--wrapper pt--80 pb--20">
             <div class="container">
-                <ul class="subforums nav mt--10 text-darkest">
-                    <li><i class="fa fa-circle-thin mr--10 text-primary"></i></li>
-                    <li><a href="topics.html">Tissues</a></li>
-                    <li><a href="topics.html">{{$id}}</a></li>
-                </ul>
+                <h4>Projects with <span class="text-danger">{{$id}} samples</span> available</h4>
                 <div class="row">
                     <!-- Main Content Start -->
                     <div class="main--content col-md-8 pb--60" data-trigger="stickyScroll">
+                        
+                        @if(count($tissues)>0)
+                        @php($i=1)
+                        @foreach($tissues as $value)
                         <div class="main--content-inner drop--shadow">
                             <!-- Topics List Start -->
                             <div class="box--items">
                                 <div class="row gutter--15 AdjustRow">
-
-
-                                                @if(count($tissues)>0)
-                                    @php($i=1)
-                                    @foreach($tissues as $value)
-
                                     <div class="col-md-12 col-xxs-12 col-xxs-12">
                                         <div class="box--items">
                                             <div class="card-header">
-                                                <h5 class="card-title">{{$value->project_name}}</h5>
+                                                <h5 class="card-title"> {{ $value->project_acronym}}</h5>
                                             </div>
-                                            <div class="card-body">
-                                                <p>Project Acronym: {{ $value->project_acronym}}</p>
-                                                <p class="card-text">{{ $value->project_description}}</p>
+                                            <div class="card-body mb-20">
+                                                <p> <strong>Study name:</strong> {{$value->project_name}}</p>
+                                                <p class="card-text"><strong>Study design:</strong> {{ $value->project_design}}</p>
                                             </div>
-                                            <table class="table">
-                                                <tr>
-                                                    <td><b>Aliqout type:</b>{{ $value->aliqout_type}}</td>
-                                                    <td><b>Available Tissues:<b>{{ $value->tcount}}</td>
+                                            <br>
+                                            <table class="table mt-20">
+                                                <tr style="border-bottom: 2px solid #f2f4f2">
+                                                    <td><b>Sample Type: </b>{{ $value->aliqout_type}}</td>
+                                                    <td><b>Total Available: </b>{{ $value->tcount}}</td>
+                                                    <td><b>Funder: </b>{{ $value->project_funder}}</td>
                                                 </tr>
+                                               
                                             </table>
-               
-                                            <div class="card-footer">
-                                                <ul class="subforums nav mt--10 text-darkest">
-                                                    <li> <a target="_blank" href="{{ url('project/view/'.$value->pcode.'/'.$value->project_acronym) }}" class="the_permalink text-info">Show full project record<i class="icofont-arrow-right"></i></a></li>
-                                                    <li class="text-right"><a href="{{url('tissues/all/'.$id.'/'.$value->project_acronym)}}" class="btn-link text-right">View Tissues</a></li>
+                                            <div class="tags--widget">
+                                                <ul class="nav">
+                                                    <li> <a target="_blank" href="{{ url('project/view/'.$value->pcode.'/'.$value->project_acronym) }}" data-toggle="tooltip" title="View {{$value->project_acronym}} project details" class="btn btn-default text-info">Project details<i class="icofont-arrow-right"></i></a></li>
+                                                    <li class="m-"><a href="{{url('tissues/all/'.$id.'/'.$value->project_acronym)}}" title="{{ $value->project_acronym}} {{$id}} samples" data-toggle="tooltip" class="btn btn-default">View all</a></li>
+                    
                                                 </ul>
-
                                             </div>
                                         </div>
                                     </div>
-                                     @endforeach
-                                    @endif
                                 </div>
 
                             </div>
-                            {{$tissues->links('vendor.pagination.bootstrap-4') }}
 
                         </div>
+                        <br>
+                        
+                        @endforeach
+                        @endif
 
+                        {{$tissues->links('vendor.pagination.bootstrap-4') }}
                     </div>
                     <!-- Main Content End -->
 

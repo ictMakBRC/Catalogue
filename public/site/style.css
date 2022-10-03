@@ -4874,7 +4874,15 @@ body.isScrolling #backToTop {
 /* 12.1. HEADER TOPBAR */
 .header--topbar.bg-black {
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    vertical-align:top;
+    /* height: 45px; */
+    /* margin-top: -5px; */
+
 }
+/* .header--topbar {
+    height: 45px;
+    margin-top: -5px;
+} */
 
 .header--topbar .nav.float--left + .float--left {
     margin-left: 20px;
@@ -4894,20 +4902,20 @@ body.isScrolling #backToTop {
 .header--topbar-social > li > a {
     padding: 0 9px;
     font-size: 14px;
-    line-height: 60px;
+    line-height: 10px;
     color: #fff;
 }
 
 .header--topbar-links {
     margin: 0 -20px;
     font-size: 14px;
-    line-height: 24px;
+    line-height: 4px;
     color: #fff;
 }
 
 .header--section.style--2 .header--topbar-links {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .header--topbar-links > li {
@@ -4932,13 +4940,13 @@ body.isScrolling #backToTop {
 
 .header--topbar-links > li > a {
     position: relative;
-    padding: 18px 20px;
+    padding: 8px 10px;
     z-index: 0;
 }
 
 .header--topbar-links > li > a .badge {
     position: absolute;
-    top: 16px;
+    top: 2px;
     right: 12px;
     z-index: 1;
 }

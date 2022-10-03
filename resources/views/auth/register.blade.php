@@ -15,23 +15,23 @@
 
                                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-									<div class="login-separater text-center"> <span>Create an Account</span>
+									<div class="login-separater text-center"> <span>Create an account</span>
 										<hr/>
 									</div>
                                  <form method="POST" action="{{ route('register') }}">
                                         @csrf
 									<div class="form-group mt-1">
 										<label>Email Address</label>
-										<input type="email" type="email" name="email" :value="old('email')" required id="email" class="form-control" placeholder="example@user.com" />
+										<input type="email" type="email" name="email" :value="old('email')" required id="email" class="form-control" placeholder="example@user.com" autofocus/>
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label>SurName</label>
-											<input type="text" name="name" :value="old('name')" required autofocus class="form-control" placeholder="Jhon" />
+											<label>Frist Name</label>
+											<input type="text" name="name" :value="old('name')" required class="form-control" placeholder="Kato" />
 										</div>
 										<div class="form-group col-md-6">
-											<label>Other Name</label>
-											<input type="text" name="other_names" :value="old('other_names')" required autofocus class="form-control" placeholder="Deo" />
+											<label>Last Name</label>
+											<input type="text" name="other_names" :value="old('other_names')" required class="form-control" placeholder="James" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -54,8 +54,8 @@
 									</div>
 									<div class="form-group">
 										<div class="custom-control custom-checkbox">
-											<input type="checkbox" class="custom-control-input" id="customCheck1">
-											<label class="custom-control-label" for="customCheck1">I read and agree to Terms & Conditions</label>
+											<input type="checkbox" class="custom-control-input" id="customCheck1" required>
+											<label class="custom-control-label" for="customCheck1">I read and agree to <a href="#">Terms & Conditions</a></label>
 										</div>
 									</div>
 									<div class="btn-group mt-3 w-100">

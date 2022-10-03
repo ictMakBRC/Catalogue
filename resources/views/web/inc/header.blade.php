@@ -62,10 +62,11 @@
                         </ul>
                         @else
                         <a  href="{{ route('login') }}" class="btn-link">
-                            <i class="fa mr--8 fa-user-plus"></i>
-                            <span>Login</span>
+                            <span><i class="fa mr--8 fa-sign-in"></i>Login</span>
                         </a>
-
+                        <a  href="{{ route('register') }}" class="btn-link">
+                            <span><i class="fa mr--8 fa-user-plus"></i>Register</span>
+                        </a>
 
                         @endauth
 
@@ -109,7 +110,6 @@
                     <li><a href="{{url('tissues')}}"><span>Tissues</span></a></li>
                     <li><a href="{{url('projects/')}}">Projects</a></li>
                     <li><a href="{{url('faq')}}"><span>FAQ</span></a></li>
-                    <li><a href="{{url('register')}}"><span>Register</span></a></li>
                     <li><a href="{{url('contact')}}"><span>Contact</span></a></li>
                 </ul>
                 <!-- Header Nav Links End -->

@@ -1,7 +1,7 @@
 <div class="main--sidebar col-md-4 pb--60" data-trigger="stickyScroll">
     <!-- Widget Start -->
     <div class="widget">
-        <h2 class="h4 fw--700 widget--title">Find A Sample</h2>
+        <h2 class="h4 fw--700 widget--title">Search for samples</h2>
 
         <!-- Buddy Finder Widget Start -->
         <div class="buddy-finder--widget">
@@ -88,21 +88,36 @@
             </form>
         </div>
         <!-- Buddy Finder Widget End -->
-    </div>
+    </div> <br />
     <!-- Widget End -->
 
     <!-- Widget Start -->
     <div class="widget">
-        <h2 class="h4 fw--700 widget--title">Notice: What the committee will do on receipt of your request</h2>
-
         <!-- Text Widget Start -->
         <div class="text--widget">
-        <p>The committee will review and approve or reject all requests from the research community for access to datasets and/or biospecimens.
-            It may request modifications in the request before approval. If necessary, the committee will delay a decision pending a request for
-            additional information from the project PI(s). The committee must ensure that all requests conform with the policies and procedures
-            including compliance with the terms of informed consent and any limitations stipulated by the submitting investigators for each study.
-            Researchers who qualify to submit a request are defined as scientists or medical professionals employed at,
-            or legitimately affiliated with academic, non profit or government institutions, or commercial companies.</p>
+            <div class="card card-info">
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <strong><i class="fa fa-book mr-1"></i> Request process</strong>
+                  <p class="text-muted">
+                    Your request goes to/through the Biospecimen Access Committee which reviews the request and provides timely feedback to your request.	
+                  </p>
+                  
+                  <hr>
+                  <strong><i class="fa fa-file mr-1"></i> Why Us?</strong>
+                  <p class="text-muted">We are trusted by many leading biomedical companies and academic institutions for providing quality Biospecimens needed for diagnostics, health care or basic research.
+                  </p>
+  
+                  <hr>
+                  <strong><i class="fa fa-map-marker mr-1"></i> Find Us</strong>
+                  <p class="text-muted">
+                    Makerere University, College of Health Sciences, School of Biomedical Sciences, Department of Immunology and Molecular Biology, Kampala, Uganda.
+                  </p>
+                  
+                </div>
+                <!-- /.card-body -->
+            </div>
+              <!-- /.card -->
         </div>
         <!-- Text Widget End -->
     </div>
@@ -114,19 +129,5 @@
 
     <!-- Widget Start -->
 
-    <!-- Widget End -->
-
-    <!-- Widget Start -->
-    <div class="widget">
-        <h2 class="h4 fw--700 widget--title">Advertisements</h2>
-
-        <!-- Ad Widget Start -->
-        <div class="ad--widget">
-            <a href="#">
-                <img src="img/widgets-img/ad.jpg" alt="" class="center-block">
-            </a>
-        </div>
-        <!-- Ad Widget End -->
-    </div>
     <!-- Widget End -->
 </div>

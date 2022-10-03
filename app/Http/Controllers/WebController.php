@@ -186,7 +186,7 @@ public function bioDeatiled($id,$name)
         $tissues = Tissue::orderBy('tissues.id', 'desc')
         ->leftJoin('specimen_types', 'tissues.specimen_type', '=', 'specimen_types.specimen_type')
         ->leftJoin('projects', 'tissues.project_acronym', '=', 'projects.project_acronym')
-        ->select('aliqout_type','pcode','projects.project_acronym as project_acronym','project_description','project_name','projects.id as pro_id','tissues.created_at as tissuedate', DB::raw('count(tissues.id) as tcount'))
+        ->select('project_funder','project_design','aliqout_type','pcode','projects.project_acronym as project_acronym','project_description','project_name','projects.id as pro_id','tissues.created_at as tissuedate', DB::raw('count(tissues.id) as tcount'))
         ->where('tissues.specimen_type',$id)
         ->groupBy('tissues.project_acronym')
         ->paginate(6);
