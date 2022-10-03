@@ -6,7 +6,7 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Login') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 	<!--favicon-->
 	<link rel="icon" href="assets/images/favicon-32x32.png" type="image/png" />
@@ -20,11 +20,14 @@
 	<!-- App CSS -->
 	<link rel="stylesheet" href="assets/css/app.css" />
 	<style>
-		html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-	overflow-y: hidden;
-}
+				html, body {
+			max-width: 100%;
+			max-height: 100%;
+			overflow-x: hidden;
+			overflow-y: hidden;
+			height:auto!important;
+		}
+	
 	</style>
 </head>
 <body class="">
