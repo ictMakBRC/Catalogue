@@ -1,7 +1,7 @@
 @extends('web.layouts.webLayout')
 @section('title', 'Biospecimens')
 @section('content')
-        <div class="page--header pt--60 pb--60 text-center" data-bg-img="{{url('site/img/biospecimens/banner.jpg')}}" data-overlay="0.75">
+        <div class="page--header pt--60 pb--60 text-center" data-bg-img="{{url('site/img/page-header-img/biobg.jpg')}}" data-overlay="0.75">
             <div class="container">
                 <div class="title">
                     <h2 class="h1 text-white">Biospecimens</h2>
@@ -42,64 +42,6 @@
                             <!-- Filter Nav End -->
 
                             <!-- Member Items Start -->
-                            <div class="row AdjustRow">
-                                @if(count($biospecimens)>0)
-                                @foreach($biospecimens as $value)
-                                <div class="col-md-3 col-xs-6 col-xxs-12 pb--30">
-                                    <!-- Product Item Start -->
-                                    <div class="product--item" data-scroll-reveal="bottom">
-                                        <!-- Product Image Start -->
-                                        <div class="product--img">
-                                            @if ($value->myspecimen =='DNA')
-                                            <img src="{{url('site/img/biospecimens/dna.jpg')}}" alt="">
-                                            @elseif($value->myspecimen =='Plasma')
-                                            <img src="{{url('site/img/biospecimens/plasma.jpg')}}" alt="">
-                                            @elseif($value->myspecimen =='Dry Blood Spots (DBS)')
-                                            <img src="{{url('site/img/biospecimens/dbs.jpg')}}" alt="">
-                                            @else
-                                            <img src="{{url('site/img/biospecimens/biospecimen.jpg')}}" alt="">
-                                            @endif
-                                            
-
-                                            <div class="action">
-                                                <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}">
-                                                    <i class="fa fa-eye"></i>
-                                                    <span>View Details</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Product Image End -->
-
-                                        <!-- Product Info Start -->
-                                        <div class="product--info text-center">
-                                            <div class="cart">
-                                                <p><i class="mr--8 fas fa-briefcase-medical"></i>Specimen Type</p>
-                                            </div>
-                                            <div class="name">
-                                                <h3 class="h4 fs--16 text-primary">
-                                                    <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}" class="btn-link">{{ $value->myspecimen}}</a>
-                                                </h3>
-                                            </div>
-                                            <div class=" text-center">
-                                                <h5>Qty: {{ $value->count}}</h5>
-                                            </div>
-
-                                            <div class="action fs--14">
-                                                <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}" title="View available samples in {{ $value->myspecimen}}" class="btn-link" data-toggle="tooltip" data-placement="bottom">
-                                                    <i class="fa fa-eye"></i> View all
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Product Info End -->
-                                    </div>
-                                    <!-- Product Item End -->
-                                </div>
-
-                                @endforeach
-                                @endif
-                             
-                            </div>
-                            
                             <div class="member--items">
                                 <div class="row gutter--15 AdjustRow">
                                     @if(count($biospecimens)>0)
@@ -109,17 +51,9 @@
                                     <div class="col-md-3 col-xs-6 col-xxs-12">
                                         <!-- Member Item Start -->
                                         <div class="member--item online">
-                                            <div class="product--img">
+                                            <div class="img img-circle">
                                                 <a href="{{url('biospecimens/specimenType/'.$value->myspecimen)}}" class="btn-link">
-                                                    @if ($value->myspecimen =='DNA')
-                                                    <img src="{{url('site/img/biospecimens/dna.jpg')}}" alt="">
-                                                    @elseif($value->myspecimen =='Plasma')
-                                                    <img src="{{url('site/img/biospecimens/plasma.jpg')}}" alt="">
-                                                    @elseif($value->myspecimen =='Dry Blood Spots (DBS)')
-                                                    <img src="{{url('site/img/biospecimens/dbs.jpg')}}" alt="">
-                                                    @else
-                                                    <img src="{{url('site/img/biospecimens/biospecimen.jpg')}}" alt="">
-                                                    @endif
+                                                    <img src="{{url('site/img/tissues/bio.jpg')}}" alt="">
                                                 </a>
                                             </div>
                                             <div class="activity">

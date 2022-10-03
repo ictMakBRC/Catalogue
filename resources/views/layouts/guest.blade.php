@@ -19,8 +19,15 @@
 	<link rel="stylesheet" href="assets/css/icons.css" />
 	<!-- App CSS -->
 	<link rel="stylesheet" href="assets/css/app.css" />
+	<style>
+		html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+	overflow-y: hidden;
+}
+	</style>
 </head>
-<body class="bg-login">
+<body class="">
         <div>
             {{ $slot }}
         </div>
