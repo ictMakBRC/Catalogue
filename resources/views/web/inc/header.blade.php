@@ -105,9 +105,9 @@
                 <ul class="header--nav-links style--1 nav ff--primary">
                     <li><a  href="{{url('home')}}"><span>Home</span></a></li>
                     <li><a target="_blank" href="https://www.ibru.mak.ac.ug/"><span>About</span></a></li>
+                    <li><a href="{{url('tissues')}}"><span>Tissues</span></a></li>
                     <li><a href="{{url('biospecimens')}}"><span>Biospecimens</span></a></li>
                     <li><a href="{{url('organs')}}"><span>Organs</span></a></li>
-                    <li><a href="{{url('tissues')}}"><span>Tissues</span></a></li>
                     <li><a href="{{url('projects/')}}">Projects</a></li>
                     <li><a href="{{url('faq')}}"><span>FAQ</span></a></li>
                     <li><a href="{{url('contact')}}"><span>Contact</span></a></li>
