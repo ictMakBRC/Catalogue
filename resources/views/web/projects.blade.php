@@ -3,10 +3,10 @@
 @section('content')
     <!-- Preloader End -->
 
-    <div class="page--header pt--60 pb--60 text-center" data-bg-img="{{url('site/img/page-header-img/tissuebg.jpg')}}" data-overlay="0.75">
+    <div class="page--header pt--60 pb--60 text-center" data-bg-img="{{url('site/img/page-header-img/project.jpg')}}" data-overlay="0.75">
         <div class="container">
             <div class="title">
-                <h2 class="h1 text-white"> Details</h2>
+                <h2 class="h1 text-white">Project List</h2>
             </div>
 
             <ul class="breadcrumb text-gray ff--primary">
