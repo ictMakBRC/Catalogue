@@ -45,7 +45,7 @@
                 <!-- Banner Item End -->
 
                 <!-- Banner Item Start -->
-                <div class="banner--item" data-bg-img="{{url('site/img/banner-img/slider-bg-3.jpg')}}" data-overlay="0.55">
+                <div class="banner--item" data-bg-img="{{url('site/img/banner-img/freezer.jpg')}}" data-overlay="0.55">
                     <div class="vc--parent">
                         <div class="vc--child">
                             <div class="container">
@@ -80,7 +80,7 @@
                 <!-- Banner Item End -->
 
                 <!-- Banner Item Start -->
-                <div class="banner--item" data-bg-img="{{url('web/img/bg/organbg.jpg')}}" data-overlay="0.55">
+                <div class="banner--item" data-bg-img="{{url('site/img/banner-img/theatre_room.jpg')}}" data-overlay="0.55">
                     <div class="vc--parent">
                         <div class="vc--child">
                             <div class="container">
@@ -117,17 +117,16 @@
             <!-- Banner Slider End -->
         </section>
         <!-- Banner Section End -->
-
         <!-- Features Section Start -->
-        <section class="section bg-lighter pt--40 pb--10">
+        <section id="about" class="section bg-lighter pt--40 pb--10">
             <div class="container">
                 <div class="row AdjustRow">
-                    <div class="col-md-12 col-xs-12 col-xxs-12 pb--20">
+                    <div class="col-md-12 col-xs-12 col-xxs-12 pb--5">
                         <!-- Feature Item Start -->
-                        <div class="section--title pb--20 text-center">
-                            <h2 id="About" class="h2 fw--600"> About the Catalog </h2>
-                            <h4> The Catalog provides access to a pool of well annotated Biospecimens, organs and tissues. It gives the researchers the ability to browse the available biospecimens, study descriptions, and allows them to request access to these items. 
-                                It is a single convenient point of access to a pool of different sample types.</h4>
+                        <div class="section--title pb--20 text-justify">
+                            <h1 class="h1 fw--600"> About the Catalog </h1>
+                            <P> The Biospecimen Catalog provides access to a pool of well annotated Biospecimens, organs and tissues. It gives researchers the ability to browse the available biospecimens, associated study descriptions, and allows them to request access to these items.
+                                It is a single convenient point of access to a pool of different Specimens.</p>
                         </div>
                         <!-- Feature Item End -->
                     </div>
@@ -137,7 +136,7 @@
         <!-- Features Section End -->
 
         <!-- Why Choose Us Section Start -->
-        <section class="section bg-lighter pt--10 pb--10">
+        <section class="section bg-lighter pt--5 pb--10">
             <div class="container">
                 <div class="row row--md-vc">
                     <div class="col-md-6 pb--10">
@@ -158,7 +157,7 @@
                                 <!-- Feature Block Start -->
                                 <div class="feature--block mb--6 clearfix">
                                     <div class="icon fs--18 text-primary mr--20 float--left">
-                                        <i class="fa fa-vial"></i>
+                                        <i class="fa fa-medkit"></i>
                                     </div>
 
                                     <div class="info ov--h">
@@ -167,7 +166,7 @@
                                         </div>
 
                                         <div class="desc mt--8">
-                                            <p>We have Nasopharyngeal and Oralpharyngeal swabs, blood, urine, stool, plasma and PBMCS from CoVID-19 cases and controls available to aid your research</p>
+                                            <p>We have Nasopharyngeal and Oralpharyngeal swabs, blood, urine, stool, plasma and PBMCS from CoVID-19 cases and controls.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -178,7 +177,7 @@
                                 <!-- Feature Block Start -->
                                 <div class="feature--block mb--6 clearfix">
                                     <div class="icon fs--18 text-primary mr--20 float--left">
-                                        <i class="fa fa-wrench"></i>
+                                        <i class="fa fa-universal-access"></i>
                                     </div>
 
                                     <div class="info ov--h">
@@ -187,7 +186,7 @@
                                         </div>
 
                                         <div class="desc mt--8">
-                                            <p>We are developing capacity to process and store well annotated and quality controlled human biosamples needed for diagnostics, drug, or basic research.</p>
+                                            <p>We have the capacity to harvest, process and store high quality human biosamples needed for diagnostics, drug, or basic research.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -198,12 +197,12 @@
                                 <!-- Feature Block Start -->
                                 <div class="feature--block mb--6 clearfix">
                                     <div class="icon fs--18 text-primary mr--20 float--left">
-                                        <i class="fa fa-group"></i>
+                                        <i class="fa fa-heartbeat"></i>
                                     </div>
 
                                     <div class="info ov--h">
                                         <div class="title">
-                                            <h2 class="h6 fw--700">Human Tissues</h2>
+                                            <h2 class="h6 fw--700">Tissues</h2>
                                         </div>
 
                                         <div class="desc mt--8">
@@ -218,12 +217,12 @@
                                 <!-- Feature Block Start -->
                                 <div class="feature--block mb--6 clearfix">
                                     <div class="icon fs--18 text-primary mr--20 float--left">
-                                        <i class="fa fa-clock-o"></i>
+                                        <i class="fa fa-hospital-o"></i>
                                     </div>
 
                                     <div class="info ov--h">
                                         <div class="title">
-                                            <h2 class="h6 fw--700">Other Biospecimens</h2>
+                                            <h2 class="h6 fw--700">Biospecimens</h2>
                                         </div>
 
                                         <div class="desc mt--8">
@@ -236,11 +235,10 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 pb--10">
+                    <div class="col-md-6">
                         <!-- Video Popup Start -->
-                        <div class="video--popup style--1" data-overlay="0.1">
-                            <img src="{{url('site/img/why-choose-us-img/video-poster-1.jpg')}}" alt="" style="height:100%; width:100%">
-
+                        <div class="video--popup style--1" data-overlay="0.1" style="vertical-align:middle; margin-top:40px;">
+                            <img src="{{url('site/img/why-choose-us-img/ULT_Freezers.jpg')}}" alt="" width="100%" height="100%" style="border: 5px solid rgb(228, 225, 225);">
                             <a href="https://www.youtube.com/watch?v=Zs5-_Je8DOY" class="btn-link" data-trigger="video_popup">
                                 <span><i class="fa fa-play"></i></span>
                             </a>
@@ -253,12 +251,12 @@
         <!-- Why Choose Us Section End -->
 
         <!-- How It Works Section Start -->
-        <section class="section pt--70 pb--40">
+        <section class="section pt--70 pb--20">
             <div class="container">
                 <!-- Section Title Start -->
                 <div class="section--title pb--50 text-center">
                     <div class="title">
-                        <h2 class="h2">How It Works?</h2>
+                        <h2 class="h2">How the Catalog works</h2>
                     </div>
                 </div>
                 <!-- Section Title End -->
@@ -269,32 +267,32 @@
 
                             <div class="col-md-4 m-40 pb--15 team-member">
 
-                                <img class="member-photo" src="{{url('site/img/specimens/05.jpg')}}" alt="">
+                                <img class="member-photo" src="{{url('site/img/specimens/ULT_Freezers.jpg')}}" alt="">
                                 <br>
 
                                 <div class="title">
-                                    <h2 class="h1 ff--default text-primary"><span data-trigger="counterup">{{$biospecimens}}</span>+</h2>
+                                    <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">{{$biospecimens}}</span>+</h3>
                                 </div>
-                                <h2><a href="#">Bio Specimens</a></h2>
+                                <h2><a href="#">Biospecimens</a></h2>
                                 <p><a href="{{url('biospecimens')}}">View All</a></p>
 
                             </div>
 
                             <div class="col-md-4 pb--15 team-member">
-                                <img class="member-photo" src="{{url('site/img/specimens/06.jpg')}}" alt="">
+                                <img class="member-photo" src="{{url('site/img/specimens/Theatre.jpg')}}" alt="">
                                 <br>
                                 <div class="title">
-                                    <h2 class="h1 ff--default text-primary"><span data-trigger="counterup">{{$biospecimens}}</span>+</h2>
+                                    <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">{{$biospecimens}}</span>+</h3>
                                 </div>
                                 <h2><a href="#">Organs</a></h2>
                                 <p><a href="{{url('tissues')}}">View All</a></p>
                             </div>
 
                             <div class="col-md-4 pb--15 team-member">
-                                <img class="member-photo" src="{{url('site/img/specimens/07.jpg')}}" alt="">
+                                <img class="member-photo" src="{{url('site/img/specimens/sperms.jpg')}}" alt="">
                                 <br>
                                 <div class="title">
-                                    <h2 class="h1 ff--default text-primary"><span data-trigger="counterup">{{$tissues}}</span>+</h2>
+                                    <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">{{$tissues}}</span>+</h3>
                                 </div>
                                 <h2><a href="#">Tissues</a></h2>
                                 <p><a href="{{url('tissues')}}">View All</a></p>
@@ -310,16 +308,16 @@
                             <!-- Info Item Start -->
                             <div class="info--item clearfix">
                                 <div class="icon">
-                                    <img src="{{url('site/img/how-it-works-img/icon-07.png')}}" alt="">
+                                    <img src="{{url('site/img/how-it-works-img/Policy.png')}}" alt="">
                                 </div>
 
                                 <div class="info">
                                     <div class="title">
-                                        <h3 class="h4 fw--700">Using the basic search tools</h3>
+                                        <h3 class="h4 fw--700">Read the Policies</h3>
                                     </div>
 
                                     <div class="desc">
-                                        <p>Login not required</p>
+                                        <p>Read through the policies and process for requesting Biospecimens.</p>
                                     </div>
                                 </div>
                             </div>
@@ -328,16 +326,16 @@
                             <!-- Info Item Start -->
                             <div class="info--item clearfix">
                                 <div class="icon">
-                                    <img src="{{url('site/img/how-it-works-img/icon-025.png')}}" alt="">
+                                    <img src="{{url('site/img/how-it-works-img/Search.png')}}" alt="">
                                 </div>
 
                                 <div class="info">
                                     <div class="title">
-                                        <h3 class="h4 fw--700">Advanced search</h3>
+                                        <h3 class="h4 fw--700">Search for Specimens</h3>
                                     </div>
 
                                     <div class="desc">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <p>Search to find and select the Biospecimens of your interest.</p>
                                     </div>
                                 </div>
                             </div>
@@ -346,16 +344,16 @@
                             <!-- Info Item Start -->
                             <div class="info--item clearfix">
                                 <div class="icon">
-                                    <img src="img/how-it-works-img/icon-03y.png" alt="">
+                                    <img src="site/img/how-it-works-img/shopping.png" alt="">
                                 </div>
 
                                 <div class="info">
                                     <div class="title">
-                                        <h3 class="h4 fw--700">Requesting biospecimens</h3>
+                                        <h3 class="h4 fw--700">Create Shopping Cart</h3>
                                     </div>
 
                                     <div class="desc">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <p>Select the Biospecimens you want, to include them in a shopping cart.</p>
                                     </div>
                                 </div>
                             </div>
@@ -364,16 +362,16 @@
                             <!-- Info Item Start -->
                             <div class="info--item clearfix">
                                 <div class="icon">
-                                    <img src="img/how-it-works-img/icon-04.png" alt="">
+                                    <img src="site/img/how-it-works-img/submit.png" alt="">
                                 </div>
 
                                 <div class="info">
                                     <div class="title">
-                                        <h3 class="h4 fw--700">Contact information or assistance</h3>
+                                        <h3 class="h4 fw--700">Make a Request</h3>
                                     </div>
 
                                     <div class="desc">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <p>Complete the Biospecimen request form, submit and wait for feedback.</p>
                                     </div>
                                 </div>
                             </div>
@@ -386,17 +384,8 @@
         </section>
         <!-- How It Works Section End -->
 
-        <!-- Most Popular Groups Section Start -->
-
-        <!-- Most Popular Groups Section End -->
-
-        <!-- Members and Testimonial Section Start -->
-
-        <!-- Members and Testimonial Section End -->
-        
-
         <!-- Summary Biospecimen Section Start -->
-        <section class="section bg-lighter pt--10 pb--10">
+        {{-- <section class="section bg-lighter pt--10 pb--10">
             <div class="container">
                 <div class="row AdjustRow">
                     <div class="col-md-12 col-xs-12 col-xxs-12 pb--10">
@@ -427,24 +416,20 @@
                     </div>
                     @endforeach
                     @endif
-
-
-
-
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- Summary Biospecimen Section End -->
 
         <!-- FAQ and Download Section Start -->
-        <section class="section pt--70 pb--20">
+        <section id="faq" class="section bg-lighter pt--70 pb--20">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-5 pb--60">
+                    <div class="col-md-6 pb--60">
                         <!-- FAQ Items Start -->
                         <div class="faq--items" id="faqItems" data-scroll-reveal="group">
                             <div class="title pb--20">
-                                <h2 class="h2 fw--600">Frequently Asked Question</h2>
+                                <h2 class="h3 fw--600">Frequently Asked Questions</h2>
                             </div>
 
                             <!-- FAQ Item Start -->
@@ -452,7 +437,7 @@
                                 <div class="title">
                                     <h3 class="h6 fw--700 text-darker">
                                         <a href="#faqItem01" data-parent="#faqItems" data-toggle="collapse" class="collapsed">
-                                            <span>Why work with our Biobank Online?</span>
+                                            <span>Qn 1. Why should you work with us?</span>
                                         </a>
                                     </h3>
                                 </div>
@@ -485,7 +470,7 @@
                                 <div class="title">
                                     <h3 class="h6 fw--700 text-darker">
                                         <a href="#faqItem02" data-parent="#faqItems" data-toggle="collapse" class="collapsed">
-                                            <span>Research and Education</span>
+                                            <span>Qn 2. What is the turn-around-time for the requests</span>
                                         </a>
                                     </h3>
                                 </div>
@@ -505,7 +490,7 @@
                                 <div class="title">
                                     <h3 class="h6 fw--700 text-darker">
                                         <a href="#faqItem03" data-parent="#faqItems" data-toggle="collapse" class="collapsed">
-                                            <span>Patients/Donors</span>
+                                            <span>Qn 3. What is the Data and Biospecimen Access Committee</span>
                                         </a>
                                     </h3>
                                 </div>
@@ -522,24 +507,67 @@
                                 </div>
                             </div>
                             <!-- FAQ Item End -->
+
+                            <!-- FAQ Item Start -->
+                            <div class="faq--item style--1 panel">
+                                <div class="title">
+                                    <h3 class="h6 fw--700 text-darker">
+                                        <a href="#faqItem04" data-parent="#faqItems" data-toggle="collapse" class="collapsed">
+                                            <span>Qn 4. What Kind of Samples do we store?</span>
+                                        </a>
+                                    </h3>
+                                </div>
+
+                                <div id="faqItem04" class="content collapse">
+                                    <div class="content--inner">
+                                        <p>Patients’ specimens play an absolutely pivotal role in medical advances.
+
+                                            If you are considering participating in human biospecimen research, thank you! Although you will not materially benefit, you will be helping future patients.
+
+                                            Tissue For Research does not liaise directly with patients and can not enroll patients directly for studies. Your hospital or hospice will usually have a research coordinator who can assist with this.
+                                        </p>
+                                        </div>
+                                </div>
+                            </div>
+                            <!-- FAQ Item End -->
+
+                            <!-- FAQ Item Start -->
+                            <div class="faq--item style--1 panel">
+                                <div class="title">
+                                    <h3 class="h6 fw--700 text-darker">
+                                        <a href="#faqItem05" data-parent="#faqItems" data-toggle="collapse" class="collapsed">
+                                            <span>Qn 5. Who can use our Biosamples</span>
+                                        </a>
+                                    </h3>
+                                </div>
+
+                                <div id="faqItem05" class="content collapse">
+                                    <div class="content--inner">
+                                        <p>Patients’ specimens play an absolutely pivotal role in medical advances.
+
+                                            If you are considering participating in human biospecimen research, thank you! Although you will not materially benefit, you will be helping future patients.
+
+                                            Tissue For Research does not liaise directly with patients and can not enroll patients directly for studies. Your hospital or hospice will usually have a research coordinator who can assist with this.
+                                        </p>
+                                        </div>
+                                </div>
+                            </div>
+                            <!-- FAQ Item End -->
                         </div>
                         <!-- FAQ Items End -->
                     </div>
 
-                    <div class="col-md-7 pb--60">
+                    <div class="col-md-6 pb--60">
                         <!-- Download Block Start -->
-                        <div class="download--block" data-scroll-reveal="group">
-                            <div class="img">
-                                <img src="{{url('site/img/faq-img/mobile.png')}}" alt="">
-                            </div>
+                        <div class="download" data-scroll-reveal="group">
 
                             <div class="info">
                                 <div class="title">
-                                    <h2 class="h2 fw--600">Contact us for any inquiries</h2>
+                                    <h2 class="h2 fw--600">Contact us!</h2>
                                 </div>
 
-                                <div class="content fs--12">
-                                    <p>Find us at Makerere University, College of Health Sciences, School of Biomedical Sciences, Dept. of Immunology & Molecular Biology</p>
+                                <div class="content fs--12 pb--20">
+                                    <p>Please feel free to contact us for any inquiries by filling this form below.</p>
                                 </div>
 
                                 {{-- <div class="action text-uppercase mb-5">

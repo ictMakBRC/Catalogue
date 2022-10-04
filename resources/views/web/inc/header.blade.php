@@ -37,7 +37,7 @@
             {{-- {{ Session::get('guestuser') }} --}}
             <!-- Header Topbar Links Start -->
             <ul class="header--topbar-links nav ff--primary float--right">
-                <livewire:cart-counter /> 
+                <livewire:cart-counter />
                 <li class="dropdown">
                     @if (Route::has('login'))
 
@@ -92,7 +92,7 @@
 
                 <!-- Header Navbar Logo Start -->
                 <div class="header--navbar-logo navbar-brand">
-                    <a href="index.html">
+                    <a href="{{url('home')}}">
                         <img src="{{url('site/img/logo-white.png')}}" class="normal" alt="">
                         <img src="{{url('site/img/logo-black.png')}}" class="sticky" alt="">
                     </a>
@@ -104,13 +104,13 @@
                 <!-- Header Nav Links Start -->
                 <ul class="header--nav-links style--1 nav ff--primary">
                     <li><a  href="{{url('home')}}"><span>Home</span></a></li>
-                    <li><a target="_blank" href="https://www.ibru.mak.ac.ug/"><span>About</span></a></li>
                     <li><a href="{{url('biospecimens')}}"><span>Biospecimens</span></a></li>
                     <li><a href="{{url('tissues')}}"><span>Organs</span></a></li>
                     <li><a href="{{url('tissues')}}"><span>Tissues</span></a></li>
-                    <li><a href="{{url('projects/')}}">Projects</a></li>
-                    <li><a href="{{url('faq')}}"><span>FAQ</span></a></li>
-                    <li><a href="{{url('contact')}}"><span>Contact</span></a></li>
+                    <li><a href="{{url('projects')}}">Projects</a></li>
+                    <li><a href="#faq" target="_self"><span>FAQ</span></a></li>
+                    <li><a href="{{url('contact')}}"><span>Contacts</span></a></li>
+                    <li><a href="#" target="_self"><span>Help</span></a></li>
                 </ul>
                 <!-- Header Nav Links End -->
             </div>
