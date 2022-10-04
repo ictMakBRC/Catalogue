@@ -3977,6 +3977,14 @@ body.isScrolling #backToTop {
     position: relative;
     transition: box-shadow .25s ease-in-out;
     z-index: 0;
+    border: 1px solid 0 0 3px rgba(0, 0, 0, 0.1);
+}
+.ked--item {
+    transition: box-shadow .25s ease-in-out;
+    border: 1px solid 0 0 3px rgba(0, 0, 0, 0.1);
+}
+.product--item.drop--shadow {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 .product--item:hover {

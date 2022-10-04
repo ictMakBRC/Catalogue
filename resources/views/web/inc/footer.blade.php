@@ -104,7 +104,7 @@
                                     <a href="#">
                                         <i class="fa fa-folder-o"></i>
                                         <span class="text">Organs</span>
-                                        <span class="count">(34)</span>
+                                        <span class="count">({{$organsAll}})</span>
                                     </a>
                                 </li>
                             </ul>

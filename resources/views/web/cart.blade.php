@@ -30,8 +30,9 @@
                                     <div class="main--content col-md-8 pb--60" data-trigger="stickyScroll">
                                         <h4 class="text-success text-center">Item list</h4>
                                         <div class="cart-items pb--60">
-                                            <div class="card">
-                                                <div class="card-body">
+                                            <div class="main--content-inner drop--shadow">
+                                                <!-- Topics List Start -->
+                                                <div class="box--items">
                                                     <div class="table-responsive">
                                                         <table class="table table-striped" style="width:100%" id="tableEx">
                                                             <thead>

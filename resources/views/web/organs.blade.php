@@ -1,15 +1,15 @@
 @extends('web.layouts.webLayout')
-@section('title', 'Tissues')
+@section('title', 'Organs')
 @section('content')
-        <div class="page--header pt--60 pb--60 text-center" data-bg-img="{{url('site/img/page-header-img/tissuebg.jpg')}}" data-overlay="0.85">
+        <div class="page--header pt--60 pb--60 text-center" data-bg-img="{{url('site/img/page-header-img/organbg.jpg')}}" data-overlay="0.85">
             <div class="container">
                 <div class="title">
-                    <h2 class="h1 text-white">Tissues</h2>
+                    <h2 class="h1 text-white">Organs</h2>
                 </div>
 
                 <ul class="breadcrumb text-gray ff--primary">
                     <li><a  href="{{url('web')}}" class="btn-link">Home</a></li>
-                    <li class="active"><span class="text-primary">Tissues</span></li>
+                    <li class="active"><span class="text-primary">Organs</span></li>
                 </ul>
             </div>
         </div>
@@ -19,26 +19,7 @@
         <section class="page--wrapper pt--80 pb--20">
             <div class="container">
                 <div class="row">
-                            <!-- Main Content Start -->
-                            {{-- <div class="main--content col-md-12 pb--30">
-                                <div class="main--content-inner">
-                                   
-        
-                                    <!-- Page Count Start -->
-                                    <div class="page--count pb--30">
-                                        <label class="ff--primary fs--14 fw--500 text-darker">
-                                            <span>Viewing</span>
-        
-                                            <a href="#" class="btn-link"><i class="fa fa-caret-left"></i></a>
-                                            <input type="number" name="page-count" value="01" class="form-control form-sm">
-                                            <a href="#" class="btn-link"><i class="fa fa-caret-right"></i></a>
-        
-                                            <span>of 28</span>
-                                        </label>
-                                    </div>
-                                    <!-- Page Count End -->
-                                </div>
-                            </div> --}}
+                         
                     <!-- Main Content Start -->
                     <div class="main--content col-md-8 pb--60" data-trigger="stickyScroll">
                         <div class="main--content-inner">
@@ -47,8 +28,9 @@
                                 <div class="box--items">
                                     <div class="row gutter--15 AdjustRow">
                                         <div class="col-md-12 col-xxs-12 col-xxs-12">
-                                            <h4 class="card-title">Our Tissue Inventory</h4>
-                                            <p>Through collaborations involving organ donation organizations and transplantation programs across Africa we are working to increase organ and tissue donation, access to transplants and improve patient care. 
+                                            <h4 class="card-title">Our Organ Inventory</h4>
+                                            <p>Through collaborations involving organ donation organizations and transplantation programs across Africa we are working 
+                                                to increase organ and organ donation, access to transplants and improve patient care. 
                                             </p>
                                         </div>
                                     </div>
@@ -58,7 +40,7 @@
                             <!-- Filter Nav Start -->
                             <div class="filter--nav pb--30 clearfix">
                                 <div class="filter--link float--left">
-                                    <h2 class="h4">List of all available Tissues : @money($tissuecount )</h2>
+                                    <h2 class="h4">List of all available Organs : @money($organcount)</h2>
                                 </div>
 
                                 <div class="filter--options float--right">
@@ -75,17 +57,17 @@
                             <!-- Filter Nav End -->
                            
                             <div class="row AdjustRow">
-                                @if(count($tissues)>0)
-                                @foreach($tissues as $value)
+                                @if(count($organs)>0)
+                                @foreach($organs as $value)
                                     <div class="col-md-3 col-xs-6 col-xxs-12 pb--30 drop--shadow">
                                         <!-- Product Item Start -->
-                                        <div class="product--item  drop--shadow"  data-scroll-reveal="bottom">
+                                        <div class="product--item drop--shadow"  data-scroll-reveal="bottom">
                                             <!-- Product Image Start -->
                                             <div class="product--img">
-                                                <img src="{{url('site/img/tissues/tissues.jpg')}}" alt="">
+                                                <img src="{{url('site/img/organs/organ.jpg')}}" alt="">
 
                                                 <div class="action">
-                                                    <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}">
+                                                    <a href="{{url('organs/specimenType/'.$value->myspecimen)}}">
                                                         <i class="fa fa-eye"></i>
                                                         <span>View Details</span>
                                                     </a>
@@ -100,7 +82,7 @@
                                                 </div>
                                                 <div class="name">
                                                     <h3 class="h4 fs--16 text-primary">
-                                                        <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}" class="btn-link">{{ $value->myspecimen}}</a>
+                                                        <a href="{{url('organs/specimenType/'.$value->myspecimen)}}" class="btn-link">{{ $value->myspecimen}}</a>
                                                     </h3>
                                                 </div>
                                                 <div class=" text-center">
@@ -108,7 +90,7 @@
                                                 </div>
 
                                                 <div class="action fs--14">
-                                                    <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}" title="View available samples in {{ $value->myspecimen}}" class="btn-link" data-toggle="tooltip" data-placement="bottom">
+                                                    <a href="{{url('organs/specimenType/'.$value->myspecimen)}}" title="View available samples in {{ $value->myspecimen}}" class="btn-link" data-toggle="tooltip" data-placement="bottom">
                                                         <i class="fa fa-eye"></i> View all
                                                     </a>
                                                 </div>
@@ -124,16 +106,16 @@
                             <!-- Member Items Start -->
                             {{-- <div class="member--items d-none">
                                 <div class="row gutter--15 AdjustRow">
-                                    @if(count($tissues)>0)
-                                    @foreach($tissues as $value)
+                                    @if(count($Organs)>0)
+                                    @foreach($Organs as $value)
 
 
                                     <div class="col-md-3 col-xs-6 col-xxs-12">
                                         <!-- Member Item Start -->
                                         <div class="member--item online">
                                             <div class="img img-circle">
-                                                <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}" class="btn-link">
-                                                    <img src="{{url('site/img/tissues/tissue.jpg')}}" alt="">
+                                                <a href="{{url('Organs/specimenType/'.$value->myspecimen)}}" class="btn-link">
+                                                    <img src="{{url('site/img/Organs/organ.jpg')}}" alt="">
                                                 </a>
                                             </div>
                                             <div class="activity">
@@ -141,7 +123,7 @@
                                             </div>
                                             <div class="name">
                                                 <h3 class="h4 fs--16 text-primary">
-                                                    <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}" class="btn-link">{{ $value->myspecimen}}</a>
+                                                    <a href="{{url('Organs/specimenType/'.$value->myspecimen)}}" class="btn-link">{{ $value->myspecimen}}</a>
                                                 </h3>
                                             </div>
                                             <div class=" text-center">
@@ -150,7 +132,7 @@
                                             <div class="actions">
                                                 <ul class="nav">
                                                     <li>
-                                                        <a href="{{url('tissues/specimenType/'.$value->myspecimen)}}" title="View available samples in {{ $value->myspecimen}}" class="btn-link" data-toggle="tooltip" data-placement="bottom">
+                                                        <a href="{{url('Organs/specimenType/'.$value->myspecimen)}}" title="View available samples in {{ $value->myspecimen}}" class="btn-link" data-toggle="tooltip" data-placement="bottom">
                                                             <i class="fa fa-eye"></i> View all
                                                         </a>
                                                     </li>
@@ -174,7 +156,7 @@
                                 <label class="ff--primary fs--14 fw--500 text-darker">
                                     <span>Viewing</span>
 
-                                    {{$tissues->links('vendor.pagination.bootstrap-4') }}
+                                    {{$organs->links('vendor.pagination.bootstrap-4') }}
                                 </label>
                             </div>
                             <!-- Page Count End -->

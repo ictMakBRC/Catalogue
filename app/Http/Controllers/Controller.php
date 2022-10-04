@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\View;
 use App\Models\cart;
 use App\Models\Biospecimen;
+use App\Models\organ;
 use App\Models\Tissue;
 class Controller extends BaseController
 {
@@ -26,6 +27,7 @@ class Controller extends BaseController
         $cartcount = cart::where('session_id', $guest)->get();
         $biospecimens = Biospecimen::count();
         $tissues = Tissue::count();
+        $organs = organ::count();
        View::share('appName',$appName);
        View::share('bizcontact',$bizcontact);
        View::share('bizname',$bizname);
@@ -35,6 +37,7 @@ class Controller extends BaseController
        View::share('mycartitems',$mycartitems );
        View::share('biospecimensAll',$biospecimens);
        View::share('tissuesAll',$tissues);
+       View::share('organsAll',$organs);
 
   }
 }

@@ -80,7 +80,7 @@
                 <!-- Banner Item End -->
 
                 <!-- Banner Item Start -->
-                <div class="banner--item" data-bg-img="{{url('web/img/bg/organbg.jpg')}}" data-overlay="0.55">
+                <div class="banner--item" data-bg-img="{{url('site/img/banner-img/organbg.jpg')}}" data-overlay="0.55">
                     <div class="vc--parent">
                         <div class="vc--child">
                             <div class="container">
@@ -284,10 +284,10 @@
                                 <img class="member-photo" src="{{url('site/img/specimens/06.jpg')}}" alt="">
                                 <br>
                                 <div class="title">
-                                    <h2 class="h1 ff--default text-primary"><span data-trigger="counterup">{{$biospecimens}}</span>+</h2>
+                                    <h2 class="h1 ff--default text-primary"><span data-trigger="counterup">{{$organsAll}}</span>+</h2>
                                 </div>
                                 <h2><a href="#">Organs</a></h2>
-                                <p><a href="{{url('tissues')}}">View All</a></p>
+                                <p><a href="{{url('organs')}}">View All</a></p>
                             </div>
 
                             <div class="col-md-4 pb--15 team-member">

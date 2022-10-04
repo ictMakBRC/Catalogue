@@ -98,6 +98,12 @@
                 autoWidth: false,
                 responsive: true,
             });
+            $('#tableEx2').DataTable({
+                lengthChange: true,
+                searching: true,
+                autoWidth: false,
+                responsive: true,
+            });
           } );
     </script>
 

@@ -52,31 +52,49 @@
                                         <!-- Box Item Start -->
                                         <div class="box--item product--item text-center"  data-scroll-reveal="bottom">
                                             <a href="{{url('tissues/view/'.$value->tissue_id.'/'.$value->specimen_type)}}" class="img" data-overlay="0.5">
-                                                <img  src="{{url('site/img/tissues/tissueitem.jpg')}}" alt="">
+                                                <img  src="{{url('site/img/biospecimens/bioitem.jpg')}}" alt="">
 
                                             </a>
+                                            <form action="{{ url('cart/add') }}" method="POST">
+                                                @csrf
+                                                <div class="info action">
+                                                    <a href="{{url('tissues/view/'.$value->bio_id.'/'.$value->specimen_type)}}" class="icon fs--4 text-lightest bg-primary">
+                                                        View
+                                                    </a>
+                                                    <div class="title">
+                                                        <h2 class="h6"><a href="{{url('tissues/view/'.$value->bio_id.'/'.$value->specimen_type)}}">{{ $value->SOURCE_ORGANISM}}</a></h2>
+                                                    </div>
 
-                                            <div class="info action">
-                                                <a href="{{url('tissues/view/'.$value->bio_id.'/'.$value->specimen_type)}}" class="icon fs--4 text-lightest bg-primary">
-                                                    View
-                                                </a>
-
-                                                <div class="title">
-                                                    <h2 class="h6"><a href="{{url('tissues/view/'.$value->bio_id.'/'.$value->specimen_type)}}">{{ $value->SOURCE_ORGANISM}}</a></h2>
+                                                    <div class="price text-darkest">
+                                                        <p><span class="text-default mr--15">Source</span>{{ $value->SPECIMEN_SOURCE}}</p>
+                                                            <p><span class="text-default mr--15">Gender</span>{{ $value->Gender}}</p>
+                                                            <p><span class="text-default mr--15">Age</span>{{ $value->Age}}</p>
+                                                    </div>
+                                                    @if (Route::has('login'))
+                                                        @auth
+                                                        <input type="hidden" value="{{auth()->user()->email}}" class="form-control" name="email">
+                                                        @else
+                                                        <input type="hidden" class="form-control" name="email">
+                                                        @endauth
+                                                        @endif
+                                                        <input type="hidden"  value="Biospecimen" class="form-control" name="item_type">
+                                                        <input type="hidden"  value="{{ $value->SampleID}}" class="form-control" name="sample_id">
+                                                        <input type="hidden"  value="{{ $value->Age}}" class="form-control" name="age">
+                                                        <input type="hidden"  value="{{ $value->SPECIMEN_SOURCE}}" class="form-control" name="ethinicity">
+                                                        <input type="hidden"  value="{{ $value->Gender}}" class="form-control" name="gender">
+                                                        <input type="hidden"  value="{{ $value->specimen_type_id}}" class="form-control" name="specimen_type">
+                                                        <input type="hidden"  value="{{ $value->specimen_type_id}}" class="form-control" name="aliqout_type">
+                                                        <input type="hidden"  value="{{ $value->SOURCE_ORGANISM}}" class="form-control" name="donor_status">
+                                                        <input type="hidden" name="project_acronym" value="{{$value->project_acronym}}">
+                                                    <div class="action fs--14">
+                                                        <button class="btn-success btn btn-sm" type="submit">Add To Request</button>
+                                                    </div>
                                                 </div>
-
-                                                <div class="price text-darkest">
-                                                    <p><span class="text-default mr--15">Source</span>{{ $value->SPECIMEN_SOURCE}}</p>
-                                                        <p><span class="text-default mr--15">Gender</span>{{ $value->Gender}}</p>
-                                                        <p><span class="text-default mr--15">Age</span>{{ $value->Age}}</p>
-                                                </div>
-                                                <div class="action fs--14">
-                                                    <a href="#">Add To Request</a>
-                                                </div>
-                                            </div>
+                                            </form>
                                         </div>
                                         <!-- Box Item End -->
                                     </div>
+                                   
 
                                     @endforeach
 

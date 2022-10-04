@@ -14,6 +14,7 @@ use App\Models\ProjectObjective;
 use Illuminate\Support\Facades\DB;
 use Stevebauman\Location\Facades\Location;
 use App\Models\cart;
+use App\Models\organ;
 use App\Models\SpecimenRequest;
 
 class WebController extends Controller
@@ -93,11 +94,13 @@ class WebController extends Controller
     {
         $this->cartcount();
         $biocount = Biospecimen::count();
+        DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
         $biospecimens = Biospecimen::leftJoin('specimen_types', 'biospecimens.specimen_type_id', '=', 'specimen_types.specimen_type')
         ->leftJoin('projects', 'biospecimens.project_id', '=', 'projects.id')
         ->groupBy('biospecimens.specimen_type_id')
-        ->select('biospecimens.specimen_type_id as myspecimen', DB::raw('count(biospecimens.id) as count'))
+        ->select('container_type','storage_temperature','biospecimens.specimen_type_id as myspecimen', DB::raw('count(biospecimens.id) as count'))
         ->paginate(6);
+        DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
         return view('web.biospecimens',compact('biospecimens','biocount'));
     }
         /**
@@ -113,7 +116,7 @@ class WebController extends Controller
         DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
         $biospecimens = Biospecimen::leftJoin('specimen_types', 'biospecimens.specimen_type_id', '=', 'specimen_types.specimen_type')
         ->leftJoin('projects', 'biospecimens.ProjectAcronym', '=', 'projects.project_acronym')
-        ->select('disease','pcode','project_acronym','project_description','project_name','biospecimens.specimen_type_id as myspecimen', DB::raw('count(biospecimens.id) as biocount'))
+        ->select('project_design','project_funder','disease','pcode','project_acronym','project_description','project_name','biospecimens.specimen_type_id as myspecimen', DB::raw('count(biospecimens.id) as biocount'))
         ->where('biospecimens.specimen_type_id',$id)
         ->groupBy('projects.project_acronym')
         ->paginate(6);
@@ -204,6 +207,7 @@ public function bioDeatiled($id,$name)
         ->paginate(12);
         return view('web.tissues',compact('tissues','tissuecount'));
     }
+    
 
     public function tissueAll($specimen,$project)
     {
@@ -249,6 +253,18 @@ public function bioDeatiled($id,$name)
         ->get();
         return view('web.tissueDetailed',compact('value','countries','sites','objectives','name','types','tissueSimi','carts'));
 
+    }
+
+
+    public function organs()
+    {
+        $this->cartcount();
+        $organcount = organ::count();
+        $organs = organ::leftJoin('specimen_types', 'organs.specimen_type_id', '=', 'specimen_types.specimen_type')
+        ->groupBy('organs.specimen_type_id')
+        ->select('organs.specimen_type_id as myspecimen', DB::raw('count(organs.id) as count'))
+        ->paginate(12);
+        return view('web.organs',compact('organs','organcount'));
     }
     public function viewRequest($id)
     {

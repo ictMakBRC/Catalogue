@@ -51,6 +51,12 @@ Route::get('project/view/{code}/{name}', [App\Http\Controllers\WebController::cl
 Route::get('tissues/all/{specimen}/{project}', [App\Http\Controllers\WebController::class, 'tissueAll']);
 Route::get('tissues/view/{id}/{name}', [App\Http\Controllers\WebController::class, 'tissueDeatiled']);
 
+
+Route::get('organs/specimenType/{id}', [App\Http\Controllers\WebController::class, 'tissueProSampleType']);
+Route::get('organs/', [App\Http\Controllers\WebController::class, 'organs']);
+Route::get('organs/all/{specimen}/{project}', [App\Http\Controllers\WebController::class, 'tissueAll']);
+Route::get('organs/view/{id}/{name}', [App\Http\Controllers\WebController::class, 'tissueDeatiled']);
+
 Route::get('cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart');
 Route::post('cart/add', [App\Http\Controllers\CartController::class, 'store']);
 Route::get('/cart/delete/{cart}', [App\Http\Controllers\CartController::class, 'destroy']);
