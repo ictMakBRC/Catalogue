@@ -67,7 +67,7 @@ class WebController extends Controller
 
         $projects = project::with('biospecimens')->with('tissues')->with('organs')->with('countries')->with('sites')
         ->orderBy('projects.id', 'desc')->paginate(6);
-        
+
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
 
         return view('web.projects', compact('projects'));

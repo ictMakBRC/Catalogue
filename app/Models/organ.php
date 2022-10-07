@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\project;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class organ extends Model
 {
@@ -29,6 +28,7 @@ class organ extends Model
         'user_id',
         'batch_No',
     ];
+
     public function organ()
     {
         return $this->belongsTo(project::class, 'ProjectAcronym', 'project_acronym');

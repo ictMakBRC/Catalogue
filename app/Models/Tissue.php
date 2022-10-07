@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\project;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Tissue extends Model
 {
@@ -29,6 +28,7 @@ class Tissue extends Model
         'user_id',
         'batch_No',
     ];
+
     public function tissue()
     {
         return $this->belongsTo(project::class, 'project_acronym', 'project_acronym');
