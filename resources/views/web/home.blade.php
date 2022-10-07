@@ -139,7 +139,7 @@
         <section class="section bg-lighter pt--5 pb--10">
             <div class="container">
                 <div class="row row--md-vc">
-                    <div class="col-md-6 pb--10">
+                    <div class="col-md-6 pb--10" data-scroll-reveal="group">
                         <!-- Text Block Start -->
                         <div class="text--block pb--10">
                             <div class="title">
@@ -147,7 +147,7 @@
                             </div>
 
                             <div class="content fs--14">
-                                <p>We're trusted by many leading research institutions, academic institutes and biomedical companies for diagnostics, health care and basic research.</p>
+                                <p>We're the leading Biopreservation and biostorage provider in Sub-Saharan Africa. Trusted by many leading Research Institutions, Academic Institutions and Biomedical Companies for diagnostics, health care and basic research.</p>
                             </div>
                         </div>
                         <!-- Text Block End -->
@@ -251,7 +251,7 @@
         <!-- Why Choose Us Section End -->
 
         <!-- How It Works Section Start -->
-        <section class="section pt--70 pb--20">
+        <section class="section pt--60 pb--20">
             <div class="container">
                 <!-- Section Title Start -->
                 <div class="section--title pb--50 text-center">
@@ -262,7 +262,7 @@
                 <!-- Section Title End -->
 
                 <div class="row">
-                    <div class="col-md-7 pb--40">
+                    <div class="col-md-7 pb--20">
                         <div class="row gutter--15" data-scroll-reveal="group">
 
                             <div class="col-md-4 m-40 pb--15 team-member">
@@ -302,7 +302,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-5 pb--40">
+                    <div class="col-md-5 pb--20">
                         <!-- Info Items Start -->
                         <div class="info--items" data-scroll-reveal="group">
                             <!-- Info Item Start -->
@@ -384,6 +384,67 @@
         </section>
         <!-- How It Works Section End -->
 
+        <!-- Numbers Section Start -->
+        <section class="section bg-lighter pt--50 pb--20">
+            <div class="container">
+                <!-- Section Title Start -->
+                <div class="section--title pb--40 text-center">
+                    <div class="title">
+                        <h2 class="h2">Our Catalog Numbers</h2>
+                    </div>
+                </div>
+                <!-- Section Title End -->
+
+                <div class="row">
+                    <div class="col-md-12 pb--40 text-center">
+                        <div class="row gutter--15" data-scroll-reveal="group">
+
+                            <div class="col-md-2" style="text-align: center; margin-right:30px; margin-left:30px;">
+                                <img class="member-photo" src="{{url('site/img/specimens/img-5.jpg')}}" alt="" Style="border: 5px solid rgba(217, 212, 212, 0.886); border-radius: 50%;">
+                                <div class="title">
+                                    <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">99</span>%</h3>
+                                    <p><strong>Viability</strong></p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2" style="text-align: center; margin-right:30px;">
+                                <img class="member-photo" src="{{url('site/img/specimens/img-4.jpg')}}" alt="" Style="border: 5px solid rgba(217, 212, 212, 0.886); border-radius: 50%;">
+                                <div class="title">
+                                    <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">121</span>+</h3>
+                                    <p><strong>Collaborators</strong></p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2" style="text-align: center; margin-right:30px;">
+                                <img class="member-photo" src="{{url('site/img/specimens/img-3.jpg')}}" alt="" Style="border: 5px solid rgba(217, 212, 212, 0.886); border-radius: 50%;">
+                                <div class="title">
+                                    <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">238</span>+</h3>
+                                    <p><strong>Studies</strong></p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2" style="text-align: center; margin-right:30px;">
+                                <img class="member-photo" src="{{url('site/img/specimens/img-1.jpg')}}" alt="" Style="border: 5px solid rgba(217, 212, 212, 0.886); border-radius: 50%;">
+                                <div class="title">
+                                    <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">810,766</span>+</h3>
+                                    <p><strong>Participants</strong></p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2" style="text-align: center;">
+                                <img class="member-photo" src="{{url('site/img/specimens/img-2.jpg')}}" alt="" Style="border: 5px solid rgba(217, 212, 212, 0.886); border-radius: 50%;">
+                                <div class="title">
+                                    <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">2,653,982</span>+</h3>
+                                    <p><strong>Biospecimens</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Numbers Section End -->
+
         <!-- Summary Biospecimen Section Start -->
         {{-- <section class="section bg-lighter pt--10 pb--10">
             <div class="container">
@@ -422,7 +483,7 @@
         <!-- Summary Biospecimen Section End -->
 
         <!-- FAQ and Download Section Start -->
-        <section id="faq" class="section bg-lighter pt--70 pb--20">
+        <section id="faq" class="section pt--50 pb--20">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 pb--60">
@@ -437,29 +498,16 @@
                                 <div class="title">
                                     <h3 class="h6 fw--700 text-darker">
                                         <a href="#faqItem01" data-parent="#faqItems" data-toggle="collapse" class="collapsed">
-                                            <span>Qn 1. Why should you work with us?</span>
+                                            <span>Qn 1. Who are we?</span>
                                         </a>
                                     </h3>
                                 </div>
 
                                 <div id="faqItem01" class="content collapse">
                                     <div class="content--inner">
-                                        <ul>
-                                            <li>High Quality Facilities located in the Uganda.</li>
-                                            <li>A Trusted Partner including for the world’s largest and most successful pharmaceutical firms and highly regarded academic centers.</li>
-                                            <li> Responsibly collected in accordance with the relevant regulations and laws.</li>
-                                            <li>   Expert clinical biorepositories and exceptional in-depth data with multiple sample formats.
-                                            <li>  Dedicated whole body donor facilities provide a high quality service 24/7 with times from death to sampling that can be as low as 4 hours.
-                                              <li>   Single and convenient point of access and project management service.
-
-                                        </ul>
-                                        <p>
-                                            Samples from a wide range of diseases are available or can be collected, including:
-                                            Cancer,
-                                            Infectious,
-                                            Inflammatory,
-                                            Metabolic, Degenerative and others…
-                                           </p>
+                                        <p style="text-align:justify;">
+                                            This Catalog is maintained by <a href="#" target="_blank">IBRH3AU Biorepository</a>, a Biobank funded jointly by the <a href="#" target="_blank">NIH</a> and <a href="#" target="_blank">Makerere University</a> under the <a href="#" target="_blank">H3Africa</a> Biorepository Initiative, located at Makerere University College of Health Sciences (MakCHS) a Center of Academic Excellence, Health Care and Collaborative Research. The Biobank provides a resource of well characterized and annotated quality biospecimens. This resource is utilised by communicable and non-communicable disease researchers in an African population.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -513,7 +561,7 @@
                                 <div class="title">
                                     <h3 class="h6 fw--700 text-darker">
                                         <a href="#faqItem04" data-parent="#faqItems" data-toggle="collapse" class="collapsed">
-                                            <span>Qn 4. What Kind of Samples do we store?</span>
+                                            <span>Qn 4. What kind of samples we have and the storage capacity?</span>
                                         </a>
                                     </h3>
                                 </div>

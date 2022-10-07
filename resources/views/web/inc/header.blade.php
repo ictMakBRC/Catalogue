@@ -67,6 +67,9 @@
                         <a  href="{{ route('register') }}" class="btn-link">
                             <span><i class="fa mr--8 fa-user-plus"></i>Register</span>
                         </a>
+                        <a  href="#" target="_blank" class="btn-link">
+                            <span><i class="fa mr--8 fa-question-circle"></i>Help</span>
+                        </a>
 
                         @endauth
 
@@ -105,12 +108,13 @@
                 <ul class="header--nav-links style--1 nav ff--primary">
                     <li><a  href="{{url('home')}}"><span>Home</span></a></li>
                     <li><a href="{{url('biospecimens')}}"><span>Biospecimens</span></a></li>
+                    <li><a href="#"><span>SARS-CoV-2</span></a></li>
                     <li><a href="{{url('tissues')}}"><span>Organs</span></a></li>
                     <li><a href="{{url('tissues')}}"><span>Tissues</span></a></li>
                     <li><a href="{{url('projects')}}">Projects</a></li>
+                    <li><a href="#"><span>Policies</span></a></li>
                     <li><a href="#faq" target="_self"><span>FAQ</span></a></li>
                     <li><a href="{{url('contact')}}"><span>Contacts</span></a></li>
-                    <li><a href="#" target="_self"><span>Help</span></a></li>
                 </ul>
                 <!-- Header Nav Links End -->
             </div>

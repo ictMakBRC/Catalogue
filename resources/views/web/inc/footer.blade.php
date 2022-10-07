@@ -49,7 +49,7 @@
                 <div class="col-md-3 col-xs-6 col-xxs-12 pb--10">
                     <!-- Widget Start -->
                     <div class="widget">
-                        <h2 class="h4 fw--700 widget--title">Our Inventories </h2>
+                        <h2 class="h4 fw--700 widget--title">Inventory Summary </h2>
 
                         <!-- Nav Widget Start -->
                         <div class="nav--widget">
@@ -158,9 +158,12 @@
                                         <li><a href="#">Plasma</a></li>
                                         <li><a href="#">DNA</a></li>
                                         <li><a href="#">Sperm</a></li>
-                                        <li><a href="#">Whole Blood for DNA</a></li>
+                                        <li><a href="#">Whole Blood</a></li>
                                         <li><a href="#">Serum</a></li>
-                                        <li><a href="#">PaxGene RNA Blood tube</a></li>
+                                        <li><a href="#">PBMC</a></li>
+                                        <li><a href="#">RNA</a></li>
+                                        <li><a href="#">Stool</a></li>
+                                        <li><a href="#">Cord Blood</a></li>
 
                                     </ul>
                                 </div>
@@ -186,7 +189,7 @@
     <div class="footer--copyright pt--10 pb--10 bg-darkest">
         <div class="container">
             <div class="text fw--500 fs--14 text-center">
-                <p>Copyright &copy;<span>MakBRC</span>. All Rights Reserved.</p>
+                <p>Copyright &copy;<span> MakBRC</span>. All Rights Reserved.</p>
             </div>
         </div>
     </div>
