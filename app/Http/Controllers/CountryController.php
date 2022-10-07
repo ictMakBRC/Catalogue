@@ -35,27 +35,26 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'project_id'=>'required',
-            'project_code'=>'required',
-            'country'=>'required'
+        $this->validate($request, [
+            'project_id' => 'required',
+            'project_code' => 'required',
+            'country' => 'required',
 
         ]);
-            $isExist =  country::where('project_id', $request->input('project_id'))
-            ->where('country', $request->input('country'))
-            ->exists();
+        $isExist = country::where('project_id', $request->input('project_id'))
+        ->where('country', $request->input('country'))
+        ->exists();
         if ($isExist) {
             return redirect()->back()->with('error', 'Records already exist in the database !!');
-        }
-        else{
+        } else {
             $value = new country();
             $value->country = $request->input('country');
             $value->project_id = $request->input('project_id');
             $value->project_code = $request->input('project_code');
             // $value->user_id = auth()->user()->id;
             $value->save();
-            return redirect()->back()->with('success', 'Record Successfully added !!');
 
+            return redirect()->back()->with('success', 'Record Successfully added !!');
         }
     }
 
@@ -101,8 +100,9 @@ class CountryController extends Controller
      */
     public function destroy($id)
     {
-        $value =country::find($id);
+        $value = country::find($id);
         $value->delete();
+
         return redirect()->back()->with('success', 'Record deleted successfully !!');
     }
 }

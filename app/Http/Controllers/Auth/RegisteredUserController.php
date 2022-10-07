@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -55,6 +54,7 @@ class RegisteredUserController extends Controller
 
         return redirect('account');
     }
+
     public function store2(Request $request)
     {
         $request->validate([
@@ -83,16 +83,19 @@ class RegisteredUserController extends Controller
             'organization' => $request->organization,
             'position' => $request->position,
             'country' => $request->country,
-            'address' => $request->address,  
+            'address' => $request->address,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
         $user->attachRole('guest');
         event(new Registered($user));
         Auth::login($user);
+
         return redirect('account/requests/'.$request->code);
     }
-    public function update(Request $request, User $user){
+
+    public function update(Request $request, User $user)
+    {
         $request->validate([
             'first_name' => ['required', 'string', 'max:255'],
             'other_names' => ['required', 'string', 'max:255'],
@@ -115,8 +118,9 @@ class RegisteredUserController extends Controller
             'organization' => $request->organization,
             'position' => $request->position,
             'country' => $request->country,
-            'address' => $request->address,            
+            'address' => $request->address,
         ]);
+
         return redirect()->back()->with('success', 'User Updated Successfully');
     }
 }

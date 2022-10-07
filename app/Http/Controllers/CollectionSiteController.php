@@ -35,19 +35,18 @@ class CollectionSiteController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'project_id'=>'required',
-            'site_name'=>'required',
-            'project_code'=>'required'
+        $this->validate($request, [
+            'project_id' => 'required',
+            'site_name' => 'required',
+            'project_code' => 'required',
         ]);
-            $isExist =  collectionSite::where('project_id', $request->input('project_id'))
-            ->where('site_name', $request->input('site_name'))
-            ->where('country_name', $request->input('country_name'))
-            ->exists();
+        $isExist = collectionSite::where('project_id', $request->input('project_id'))
+        ->where('site_name', $request->input('site_name'))
+        ->where('country_name', $request->input('country_name'))
+        ->exists();
         if ($isExist) {
             return redirect()->back()->with('error', 'Records already exist in the database !!');
-        }
-        else{
+        } else {
             $value = new collectionSite();
             $value->site_name = $request->input('site_name');
             $value->country_name = $request->input('country_name');
@@ -55,8 +54,8 @@ class CollectionSiteController extends Controller
             $value->project_code = $request->input('project_code');
             // $value->user_id = auth()->user()->id;
             $value->save();
-            return redirect()->back()->with('success', 'Record Successfully added !!');
 
+            return redirect()->back()->with('success', 'Record Successfully added !!');
         }
     }
 
@@ -102,8 +101,9 @@ class CollectionSiteController extends Controller
      */
     public function destroy($id)
     {
-        $value =collectionSite::find($id);
+        $value = collectionSite::find($id);
         $value->delete();
+
         return redirect()->back()->with('success', 'Record deleted successfully !!');
     }
 }

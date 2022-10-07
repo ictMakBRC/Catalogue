@@ -37,14 +37,14 @@ class ProjectObjectiveController extends Controller
     {
         $request->validate([
             'project_id' => 'required',
-            'project_code'=> 'required',
+            'project_code' => 'required',
             'objective_name' => 'required',
 
         ]);
 
         ProjectObjective::create($request->all());
 
-        return redirect()->back()->with('success','Objective stored successfully.');
+        return redirect()->back()->with('success', 'Objective stored successfully.');
     }
 
     /**
@@ -90,6 +90,7 @@ class ProjectObjectiveController extends Controller
     public function destroy(ProjectObjective $id)
     {
         $id->delete();
+
         return redirect()->back()->with('success', 'Item was deleted successfully !!');
     }
 }

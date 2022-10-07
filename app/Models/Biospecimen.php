@@ -8,23 +8,29 @@ use Illuminate\Database\Eloquent\Model;
 class Biospecimen extends Model
 {
     use HasFactory;
+
     public $fillable = [
         'project_id',
         'ProjectAcronym',
-        'PTID' ,
-        'SampleID' ,
-        'AliquotID' ,
+        'PTID',
+        'SampleID',
+        'AliquotID',
         'specimen_type_id',
         'Gender',
         'Age',
         'CaseControl',
-        'VisitName' ,
-        'DateCollected' ,
+        'VisitName',
+        'DateCollected',
         'SPECIMEN_SOURCE',
-        'SOURCE_ORGANISM' ,
-        'CONCENTRATION' ,
+        'SOURCE_ORGANISM',
+        'CONCENTRATION',
         'PURITY',
         'user_id',
-        'batch_No'
+        'batch_No',
     ];
+
+    public function biospecimen()
+    {
+        return $this->belongsTo(project::class, 'ProjectAcronym', 'project_acronym');
+    }
 }

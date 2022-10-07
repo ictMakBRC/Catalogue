@@ -15,7 +15,8 @@ class OrganController extends Controller
     public function index()
     {
         $organs = organ::orderBy('id', 'desc')->get();
-        return view('dashboard.organs',compact('organs'));
+
+        return view('dashboard.organs', compact('organs'));
     }
 
     /**

@@ -65,9 +65,10 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
+                                                        <th>Study</th>
                                                         <th>Specimen type</th>
                                                         <th>Qty Available</th>
-                                                        <th>Temperature</th>
+                                                        <th>Temp</th>
                                                         <th>Container</th>
                                                         <th>Details</th>
                                                     </tr>
@@ -79,15 +80,12 @@
                                                         <td data-label="Rate">
                                                             {{$key+1}}
                                                         </td>
-                                                        <td data-label="Products">
-                                                            {{ $value->myspecimen}}
-                                                        </td>
-                                                      
+                                                        <td data-label="Products"> {{ $value->ProjectAcronym}}</td>
+                                                        <td data-label="Products"> {{ $value->myspecimen}}</td>
                                                         <td>{{ $value->count}}</td>
-                                                        <td>{{ $value->storage_temperature}}</td>
-                                                        <td>{{ $value->container_type}}</td>
+                                                        <td>{{ $value->storage_temperature ? $value->storage_temperature : 'N/A'}}</td>
+                                                        <td>{{ $value->container_type ? $value->container_type : 'N/A'}}</td>
                                                         <td><a href="{{url('biospecimens/specimenType/'.$value->myspecimen)}}" title="View the available samples in {{ $value->myspecimen}}" class="btn btn-block btn-outline-info btn-sm" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-shopping-cart"> </i> View </a></td>
-                                                     
                                                     </tr>
                                                     @endforeach
                                                     @endif

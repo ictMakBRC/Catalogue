@@ -14,12 +14,12 @@ class CreatePublicationsTable extends Migration
     public function up()
     {
         Schema::create('publications', function (Blueprint $table) {
-                $table->id();
-                $table->string('publication_name')->nullable();
-                $table->string('file_name')->nullable();
-                $table->foreignId('project_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('restrict');
-                $table->string('project_code')->nullable();
-                $table->timestamps();
+            $table->id();
+            $table->string('publication_name')->nullable();
+            $table->string('file_name')->nullable();
+            $table->foreignId('project_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('restrict');
+            $table->string('project_code')->nullable();
+            $table->timestamps();
         });
     }
 

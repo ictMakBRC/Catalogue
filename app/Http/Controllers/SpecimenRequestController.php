@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\cart;
 use App\Models\SpecimenRequest;
 use Illuminate\Http\Request;
@@ -14,8 +15,9 @@ class SpecimenRequestController extends Controller
      */
     public function index()
     {
-       $requests = SpecimenRequest::get();
-        return view('dashboard.requestList',compact('requests'));
+        $requests = SpecimenRequest::get();
+
+        return view('dashboard.requestList', compact('requests'));
     }
 
     /**
@@ -36,21 +38,19 @@ class SpecimenRequestController extends Controller
      */
     public function store(Request $request)
     {
-
         if (session()->has('guestuser')) {
-           
-        $request->validate([
-            'email' => 'required',
-            'session' => 'required',
-            'name' => 'required',
-            'position' => 'required',
-            'organisation' => 'required',
-            'subject' => 'required',
-            'details' => 'required',
-            'requesterip' ,
-            'requestercounry',
-            'requestercity' ,]);
-            $code =  'R'.time();
+            $request->validate([
+                'email' => 'required',
+                'session' => 'required',
+                'name' => 'required',
+                'position' => 'required',
+                'organisation' => 'required',
+                'subject' => 'required',
+                'details' => 'required',
+                'requesterip',
+                'requestercounry',
+                'requestercity', ]);
+            $code = 'R'.time();
             $value = new SpecimenRequest();
             $value->email = $request->input('email');
             $value->session = $request->input('session');
@@ -63,17 +63,17 @@ class SpecimenRequestController extends Controller
             $value->requestercounry = $request->input('requestercounry');
             $value->requestercity = $request->input('requestercity');
             $value->user_id = $request->input('uid');
-            $value->code =$code;
+            $value->code = $code;
             $value->save();
-            cart::Where('session_id', $request->input('session'))->update(['state'=> 'submited' ]);            
-            return redirect('request/view/'.$request->input('session'))->with('success', 'Record Successfully added !!');
-            return redirect('home')->with('success', 'Record Successfully added !!');
+            cart::Where('session_id', $request->input('session'))->update(['state' => 'submited']);
 
+            return redirect('request/view/'.$request->input('session'))->with('success', 'Record Successfully added !!');
+
+            return redirect('home')->with('success', 'Record Successfully added !!');
+        } else {
+            return redirect()->back()->with('warning', 'Session expired !!');
+        }
     }
-    else{
-        return redirect()->back()->with('warning', 'Session expired !!');
-    }
-  }
 
     /**
      * Display the specified resource.

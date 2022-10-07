@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisteredUserController;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,14 +24,12 @@ use Illuminate\Support\Facades\Auth;
 // Route::get('tissues/', [App\Http\Controllers\HomeController::class, 'tissues']);
 // Route::get('project/view/{id}/{code}/{name}', [App\Http\Controllers\HomeController::class, 'projectDeatiled']);
 
-
-Route::group(['middleware' => ['auth','role:guest'] ], function() {
+Route::group(['middleware' => ['auth', 'role:guest']], function () {
     Route::get('account', [App\Http\Controllers\WebController::class, 'account'])->name('myaccount');
     Route::get('account/requests', [App\Http\Controllers\WebController::class, 'myRequests'])->name('myrequests');
     Route::get('account/requests/{id}', [App\Http\Controllers\WebController::class, 'myRequest'])->name('myrequest');
     Route::post('account/update/{user}', [App\Http\Controllers\Auth\RegisteredUserController::class, 'update'])->name('updateguest');
     Route::resource('guestusers', RegisteredUserController::class);
-
 });
 Route::get('home', [App\Http\Controllers\WebController::class, 'index']);
 Route::get('/', [App\Http\Controllers\WebController::class, 'index']);
@@ -51,7 +49,6 @@ Route::get('project/view/{code}/{name}', [App\Http\Controllers\WebController::cl
 Route::get('tissues/all/{specimen}/{project}', [App\Http\Controllers\WebController::class, 'tissueAll']);
 Route::get('tissues/view/{id}/{name}', [App\Http\Controllers\WebController::class, 'tissueDeatiled']);
 
-
 Route::get('organs/specimenType/{id}', [App\Http\Controllers\WebController::class, 'tissueProSampleType']);
 Route::get('organs/', [App\Http\Controllers\WebController::class, 'organs']);
 Route::get('organs/all/{specimen}/{project}', [App\Http\Controllers\WebController::class, 'tissueAll']);
@@ -65,7 +62,7 @@ Route::get('/request/view/{id}', [App\Http\Controllers\WebController::class, 'vi
 Route::post('/request/register', [App\Http\Controllers\Auth\RegisteredUserController::class, 'store2'])->name('Reqregister');
 
 //------------------------------------Admin Login Routes------------------------------------------------------
-Route::group(['namespace' => 'catalogue','middleware' => ['auth','role:admin|superadmin|user'], 'prefix' => 'catalogue' ], function() {
+Route::group(['namespace' => 'catalogue', 'middleware' => ['auth', 'role:admin|superadmin|user'], 'prefix' => 'catalogue'], function () {
     // if ( Auth::user()->role !==1) {
     //     // do something
     //     return Redirect();
@@ -82,16 +79,16 @@ Route::group(['namespace' => 'catalogue','middleware' => ['auth','role:admin|sup
     Route::post('/projects/update/{id}', [App\Http\Controllers\ProjectController::class, 'update']);
 
     //----------------------------------------country routes--------------------------
-    Route::post('/countries/add', [App\Http\Controllers\CountryController ::class, 'store']);
-    Route::get('/countries/delete/{id}', [App\Http\Controllers\CountryController ::class, 'destroy']);
+    Route::post('/countries/add', [App\Http\Controllers\CountryController::class, 'store']);
+    Route::get('/countries/delete/{id}', [App\Http\Controllers\CountryController::class, 'destroy']);
 
     //----------------------------------------sites routes--------------------------
-    Route::post('/sites/add', [App\Http\Controllers\CollectionSiteController ::class, 'store']);
-    Route::get('/sites/delete/{id}', [App\Http\Controllers\CollectionSiteController ::class, 'destroy']);
+    Route::post('/sites/add', [App\Http\Controllers\CollectionSiteController::class, 'store']);
+    Route::get('/sites/delete/{id}', [App\Http\Controllers\CollectionSiteController::class, 'destroy']);
 
     //----------------------------------------objectives routes--------------------------
-    Route::post('/objectives/add', [App\Http\Controllers\ProjectObjectiveController ::class, 'store']);
-    Route::get('/objective/delete/{id}', [App\Http\Controllers\ProjectObjectiveController ::class, 'destroy']);
+    Route::post('/objectives/add', [App\Http\Controllers\ProjectObjectiveController::class, 'store']);
+    Route::get('/objective/delete/{id}', [App\Http\Controllers\ProjectObjectiveController::class, 'destroy']);
 
     //-----------------------------sp types------------------------------------------------------
     Route::get('/specimentypes', [App\Http\Controllers\SpecimenTypeController::class, 'index']);
@@ -110,7 +107,7 @@ Route::group(['namespace' => 'catalogue','middleware' => ['auth','role:admin|sup
     Route::get('/biospecimens/imports/{id}', [App\Http\Controllers\BiospecimenController::class, 'showimports']);
     Route::get('/biospecimen/delete/{id}', [App\Http\Controllers\BiospecimenController::class, 'destroy']);
     Route::post('biospecimen/update/{id}', [App\Http\Controllers\BiospecimenController::class, 'update']);
-    Route::get('/getProject',[App\Http\Controllers\BiospecimenController::class, 'getProject'])->name('getProject');
+    Route::get('/getProject', [App\Http\Controllers\BiospecimenController::class, 'getProject'])->name('getProject');
     Route::post('/biospecimen/import', [\App\Http\Controllers\BiospecimenController::class, 'import'])->name('import_parse');
     Route::get('/biospecimen/import-batch', [\App\Http\Controllers\BiospecimenController::class, 'importBatchs']);
     //-----------------------------OrganController------------------------------------------------------
@@ -119,7 +116,6 @@ Route::group(['namespace' => 'catalogue','middleware' => ['auth','role:admin|sup
     Route::post('/organs/add', [App\Http\Controllers\OrganController::class, 'store']);
     // Route::get('/biospecimen/delete/{id}', [App\Http\Controllers\BiospecimenController::class, 'destroy']);
     // Route::post('biospecimen/update/{id}', [App\Http\Controllers\BiospecimenController::class, 'update']);
-
 
     //-----------------------------tissuesController------------------------------------------------------
     Route::get('/tissues', [App\Http\Controllers\TissueController::class, 'index']);
@@ -134,14 +130,12 @@ Route::group(['namespace' => 'catalogue','middleware' => ['auth','role:admin|sup
     Route::post('tissues/update/{id}', [App\Http\Controllers\TissueController::class, 'update']);
     Route::post('/tissues/import', [\App\Http\Controllers\TissueController::class, 'import'])->name('import_parse');
     Route::get('/tissues/import-batch', [\App\Http\Controllers\TissueController::class, 'importBatchs']);
-    
+
     Route::get('/requests', [App\Http\Controllers\SpecimenRequestController::class, 'index']);
     Route::get('/request/view/{id}', [App\Http\Controllers\SpecimenRequestController::class, 'show']);
 
-    
     //----------------------------------------import routes---------------------------------------------------
 
     Route::post('/import_process', [\App\Http\Controllers\BiospecimenController::class, 'processImport'])->name('import_process');
-
 });
 require __DIR__.'/auth.php';
