@@ -56,7 +56,6 @@
                                                             </div>
                                                             <h5><strong>Study design:</strong></h5>
                                                             <p class="card-text">{{ $value->project_design}}</p>
-                                                            <p></p>
                                                             <div class="action fs--14">
                                                                 <a  href="{{ url('project/view/'.$value->pcode.'/'.$value->project_acronym) }}" class="the_permalink text-info">Read more <i class="icofont-arrow-right"></i></a>                                                                   
                                                             </div>
@@ -86,11 +85,11 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <p>Biospecimens</p>
-                                                            <div class="tags--widget pb--10">
+                                                            <div class="tags--widget2 pb--10">
                                                                 <ul class="nav">
                                                                     @forelse ($value->biospecimens as $item) 
                                                                     <li> 
-                                                                        <a href="#">{{ $item->specimen_type_id}} Qty({{$item->count}})</a>
+                                                                        <a href="#">{{ $item->specimen_type_id}} &nbsp; <small>qty</small>({{$item->count}})</a>
                                                                     </li>
                                                                     @empty
                                                                         <small>No Biospecimen samples found</small>
@@ -98,12 +97,12 @@
                                                                 </ul>
                                                             </div>
                                                             <br>
-                                                        <div class="tags--widget pb--5">                                                            
+                                                        <div class="tags--widget2 pb--5">                                                            
                                                             <p>Tissues</p>
                                                             <ul class="nav">
                                                                 @forelse ($value->tissues as $item) 
                                                                 <li> 
-                                                                    <a href="#">{{ $item->specimen_type}} Qty({{$item->count}})</a>
+                                                                    <a href="#">{{ $item->specimen_type}} &nbsp; <small>qty</small>({{$item->count}})</a>
                                                                 </li>
                                                                 @empty
                                                                     <small>No Tissue Samples found</small>
@@ -111,12 +110,12 @@
                                                             </ul>
                                                         </div>
                                                         <br>
-                                                        <div class="tags--widget pb--5">                                                            
+                                                        <div class="tags--widget2 pb--5">                                                            
                                                             <p>Organs</p>
                                                             <ul class="nav">
                                                                 @forelse ($value->organs as $item) 
                                                                 <li> 
-                                                                    <a href="#">{{ $item->specimen_type_id}} Qty({{$item->count}})</a>
+                                                                    <a href="#">{{ $item->specimen_type_id}} &nbsp; <small>qty</small>({{$item->count}})</a>
                                                                 </li>
                                                                 @empty
                                                                     <small>No organ Samples found</small>

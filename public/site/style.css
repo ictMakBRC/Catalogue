@@ -4482,6 +4482,13 @@ body.isScrolling #backToTop {
     background-color: #555;
     border-radius: 2px;
 }
+.tags--widget2 .nav > li > a {
+    margin: 2.5px 2.5px 0;
+    padding: 1px 7px;
+    color: #dfdddd;
+    background-color: #3c763d;
+    border-radius: 2px;
+}
 
 /* 8.7. NEWSLETTER WIDGET */
 .newsletter--widget {
