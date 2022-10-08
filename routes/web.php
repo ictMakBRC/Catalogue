@@ -38,6 +38,8 @@ Route::get('faq', [App\Http\Controllers\WebController::class, 'faq']);
 Route::get('contact', [App\Http\Controllers\WebController::class, 'contact']);
 Route::get('projects/', [App\Http\Controllers\WebController::class, 'Allprojects']);
 
+Route::get('sars-cov-2/', [App\Http\Controllers\WebController::class, 'biospecimen'])->name('covid19');
+
 Route::get('biospecimens/', [App\Http\Controllers\WebController::class, 'biospecimen']);
 Route::get('biospecimens/specimenType/{id}', [App\Http\Controllers\WebController::class, 'biospecimenType']);
 Route::get('biospecimens/all/{specimen}/{project}', [App\Http\Controllers\WebController::class, 'bioAll']);

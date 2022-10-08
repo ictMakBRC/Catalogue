@@ -108,8 +108,8 @@
                 <ul class="header--nav-links style--1 nav ff--primary">
                     <li><a  href="{{url('home')}}"><span>Home</span></a></li>
                     <li><a href="{{url('biospecimens')}}"><span>Biospecimens</span></a></li>
-                    <li><a href="#"><span>SARS-CoV-2</span></a></li>
-                    <li><a href="{{url('tissues')}}"><span>Organs</span></a></li>
+                    <li><a href="{{route('covid19')}}"><span>SARS-CoV-2</span></a></li>
+                    <li><a href="{{url('organs')}}"><span>Organs</span></a></li>
                     <li><a href="{{url('tissues')}}"><span>Tissues</span></a></li>
                     <li><a href="{{url('projects')}}">Projects</a></li>
                     <li><a href="#"><span>Policies</span></a></li>

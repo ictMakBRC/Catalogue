@@ -112,7 +112,7 @@ class WebController extends Controller
         $biospecimens = Biospecimen::leftJoin('specimen_types', 'biospecimens.specimen_type_id', '=', 'specimen_types.specimen_type')
         ->leftJoin('projects', 'biospecimens.project_id', '=', 'projects.id')
         ->groupBy('biospecimens.specimen_type_id')
-        ->groupBy('biospecimens.ProjectAcronym')
+        //->groupBy('biospecimens.ProjectAcronym')
         ->select('ProjectAcronym', 'container_type', 'storage_temperature', 'biospecimens.specimen_type_id as myspecimen', DB::raw('count(biospecimens.id) as count'))
         ->paginate(6);
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
