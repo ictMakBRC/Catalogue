@@ -55,10 +55,10 @@
                         <div class="nav--widget">
                             <ul class="nav">
                                 <li>
-                                    <a href="{{url('web/tissues')}}">
+                                    <a href="{{route('covid19')}}">
                                         <i class="fa fa-folder-o"></i>
                                         <span class="text">SARS-CoV-2</span>
-                                        <span class="count">({{$tissuesAll}})</span>
+                                        <span class="count">({{$covAll}})</span>
                                     </a>
                                 </li>
                                 <li>
@@ -79,7 +79,7 @@
                                     <a href="#">
                                         <i class="fa fa-folder-o"></i>
                                         <span class="text">Human Organs</span>
-                                        <span class="count">(34)</span>
+                                        <span class="count">({{$organsAll}})</span>
                                     </a>
                                 </li>
                             </ul>

@@ -28,6 +28,7 @@ class Controller extends BaseController
         // $mycartitems = cart::Where('session_id', $guest)->where('state', 'pending')->get();
         // $cartcount = cart::where('session_id', $guest)->get();
         $biospecimens = Biospecimen::count();
+        $cov19 = Biospecimen::where('ProjectAcronym','COVID-19')->count();
         $tissues = Tissue::count();
         $organs = organ::count();
         View::share('appName', $appName);
@@ -38,6 +39,7 @@ class Controller extends BaseController
         // View::share('cartount', $cartcount);
         // View::share('mycartitems', $mycartitems);
         View::share('biospecimensAll', $biospecimens);
+        View::share('covAll', $cov19);
         View::share('tissuesAll', $tissues);
         View::share('organsAll', $organs);
     }

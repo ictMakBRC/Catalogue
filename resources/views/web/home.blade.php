@@ -273,7 +273,7 @@
                                 <div class="title">
                                     <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">{{$biospecimens}}</span>+</h3>
                                 </div>
-                                <h2><a href="#">Biospecimens</a></h2>
+                                <h2><a href="{{url('biospecimens')}}">Biospecimens</a></h2>
                                 <p><a href="{{url('biospecimens')}}">View All</a></p>
 
                             </div>
@@ -282,10 +282,10 @@
                                 <img class="member-photo" src="{{url('site/img/specimens/Theatre.jpg')}}" alt="">
                                 <br>
                                 <div class="title">
-                                    <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">{{$biospecimens}}</span>+</h3>
+                                    <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">{{$organsAll}}</span>+</h3>
                                 </div>
-                                <h2><a href="#">Organs</a></h2>
-                                <p><a href="{{url('tissues')}}">View All</a></p>
+                                <h2><a href="{{url('organs')}}">Organs</a></h2>
+                                <p><a href="{{url('organs')}}">View All</a></p>
                             </div>
 
                             <div class="col-md-4 pb--15 team-member">
@@ -294,7 +294,7 @@
                                 <div class="title">
                                     <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">{{$tissues}}</span>+</h3>
                                 </div>
-                                <h2><a href="#">Tissues</a></h2>
+                                <h2><a href="{{url('tissues')}}">Tissues</a></h2>
                                 <p><a href="{{url('tissues')}}">View All</a></p>
                             </div>
 
