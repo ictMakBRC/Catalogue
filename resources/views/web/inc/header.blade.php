@@ -106,15 +106,15 @@
             <div id="headerNav" class="navbar-collapse collapse float--right">
                 <!-- Header Nav Links Start -->
                 <ul class="header--nav-links style--1 nav ff--primary">
-                    <li><a  href="{{url('home')}}"><span>Home</span></a></li>
-                    <li><a href="{{url('biospecimens')}}"><span>Biospecimens</span></a></li>
-                    <li><a href="{{route('covid19')}}"><span>SARS-CoV-2</span></a></li>
-                    <li><a href="{{url('organs')}}"><span>Organs</span></a></li>
-                    <li><a href="{{url('tissues')}}"><span>Tissues</span></a></li>
-                    <li><a href="{{url('projects')}}">Projects</a></li>
-                    <li><a href="#"><span>Policies</span></a></li>
-                    <li><a href="#faq" target="_self"><span>FAQ</span></a></li>
-                    <li><a href="{{url('contact')}}"><span>Contacts</span></a></li>
+                    <li class="{{ (request()->is('home')) ? 'active' : '' }}"><a  href="{{url('home')}}"><span>Home</span></a></li>
+                    <li class="{{ (request()->is('biospecimens*')) ? 'active' : '' }}"><a href="{{url('biospecimens')}}"><span>Biospecimens</span></a></li>
+                    <li class="{{ (request()->is('sars-cov-2*')) ? 'active' : '' }}"><a href="{{route('covid19')}}"><span>SARS-CoV-2</span></a></li>
+                    <li class="{{ (request()->is('organs*')) ? 'active' : '' }}"><a href="{{url('organs')}}"><span>Organs</span></a></li>
+                    <li class="{{ (request()->is('tissues*')) ? 'active' : '' }}"><a href="{{url('tissues')}}"><span>Tissues</span></a></li>
+                    <li class="{{ (request()->is('projects*')) ? 'active' : '' }}"><a href="{{url('projects')}}">Projects</a></li>
+                    <li class="{{ (request()->is('policies*')) ? 'active' : '' }}"><a href="#"><span>Policies</span></a></li>
+                    <li class="{{ (request()->is('faq*')) ? 'active' : '' }}"><a href="#faq" target="_self"><span>FAQ</span></a></li>
+                    <li class="{{ (request()->is('contact*')) ? 'active' : '' }}"><a href="{{url('contact')}}"><span>Contacts</span></a></li>
                 </ul>
                 <!-- Header Nav Links End -->
             </div>
