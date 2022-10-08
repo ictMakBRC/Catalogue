@@ -6,7 +6,6 @@ use App\Models\organ;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithStartRow;
-use Maatwebsite\Excel\Concerns\ToCollection;
 
 class OrganImport implements ToModel, WithStartRow, WithBatchInserts
 {
@@ -29,20 +28,20 @@ class OrganImport implements ToModel, WithStartRow, WithBatchInserts
 
         return new organ([
             'project_id' => $row[0],
-            'ProjectAcronym'=> $row[1],
-            'Category'=> $row[2],
-            'Sample_Type'=> $row[3],
-            'ParticipantID'=> $row[4],
-            'SampleID'=> $row[5],
-            'Quantity'=> $row[6],
-            'Aliquot_Type'=> $row[7],
-            'Gender'=> $row[8],
-            'Age'=> $row[9],
-            'BMI'=> $row[10],
-            'Ethinicity'=> $row[11],
-            'Collection_Date'=> $row[12],
-            'Sample_status'=> $row[13],
-            'Store_for'=> $row[14],
+            'ProjectAcronym' => $row[1],
+            'Category' => $row[2],
+            'specimen_type_id' => $row[3],
+            'ParticipantID' => $row[4],
+            'SampleID' => $row[5],
+            'Quantity' => $row[6],
+            'Aliqout' => $row[7],
+            'Gender' => $row[8],
+            'Age' => $row[9],
+            'BMI' => $row[10],
+            'Ethinicity' => $row[11],
+            'CollectionDate' => $row[12],
+            'Donor_Sample_Status' => $row[13],
+            'Stored_for' => $row[14],
             'user_id' => auth()->user()->id,
             'batch_No' => $batch,
         ]);
@@ -52,6 +51,4 @@ class OrganImport implements ToModel, WithStartRow, WithBatchInserts
     {
         return 100;
     }
-
-  
 }

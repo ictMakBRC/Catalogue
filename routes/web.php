@@ -38,7 +38,7 @@ Route::get('faq', [App\Http\Controllers\WebController::class, 'faq']);
 Route::get('contact', [App\Http\Controllers\WebController::class, 'contact']);
 Route::get('projects/', [App\Http\Controllers\WebController::class, 'Allprojects']);
 
-Route::get('sars-cov-2/', [App\Http\Controllers\WebController::class, 'biospecimen'])->name('covid19');
+Route::get('sars-cov-2/', [App\Http\Controllers\WebController::class, 'cov19'])->name('covid19');
 
 Route::get('biospecimens/', [App\Http\Controllers\WebController::class, 'biospecimen']);
 Route::get('biospecimens/specimenType/{id}', [App\Http\Controllers\WebController::class, 'biospecimenType']);
@@ -110,14 +110,15 @@ Route::group(['namespace' => 'catalogue', 'middleware' => ['auth', 'role:admin|s
     Route::get('/biospecimen/delete/{id}', [App\Http\Controllers\BiospecimenController::class, 'destroy']);
     Route::post('biospecimen/update/{id}', [App\Http\Controllers\BiospecimenController::class, 'update']);
     Route::get('/getProject', [App\Http\Controllers\BiospecimenController::class, 'getProject'])->name('getProject');
-    Route::post('/biospecimen/import', [\App\Http\Controllers\BiospecimenController::class, 'import'])->name('import_parse');
+    Route::post('/biospecimen/import', [\App\Http\Controllers\BiospecimenController::class, 'import'])->name('import_bio');
     Route::get('/biospecimen/import-batch', [\App\Http\Controllers\BiospecimenController::class, 'importBatchs']);
     //-----------------------------OrganController------------------------------------------------------
     Route::get('/organs', [App\Http\Controllers\OrganController::class, 'index']);
     Route::get('/organs/new', [App\Http\Controllers\OrganController::class, 'create']);
     Route::post('/organs/add', [App\Http\Controllers\OrganController::class, 'store']);
-    // Route::get('/biospecimen/delete/{id}', [App\Http\Controllers\BiospecimenController::class, 'destroy']);
-    // Route::post('biospecimen/update/{id}', [App\Http\Controllers\BiospecimenController::class, 'update']);
+    Route::post('/organs/import', [\App\Http\Controllers\OrganController::class, 'import'])->name('import_organ');
+    Route::get('/organs/imports/{id}', [App\Http\Controllers\OrganController::class, 'showimports']);
+    Route::get('/organs/import-batch', [\App\Http\Controllers\OrganController::class, 'importBatchs']);
 
     //-----------------------------tissuesController------------------------------------------------------
     Route::get('/tissues', [App\Http\Controllers\TissueController::class, 'index']);
@@ -130,7 +131,7 @@ Route::group(['namespace' => 'catalogue', 'middleware' => ['auth', 'role:admin|s
     Route::get('/tissues/imports/{id}', [App\Http\Controllers\TissueController::class, 'showimports']);
     Route::get('/tissues/delete/{id}', [App\Http\Controllers\TissueController::class, 'destroy']);
     Route::post('tissues/update/{id}', [App\Http\Controllers\TissueController::class, 'update']);
-    Route::post('/tissues/import', [\App\Http\Controllers\TissueController::class, 'import'])->name('import_parse');
+    Route::post('/tissues/import', [\App\Http\Controllers\TissueController::class, 'import'])->name('import_tissue');
     Route::get('/tissues/import-batch', [\App\Http\Controllers\TissueController::class, 'importBatchs']);
 
     Route::get('/requests', [App\Http\Controllers\SpecimenRequestController::class, 'index']);

@@ -106,7 +106,7 @@ class WebController extends Controller
 
     public function biospecimen()
     {
-        $this->cartcount();
+        //$this->cartcount();
         $biocount = Biospecimen::count();
         DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
         $biospecimens = Biospecimen::leftJoin('specimen_types', 'biospecimens.specimen_type_id', '=', 'specimen_types.specimen_type')
@@ -118,6 +118,21 @@ class WebController extends Controller
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
 
         return view('web.biospecimens', compact('biospecimens', 'biocount'));
+    }
+
+    public function cov19()
+    {
+        $biocount = Biospecimen::where('ProjectAcronym','COVID-19')->count();
+        DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
+        $biospecimens = Biospecimen::leftJoin('specimen_types', 'biospecimens.specimen_type_id', '=', 'specimen_types.specimen_type')
+        ->groupBy('biospecimens.specimen_type_id')
+        //->groupBy('biospecimens.ProjectAcronym')
+        ->where('ProjectAcronym','COVID-19')
+        ->select('ProjectAcronym', 'container_type', 'storage_temperature', 'biospecimens.specimen_type_id as myspecimen', DB::raw('count(biospecimens.id) as count'))
+        ->paginate(6);
+        DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
+
+        return view('web.covid.sarscov2', compact('biospecimens', 'biocount'));
     }
 
     /**

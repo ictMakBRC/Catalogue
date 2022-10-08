@@ -1,6 +1,6 @@
 
     @extends('dashboard.layouts.tableLayout')
-    @section('title', 'Organs')
+    @section('title', 'Specimen Types')
     @section('content')
                 <div class="page-content">
 					<!--breadcrumb-->
@@ -11,20 +11,20 @@
 								<ol class="breadcrumb mb-0 p-0">
 									<li class="breadcrumb-item"><a href="javascript:;"><i class='bx bx-home-alt'></i></a>
 									</li>
-									<li class="breadcrumb-item active" aria-current="page">Manage organs</li>
+									<li class="breadcrumb-item active" aria-current="page">Organ impots</li>
 								</ol>
 							</nav>
 						</div>
 
-
                         <div class="ml-auto">
 							<div class="btn-group">
-								<button type="button" class="btn btn-primary">Manage Organs</button>
-								<button type="button" class="btn btn-primary bg-split-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">	<span class="sr-only">Toggle options</span>
+								<button type="button" class="btn btn-primary">Bio-Specimen Action</button>
+								<button type="button" class="btn btn-primary bg-split-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">	<span class="sr-only">Toggle Dropdown</span>
 								</button>
 								<div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-
-                                    <a href="{{url('catalogue/organ/new')}}" class="dropdown-item">New Organ</a>
+                                    <a href="{{url('catalogue/Organs')}}" class="dropdown-item">Organ list</a>
+									<div class="dropdown-divider"></div>
+                                    <a href="{{url('catalogue/Organ/new')}}" class="dropdown-item">New Organ</a>
 									<div class="dropdown-divider"></div>
                                     <a type="button" class="dropdown-item" data-toggle="modal" data-target="#importOrgan">Import CSV</a>
 								</div>
@@ -43,11 +43,17 @@
                                                 <tr>
                                                     <th>No.</th>
                                                     <th>Project</th>
-                                                    <th>PT ID</th>
+                                                    <th>ProjectAcronym</th>
+                                                    <th>PTID</th>
                                                     <th>Sample Id</th>
-                                                    <th>Aliquot ID</th>
-                                                    <th>Specimen Type</th>
-                                                    <th>Date Collected</th>
+                                                    <th>AliquotID</th>
+                                                    <th>SpecimenType</th>
+                                                    <th>Gender</th>
+                                                    <th>Age</th>
+                                                    <th>Ethinicity</th>
+                                                    <th>BMI</th>
+                                                    <th>DateCollected</th>
+                                                    <th>Donor_Sample_Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -57,24 +63,28 @@
                                                 @foreach($organs as $value)
                                                 <tr>
                                                     <td>{{$i++}}</td>
-                                                    <td>{{ $value->project->project_acronym}}</td>
+                                                    <td>{{$value->project_name}}</td>
+                                                    <td>{{ $value->ProjectAcronym}}</td>
                                                     <td>{{ $value->ParticipantID}}</td>
                                                     <td>{{$value->SampleID}}</td>
                                                     <td>{{ $value->Aliqout}}</td>
-                                                    <td>{{ $value->Aliqout}}</td>
-                                                    {{-- <td>{{ $value->specimen_type}}</td> --}}
+                                                    <td>{{ $value->specimen_type_id}}</td>
+                                                    <td>{{$value->Gender}}</td>
+                                                    <td>{{ $value->Age}}</td>
+                                                    <td>{{ $value->Ethinicity}}</td>
+                                                    <td>{{$value->BMI}}</td>
                                                     <td>{{ $value->CollectionDate}}</td>
+                                                    <td>{{ $value->Donor_Sample_Status}}</td>
                                                     <td class="table-action">
-                                                        @if($value->state==1)
+                                                        @if($value->is_active==1)
                                                         <span class="badge badge-success float-center">Active</span>
                                                         @php($satate='Active' AND $Stvalue=1)
-                                                        @elseif($value->state==0)
+                                                        @elseif($value->is_active==0)
                                                         <span class="badge badge-danger float-center">InActive</span>
                                                         @php($satate='InActive' AND $Stvalue=0)
                                                         @endif
-                                                        <a href="{{ url('catalogue/biospecimen/edit/'.$value->bio_id) }}" class="action-icon"> <i class="bx bx-edit" ></i></a>
-                                                        <a href="{{ url('catalogue/biospecimen/view/'.$value->bio_id) }}" class="action-icon"> <i class="bx bx-show" ></i></a>
-                                                        <a onclick="return confirm('Are you sure you want to delete?');" href="{{ url('catalogue/biospecimen/delete/'.$value->bio_id) }}"  data-toggle="tooltip" title="Delete!" class="action-icon"> <i class="bx bx-trash"></i></a>
+                                                        <a href="{{ url('catalogue/Organ/edit/'.$value->bio_id) }}" class="action-icon"> <i class="bx bx-edit" ></i></a>
+                                                        <a onclick="return confirm('Are you sure you want to delete?');" href="{{ url('catalogue/Organ/delete/'.$value->bio_id) }}"  data-toggle="tooltip" title="Delete!" class="action-icon"> <i class="bx bx-trash"></i></a>
                                                            <!-- ADD NEW Category Modal -->
 
                                                     </td>
@@ -90,6 +100,6 @@
 
                             </div>
 				    </div>
-                 @include('dashboard.components.importorgan')
+                    @include('dashboard.components.importorgan')
 
     @endsection
