@@ -234,5 +234,4 @@ return [
         'Location' => 'Stevebauman\Location\Facades\Location',
     ],
 
-
 ];

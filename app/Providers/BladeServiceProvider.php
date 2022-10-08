@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Blade;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\ServiceProvider;
 
 class BladeServiceProvider extends ServiceProvider
 {
@@ -31,8 +31,7 @@ class BladeServiceProvider extends ServiceProvider
 
         Blade::directive('datef1', function ($datef1) {
             return "<?php echo date('d-m-Y', strtotime($datef1)); ?>";
-           // return Carbon::parse($datef1)->format('Y-m-d');
-
+            // return Carbon::parse($datef1)->format('Y-m-d');
         });
     }
 }

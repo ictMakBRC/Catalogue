@@ -12,9 +12,9 @@ class organ extends Model
     public $fillable = [
         'project_id',
         'ProjectAcronym',
-        'Category' ,
-        'Sample_Type' ,
-        'ParticipantID' ,
+        'Category',
+        'Sample_Type',
+        'ParticipantID',
         'SampleID',
         'Quantity',
         'Aliquot_Type',
@@ -26,6 +26,11 @@ class organ extends Model
         'Sample_status',
         'Store_for',
         'user_id',
-        'batch_No'
+        'batch_No',
     ];
+
+    public function organ()
+    {
+        return $this->belongsTo(project::class, 'ProjectAcronym', 'project_acronym');
+    }
 }

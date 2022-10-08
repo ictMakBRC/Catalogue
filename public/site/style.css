@@ -158,8 +158,8 @@ html, body {
 
 body {
     color: #999;
-    font-family: "Roboto", sans-serif;
-    font-size: 15px;
+    /*font-family: "Roboto", sans-serif;*/
+    font-size: 14px;
     line-height: 22px;
     font-weight: 400;
     word-wrap: break-word;
@@ -4480,6 +4480,13 @@ body.isScrolling #backToTop {
     margin: 5px 2.5px 0;
     padding: 1px 7px;
     background-color: #555;
+    border-radius: 2px;
+}
+.tags--widget2 .nav > li > a {
+    margin: 2.5px 2.5px 0;
+    padding: 1px 7px;
+    color: #dfdddd;
+    background-color: #3c763d;
     border-radius: 2px;
 }
 

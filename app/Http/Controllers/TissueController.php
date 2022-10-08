@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tissue;
-use Illuminate\Http\Request;
+use App\Imports\TissuesImport;
 use App\Models\project;
 use App\Models\SpecimenType;
-use App\Models\ProjectObjective;
-use App\Imports\TissuesImport;
-use Maatwebsite\Excel\Facades\Excel;
+use App\Models\Tissue;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TissueController extends Controller
 {
@@ -23,11 +22,11 @@ class TissueController extends Controller
         $tissues = Tissue::orderBy('tissues.id', 'desc')
         ->leftJoin('specimen_types', 'tissues.specimen_type', '=', 'specimen_types.specimen_type')
         ->leftJoin('projects', 'tissues.project_acronym', '=', 'projects.project_acronym')
-        ->select('*','tissues.id as tissue_id','tissues.is_active as state')->get();
-        return view('dashboard.tissues',compact('tissues'));
+        ->select('*', 'tissues.id as tissue_id', 'tissues.is_active as state')->get();
+
+        return view('dashboard.tissues', compact('tissues'));
     }
 
-    
     /**
      * Show the form for creating a new resource.
      *
@@ -37,59 +36,61 @@ class TissueController extends Controller
     {
         $projects = project::orderBy('project_name', 'asc')->get();
         $specimentypes = SpecimenType::orderBy('specimen_type', 'asc')->get();
-        return view('dashboard.newTissue',compact('projects','specimentypes'));
+
+        return view('dashboard.newTissue', compact('projects', 'specimentypes'));
     }
 
     public function import()
     {
-        try{
-            DB::statement("SET foreign_key_checks=0");
+        try {
+            DB::statement('SET foreign_key_checks=0');
             Tissue::truncate();
-            DB::statement("SET foreign_key_checks=1");
-        Excel::import(new TissuesImport, request()->file('file')->store('files'));
-        $mybatch = request()->input('batch');
-        return redirect('catalogue/tissues/imports/'.$mybatch)->with('success', 'The following Tissue Records were Successfully imported !!');
+            DB::statement('SET foreign_key_checks=1');
+            Excel::import(new TissuesImport, request()->file('file')->store('files'));
+            $mybatch = request()->input('batch');
 
-    }catch(\Exception $error){
+            return redirect('catalogue/tissues/imports/'.$mybatch)->with('success', 'The following Tissue Records were Successfully imported !!');
+        } catch(\Exception $error) {
+            return redirect()->back()->with('error', 'Something occared '.$error);
+        }
+    }
 
-        return redirect()->back()->with('error', 'Something occared '.$error);
-    }
-    }
     public function showimports($id)
     {
         $tissues = Tissue::orderBy('tissues.id', 'desc')
         ->leftJoin('specimen_types', 'tissues.specimen_type', '=', 'specimen_types.specimen_type')
         ->leftJoin('projects', 'tissues.project_acronym', '=', 'projects.project_acronym')
-        ->select('*','tissues.id as tissue_id','tissues.is_active as state')
+        ->select('*', 'tissues.id as tissue_id', 'tissues.is_active as state')
         ->where('tissues.batch_No', $id)->get();
-        return view('dashboard.tissuesImports',compact('tissues'));
+
+        return view('dashboard.tissuesImports', compact('tissues'));
     }
+
     public function importBatchs()
     {
-
         DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
         $tissues = Tissue::leftJoin('users', 'tissues.user_id', '=', 'users.id')
-        ->select('*','tissues.id as tissue_id','tissues.created_at as tissuedate', DB::raw('count(batch_No) as list'))
+        ->select('*', 'tissues.id as tissue_id', 'tissues.created_at as tissuedate', DB::raw('count(batch_No) as list'))
         ->groupBy('tissues.batch_No')
         ->get();
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
 
-        return view('dashboard.TissueBatch',compact('tissues'));
-
+        return view('dashboard.TissueBatch', compact('tissues'));
     }
+
     public function tissueProSpecific($id)
     {
         DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
         $tissues = Tissue::orderBy('tissues.id', 'desc')
         ->leftJoin('specimen_types', 'tissues.specimen_type', '=', 'specimen_types.specimen_type')
         ->leftJoin('projects', 'tissues.project_acronym', '=', 'projects.project_acronym')
-        ->select('*','projects.id as pro_id','tissues.created_at as tissuedate', DB::raw('count(tissues.id) as tcount'))
-        ->where('tissues.specimen_type',$id)
-        ->groupBy('tissues.project_acronym','aliqout_type')
+        ->select('*', 'projects.id as pro_id', 'tissues.created_at as tissuedate', DB::raw('count(tissues.id) as tcount'))
+        ->where('tissues.specimen_type', $id)
+        ->groupBy('tissues.project_acronym', 'aliqout_type')
         ->get();
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
 
-        return view('dashboard.tissueTypeSpecific',compact('tissues','id'));
+        return view('dashboard.tissueTypeSpecific', compact('tissues', 'id'));
     }
 
     public function tissueProSampleType($id)
@@ -98,14 +99,15 @@ class TissueController extends Controller
         $tissues = Tissue::orderBy('tissues.id', 'desc')
         ->leftJoin('specimen_types', 'tissues.specimen_type', '=', 'specimen_types.specimen_type')
         ->leftJoin('projects', 'tissues.project_acronym', '=', 'projects.project_acronym')
-        ->select('*','projects.id as pro_id','tissues.created_at as tissuedate', DB::raw('count(tissues.id) as tcount'))
-        ->where('tissues.specimen_type',$id)
-        ->groupBy('tissues.project_acronym','aliqout_type')
+        ->select('*', 'projects.id as pro_id', 'tissues.created_at as tissuedate', DB::raw('count(tissues.id) as tcount'))
+        ->where('tissues.specimen_type', $id)
+        ->groupBy('tissues.project_acronym', 'aliqout_type')
         ->get();
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
 
-        return view('dashboard.tissueTypeSpecific',compact('tissues','id'));
+        return view('dashboard.tissueTypeSpecific', compact('tissues', 'id'));
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -128,11 +130,11 @@ class TissueController extends Controller
             'ethinicity' => 'required',
             'collection_date' => 'required',
             'donor_status' => 'required',
-            'stored_for' => 'required'
+            'stored_for' => 'required',
         ]);
         Tissue::create($request->all());
 
-        return redirect('catalogue/tissues')->with('success','Record created successfully!');
+        return redirect('catalogue/tissues')->with('success', 'Record created successfully!');
     }
 
     /**
@@ -145,24 +147,26 @@ class TissueController extends Controller
     {
         //
     }
+
     public function showIntel($id)
     {
         $tissues = Tissue::leftJoin('specimen_types', 'tissues.specimen_type', '=', 'specimen_types.specimen_type')
         ->leftJoin('projects', 'tissues.project_acronym', '=', 'projects.project_acronym')
-        ->select('*','tissues.id as tissue_id')
+        ->select('*', 'tissues.id as tissue_id')
         ->where('tissues.id', $id)->get();
         $countries = Tissue::leftJoin('projects', 'tissues.project_acronym', '=', 'projects.project_acronym')
         ->leftJoin('countries', 'projects.pcode', '=', 'countries.project_code')
         ->where('tissues.id', $id)->get();
-        $sites =  Tissue::leftJoin('projects', 'tissues.project_acronym', '=', 'projects.project_acronym')
+        $sites = Tissue::leftJoin('projects', 'tissues.project_acronym', '=', 'projects.project_acronym')
         ->leftJoin('collection_sites', 'projects.pcode', '=', 'collection_sites.project_code')
         ->where('tissues.id', $id)->get();
-        $objectives =  Tissue::leftJoin('projects', 'tissues.project_acronym', '=', 'projects.project_acronym')
+        $objectives = Tissue::leftJoin('projects', 'tissues.project_acronym', '=', 'projects.project_acronym')
         ->leftJoin('project_objectives', 'projects.pcode', '=', 'project_objectives.project_code')
         ->where('tissues.id', $id)->get();
-        return view('dashboard.organIntel',compact('tissues','countries','sites','objectives'));
 
+        return view('dashboard.organIntel', compact('tissues', 'countries', 'sites', 'objectives'));
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -175,9 +179,10 @@ class TissueController extends Controller
         $specimentypes = SpecimenType::orderBy('specimen_type', 'asc')->get();
         $tissues = Tissue::leftJoin('specimen_types', 'tissues.specimen_type', '=', 'specimen_types.specimen_type')
         ->leftJoin('projects', 'tissues.project_acronym', '=', 'projects.project_acronym')
-        ->select('*','tissues.id as tissue_id')
+        ->select('*', 'tissues.id as tissue_id')
         ->where('tissues.id', $id)->get();
-        return view('dashboard.editTissue',compact('projects','specimentypes','tissues'));
+
+        return view('dashboard.editTissue', compact('projects', 'specimentypes', 'tissues'));
     }
 
     /**
@@ -206,6 +211,7 @@ class TissueController extends Controller
             'stored_for' => 'required',
         ]);
         $id->update($request->all());
+
         return redirect()->back()->with('success', 'Item was successfully updated!!');
     }
 
@@ -218,6 +224,7 @@ class TissueController extends Controller
     public function destroy(Tissue $id)
     {
         $id->delete();
+
         return redirect()->back()->with('success', 'Item was deleted successfully !!');
     }
 }

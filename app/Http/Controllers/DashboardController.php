@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Biospecimen;
+use App\Models\SpecimenType;
 use App\Models\Tissue;
 use Illuminate\Http\Request;
-use App\Models\SpecimenType;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
@@ -15,7 +16,6 @@ class DashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-
     {
         $biospecimens = Biospecimen::count();
         $tissues = Tissue::count();
@@ -34,22 +34,22 @@ class DashboardController extends Controller
         $bioimports = Biospecimen::leftJoin('users', 'biospecimens.user_id', '=', 'users.id')
         ->leftJoin('projects', 'biospecimens.project_id', '=', 'projects.id')
         ->groupBy('biospecimens.batch_No')
-        ->select('users.name as uname','biospecimens.created_at as biodate','biospecimens.batch_No as batch', DB::raw('count(batch_No) as biolist'))
+        ->select('users.name as uname', 'biospecimens.created_at as biodate', 'biospecimens.batch_No as batch', DB::raw('count(batch_No) as biolist'))
         ->limit(5)
         ->get();
 
         $tissueimports = Tissue::leftJoin('users', 'tissues.user_id', '=', 'users.id')
-        ->select('*','tissues.id as tissue_id','tissues.created_at as tissuedate', DB::raw('count(batch_No) as list'))
+        ->select('*', 'tissues.id as tissue_id', 'tissues.created_at as tissuedate', DB::raw('count(batch_No) as list'))
         ->groupBy('tissues.batch_No')
         ->limit(5)
         ->get();
 
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
-        return view('dashboard.dashboard',compact('biospecimens','specimenTypes','biospecimentypes','bioimports','tissues','tissuetypes','tissueimports'));
+
+        return view('dashboard.dashboard', compact('biospecimens', 'specimenTypes', 'biospecimentypes', 'bioimports', 'tissues', 'tissuetypes', 'tissueimports'));
     }
 
     public function index2()
-
     {
         $biospecimens = Biospecimen::count();
         $specimenTypes = SpecimenType::count();
@@ -62,11 +62,12 @@ class DashboardController extends Controller
         $bioimports = Biospecimen::leftJoin('users', 'biospecimens.user_id', '=', 'users.id')
         ->leftJoin('projects', 'biospecimens.project_id', '=', 'projects.id')
         ->groupBy('biospecimens.batch_No')
-        ->select('users.name as uname','biospecimens.created_at as biodate','biospecimens.batch_No as batch', DB::raw('count(batch_No) as biolist'))
+        ->select('users.name as uname', 'biospecimens.created_at as biodate', 'biospecimens.batch_No as batch', DB::raw('count(batch_No) as biolist'))
         ->limit(5)
         ->get();
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
-        return view('dashboard.dashboardAnalysis',compact('biospecimens','specimenTypes','biospecimentypes','bioimports'));
+
+        return view('dashboard.dashboardAnalysis', compact('biospecimens', 'specimenTypes', 'biospecimentypes', 'bioimports'));
     }
 
     /**

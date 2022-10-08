@@ -4,11 +4,8 @@ namespace App\Imports;
 
 use App\Models\Tissue;
 use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\WithStartRow;
-use Illuminate\Support\Collection;
-use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
-use Maatwebsite\Excel\Concerns\WithChunkReading;
+use Maatwebsite\Excel\Concerns\WithStartRow;
 
 class TissuesImport implements ToModel, WithStartRow, WithBatchInserts
 {
@@ -19,15 +16,16 @@ class TissuesImport implements ToModel, WithStartRow, WithBatchInserts
     {
         return 2;
     }
+
     /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
+     * @param  array  $row
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
     public function model(array $row)
     {
-       // $batch = rand(1000,7878).time();
+        // $batch = rand(1000,7878).time();
         $batch = request()->input('batch');
+
         return new Tissue([
             'project_acronym' => $row[0],
             'category' => $row[1],
@@ -42,10 +40,11 @@ class TissuesImport implements ToModel, WithStartRow, WithBatchInserts
             'collection_date' => $row[10],
             'donor_status' => $row[11],
             'stored_for' => $row[12],
-            'user_id'=>auth()->user()->id,
-            'batch_No'=>$batch,
+            'user_id' => auth()->user()->id,
+            'batch_No' => $batch,
         ]);
     }
+
     public function batchSize(): int
     {
         return 100;
@@ -55,5 +54,4 @@ class TissuesImport implements ToModel, WithStartRow, WithBatchInserts
     // {
     //     return 100;
     // }
-
 }
