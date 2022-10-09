@@ -70,7 +70,7 @@
                                                 <table class="table">
                                                     <tr>
                                                         <th class="fw--700 text-darkest">Phone</th>
-                                                        <td><a href="tel:+16105598246">{{$user->contact}}</a></td>
+                                                        <td><a href="tel:+16105598246">{{$user->phone}}</a></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="fw--700 text-darkest">E-mail</th>
@@ -110,10 +110,10 @@
                                                     </td>
     
                                                     <td data-label="Total Price">
-                                                        <p>Gender: {{ $value->gender}}</p>
-                                                        <p>Age: {{ $value->age}}</p>
-                                                       <p>Ethinicity: {{ $value->ethinicity}}</p>
-                                                       <p>Donor Status: {{ $value->donor_status}}</p>
+                                                        <p>Gender: {{ $value->gender}}, 
+                                                            Age: {{ $value->age}}, 
+                                                            Ethinicity: {{ $value->ethinicity}},
+                                                            Donor Status: {{ $value->donor_status}}</p>
                                                     </td>
                                                     <td>{{$value->project_acronym}}</td>
                                                    
@@ -189,7 +189,7 @@
                                             </div> 
                                             <div class="mb-3 col-md-6">
                                                 <label for="contact2" class="form-label">Contact</label>
-                                                <input type="text" id="contact2" class="form-control form-sm" name="contact" required value="{{$user->contact}}" >
+                                                <input type="text" id="contact2" class="form-control form-sm" name="contact" required value="{{$user->phone}}" >
                                             </div> 
                                             <div class="mb-3 col-md-6">
                                                 <label for="organization" class="form-label">Organisation</label>

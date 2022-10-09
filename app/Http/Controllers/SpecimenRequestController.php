@@ -47,6 +47,8 @@ class SpecimenRequestController extends Controller
                 'organisation' => 'required',
                 'subject' => 'required',
                 'details' => 'required',
+                'phone' => 'required',
+                'country' => 'required',
                 'requesterip',
                 'requestercounry',
                 'requestercity', ]);
@@ -55,6 +57,8 @@ class SpecimenRequestController extends Controller
             $value->email = $request->input('email');
             $value->session = $request->input('session');
             $value->name = $request->input('name');
+            $value->phone = $request->input('phone');
+            $value->country = $request->input('country');
             $value->position = $request->input('position');
             $value->organization = $request->input('organisation');
             $value->subject = $request->input('subject');
@@ -66,12 +70,12 @@ class SpecimenRequestController extends Controller
             $value->code = $code;
             $value->save();
             cart::Where('session_id', $request->input('session'))->update(['state' => 'submited']);
-
+            session(['guestuser' => time().rand(50, 1000)]);
             return redirect('request/view/'.$request->input('session'))->with('success', 'Record Successfully added !!');
 
             return redirect('home')->with('success', 'Record Successfully added !!');
         } else {
-            return redirect()->back()->with('warning', 'Session expired !!');
+            return redirect()->back()->with('warning', 'Session already expired !!');
         }
     }
 

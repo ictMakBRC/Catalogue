@@ -96,7 +96,7 @@ class CartController extends Controller
             $value->donor_status = $request->input('donor_status');
             $value->save();
 
-            $this->cartcount();
+            //$this->cartcount();
 
             return redirect()->back()->with('success', 'Item Successfully added !!');
         }

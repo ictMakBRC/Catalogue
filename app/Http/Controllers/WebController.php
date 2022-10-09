@@ -301,7 +301,7 @@ public function bioDeatiled($id, $name)
     public function viewRequest($id)
     {
         $user = SpecimenRequest::where('session', $id)->first();
-        $this->cartcount();
+        //$this->cartcount();
         $requestItems = cart::where('session_id', $id)->get();
 
         return view('web.viewRequest', compact('user', 'requestItems'));
