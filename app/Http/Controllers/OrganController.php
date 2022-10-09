@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\OrganImport;
 use App\Models\organ;
 use App\Models\project;
-use App\Imports\OrganImport;
 use App\Models\SpecimenType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +19,7 @@ class OrganController extends Controller
      */
     public function index()
     {
-        $organs = organ::with('project')->orderBy('id', 'desc')->get();
+        $organs = organ::with('project')->with('sample')->orderBy('organs.id', 'desc')->get();
 
         return view('dashboard.organs', compact('organs'));
     }

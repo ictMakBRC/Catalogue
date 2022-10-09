@@ -33,4 +33,9 @@ class Biospecimen extends Model
     {
         return $this->belongsTo(project::class, 'ProjectAcronym', 'project_acronym');
     }
+
+    public function sample()
+    {
+        return $this->belongsTo(SpecimenType::class, 'specimen_type_id', 'specimen_type');
+    }
 }

@@ -1,7 +1,7 @@
 @extends('web.layouts.webLayout')
 @section('title', 'Organs')
 @section('content')
-        <div class="page--header pt--60 pb--60 text-center" data-bg-img="{{url('site/img/page-header-img/organbg.jpg')}}" data-overlay="0.85">
+        <div class="page--header pt--60 pb--60 text-center" data-bg-img="{{url('site/img/page-header-img/organbg.jpg')}}" data-overlay="0.75">
             <div class="container">
                 <div class="title">
                     <h2 class="h1 text-white">Organs</h2>

@@ -33,4 +33,9 @@ class Tissue extends Model
     {
         return $this->belongsTo(project::class, 'project_acronym', 'project_acronym');
     }
+
+    public function sample()
+    {
+        return $this->belongsTo(SpecimenType::class, 'specimen_type', 'specimen_type');
+    }
 }

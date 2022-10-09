@@ -49,16 +49,18 @@
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li><a href="{{url('account')}}">My Account</a></li>
-
-                                <a  href="{{ route('logout') }}" onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();" class="dropdown-item notify-item">
-                           <i class="mdi mdi-logout me-1"></i>
-                           Logout
-                           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                               {{ csrf_field() }}
-                           </form>
-                       </a></li>
+                            <li><a href="{{url('account')}}"><i class="fa fa-user"></i> My Account</a></li>
+                            <li>
+                                    <a  href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();" class="dropdown-item notify-item">
+                                        <i class="fa mr--8 fa-sign-out"></i>
+                                        Logout
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </a>
+                            </li>
+                    </li>
                         </ul>
                         @else
                         <a  href="{{ route('login') }}" class="btn-link">

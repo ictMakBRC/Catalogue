@@ -622,7 +622,8 @@
                                     <a href="mailTo:info@ibru.mak.ac.ug" class="btn btn-sm btn-primary"><i class="fa mr--8 fa-email"></i>info@ibru.mak.ac.ug</a>
                                     <a href="callTo:+256-782-752-582" class="btn btn-sm btn-danger"><i class="fa mr--8 fa-mobile"></i>+256-782-752-582</a>
                                 </div> --}}
-                                <form action="forms/contact-form.php" method="post">
+                                <form action="{{route('contact')}}" method="post">
+                                    @csrf
                                     <div class="row gutter--20">
                                         <div class="col-xs-6 col-xxs-12">
                                             <div class="form-group">
@@ -644,7 +645,7 @@
 
                                         <div class="col-xs-12">
                                             <div class="form-group">
-                                                <textarea name="message" placeholder="Message *" class="form-control" required></textarea>
+                                                <textarea name="text" placeholder="Message *" class="form-control" required></textarea>
                                             </div>
                                         </div>
 

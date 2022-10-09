@@ -122,12 +122,12 @@ class WebController extends Controller
 
     public function cov19()
     {
-        $biocount = Biospecimen::where('ProjectAcronym','COVID-19')->count();
+        $biocount = Biospecimen::where('ProjectAcronym', 'COVID-19')->count();
         DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
         $biospecimens = Biospecimen::leftJoin('specimen_types', 'biospecimens.specimen_type_id', '=', 'specimen_types.specimen_type')
         ->groupBy('biospecimens.specimen_type_id')
         //->groupBy('biospecimens.ProjectAcronym')
-        ->where('ProjectAcronym','COVID-19')
+        ->where('ProjectAcronym', 'COVID-19')
         ->select('ProjectAcronym', 'container_type', 'storage_temperature', 'biospecimens.specimen_type_id as myspecimen', DB::raw('count(biospecimens.id) as count'))
         ->paginate(6);
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
@@ -228,12 +228,14 @@ public function bioDeatiled($id, $name)
 
     public function tissues()
     {
-        $this->cartcount();
+        DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
+        //$this->cartcount();
         $tissuecount = Tissue::count();
         $tissues = Tissue::leftJoin('specimen_types', 'tissues.specimen_type', '=', 'specimen_types.specimen_type')
         ->groupBy('tissues.specimen_type')
-        ->select('tissues.specimen_type as myspecimen', DB::raw('count(tissues.id) as count'))
-        ->paginate(12);
+        ->select('container_type', 'storage_temperature', 'tissues.specimen_type as myspecimen', DB::raw('count(tissues.id) as count'))
+        ->paginate(1200);
+        DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
 
         return view('web.tissues', compact('tissues', 'tissuecount'));
     }

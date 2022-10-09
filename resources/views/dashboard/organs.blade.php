@@ -62,7 +62,7 @@
                                                     <td>{{$value->SampleID}}</td>
                                                     <td>{{ $value->Aliqout}}</td>
                                                     <td>{{ $value->Aliqout}}</td>
-                                                    {{-- <td>{{ $value->specimen_type}}</td> --}}
+                                                    {{-- <td>{{ $value->sample->specimen_type}}</td> --}}
                                                     <td>{{ $value->CollectionDate}}</td>
                                                     <td class="table-action">
                                                         @if($value->state==1)

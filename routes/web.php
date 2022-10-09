@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\ContactMessageController;
+use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -63,6 +65,12 @@ Route::post('/request/add', [App\Http\Controllers\SpecimenRequestController::cla
 Route::get('/request/view/{id}', [App\Http\Controllers\WebController::class, 'viewRequest']);
 Route::post('/request/register', [App\Http\Controllers\Auth\RegisteredUserController::class, 'store2'])->name('Reqregister');
 
+
+//-------------------------user subscription-----------------------------------------------
+Route::post('user/subscribe', [SubscriptionController::class, 'store'])->name('subscribe');
+Route::post('user/contact', [ContactMessageController::class, 'store'])->name('contact');
+
+
 //------------------------------------Admin Login Routes------------------------------------------------------
 Route::group(['namespace' => 'catalogue', 'middleware' => ['auth', 'role:admin|superadmin|user'], 'prefix' => 'catalogue'], function () {
     // if ( Auth::user()->role !==1) {
@@ -110,29 +118,29 @@ Route::group(['namespace' => 'catalogue', 'middleware' => ['auth', 'role:admin|s
     Route::get('/biospecimen/delete/{id}', [App\Http\Controllers\BiospecimenController::class, 'destroy']);
     Route::post('biospecimen/update/{id}', [App\Http\Controllers\BiospecimenController::class, 'update']);
     Route::get('/getProject', [App\Http\Controllers\BiospecimenController::class, 'getProject'])->name('getProject');
-    Route::post('/biospecimen/import', [\App\Http\Controllers\BiospecimenController::class, 'import'])->name('import_bio');
-    Route::get('/biospecimen/import-batch', [\App\Http\Controllers\BiospecimenController::class, 'importBatchs']);
+    Route::post('/biospecimen/import', [App\Http\Controllers\BiospecimenController::class, 'import'])->name('import_bio');
+    Route::get('/biospecimen/import-batch', [App\Http\Controllers\BiospecimenController::class, 'importBatchs']);
     //-----------------------------OrganController------------------------------------------------------
     Route::get('/organs', [App\Http\Controllers\OrganController::class, 'index']);
     Route::get('/organs/new', [App\Http\Controllers\OrganController::class, 'create']);
     Route::post('/organs/add', [App\Http\Controllers\OrganController::class, 'store']);
-    Route::post('/organs/import', [\App\Http\Controllers\OrganController::class, 'import'])->name('import_organ');
+    Route::post('/organs/import', [App\Http\Controllers\OrganController::class, 'import'])->name('import_organ');
     Route::get('/organs/imports/{id}', [App\Http\Controllers\OrganController::class, 'showimports']);
-    Route::get('/organs/import-batch', [\App\Http\Controllers\OrganController::class, 'importBatchs']);
+    Route::get('/organs/import-batch', [App\Http\Controllers\OrganController::class, 'importBatchs']);
 
     //-----------------------------tissuesController------------------------------------------------------
     Route::get('/tissues', [App\Http\Controllers\TissueController::class, 'index']);
     Route::get('/tissues/new', [App\Http\Controllers\TissueController::class, 'create']);
     Route::post('/tissues/add', [App\Http\Controllers\TissueController::class, 'store']);
     Route::get('/tissues/edit/{id}', [App\Http\Controllers\TissueController::class, 'edit']);
-    Route::get('/tissues/show/{id}', [App\Http\ControllersTissueController::class, 'show']);
+    Route::get('/tissues/show/{id}', [App\Http\Controllers\TissueController::class, 'show']);
     Route::get('/tissues/view/{id}', [App\Http\Controllers\TissueController::class, 'showIntel']);
     Route::get('/tissues/type/{id}', [App\Http\Controllers\TissueController::class, 'tissueProSpecific']);
     Route::get('/tissues/imports/{id}', [App\Http\Controllers\TissueController::class, 'showimports']);
     Route::get('/tissues/delete/{id}', [App\Http\Controllers\TissueController::class, 'destroy']);
     Route::post('tissues/update/{id}', [App\Http\Controllers\TissueController::class, 'update']);
-    Route::post('/tissues/import', [\App\Http\Controllers\TissueController::class, 'import'])->name('import_tissue');
-    Route::get('/tissues/import-batch', [\App\Http\Controllers\TissueController::class, 'importBatchs']);
+    Route::post('/tissues/import', [App\Http\Controllers\TissueController::class, 'import'])->name('import_tissue');
+    Route::get('/tissues/import-batch', [App\Http\Controllers\TissueController::class, 'importBatchs']);
 
     Route::get('/requests', [App\Http\Controllers\SpecimenRequestController::class, 'index']);
     Route::get('/request/view/{id}', [App\Http\Controllers\SpecimenRequestController::class, 'show']);
