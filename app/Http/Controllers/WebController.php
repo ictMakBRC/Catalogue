@@ -66,7 +66,7 @@ class WebController extends Controller
         DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
 
         $projects = project::with('biospecimens')->with('tissues')->with('organs')->with('countries')->with('sites')
-        ->orderBy('projects.id', 'desc')->paginate(6);
+        ->orderBy('projects.id', 'desc')->paginate(5);
 
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
 

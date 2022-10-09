@@ -27,7 +27,7 @@
                         <div class="main--content col-md-12">
                             <div class="main--content-inner">
                                 <div class="row">
-                                    <div class="main--content col-md-8 pb--60" data-trigger="stickyScroll">
+                                    <div class="main--content col-md-12 pb--60" data-trigger="stickyScroll">
                                         <h4 class="text-success text-center">Item list</h4>
                                         <div class="cart-items pb--60">
                                             <div class="main--content-inner drop--shadow">
@@ -112,7 +112,7 @@
                                         @endif
 
                                 
-                                    <div class="main--sidebar col-md-4 pb--60" data-trigger="stickyScroll">
+                                    <div class="main--sidebar col-md-12 pb--60" data-trigger="stickyScroll">
                                         <form class="form-horizontal" name="samplerequest" method='post' action="{{url('request/add')}}">
                                             @csrf
                                             <div class="form-group row">
@@ -164,7 +164,7 @@
                                                     </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                    <div class="text-right ">
+                                                    <div class="text-right col-sm-12">
                                                         <button class="btn btn-success " type="submit" name="samplerequest">Request Samples</button>
                                                     </div>
                                                     </div>

@@ -3,7 +3,6 @@
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\SubscriptionController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,15 +15,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
-// Route::get('home', [App\Http\Controllers\HomeController::class, 'index']);
-// Route::get('projects/', [App\Http\Controllers\HomeController::class, 'Allprojects']);
-// Route::get('biospecimen/', [App\Http\Controllers\HomeController::class, 'biospecimen']);
-// Route::get('biospecimen/specimenType/{id}', [App\Http\Controllers\HomeController::class, 'biospecimenProject']);
-// Route::get('tissues/specimenType/{id}', [App\Http\Controllers\HomeController::class, 'tissueProSampleType']);
-// Route::get('tissues/', [App\Http\Controllers\HomeController::class, 'tissues']);
-// Route::get('project/view/{id}/{code}/{name}', [App\Http\Controllers\HomeController::class, 'projectDeatiled']);
 
 Route::group(['middleware' => ['auth', 'role:guest']], function () {
     Route::get('account', [App\Http\Controllers\WebController::class, 'account'])->name('myaccount');
@@ -65,19 +55,12 @@ Route::post('/request/add', [App\Http\Controllers\SpecimenRequestController::cla
 Route::get('/request/view/{id}', [App\Http\Controllers\WebController::class, 'viewRequest']);
 Route::post('/request/register', [App\Http\Controllers\Auth\RegisteredUserController::class, 'store2'])->name('Reqregister');
 
-
 //-------------------------user subscription-----------------------------------------------
 Route::post('user/subscribe', [SubscriptionController::class, 'store'])->name('subscribe');
 Route::post('user/contact', [ContactMessageController::class, 'store'])->name('contact');
 
-
 //------------------------------------Admin Login Routes------------------------------------------------------
 Route::group(['namespace' => 'catalogue', 'middleware' => ['auth', 'role:admin|superadmin|user'], 'prefix' => 'catalogue'], function () {
-    // if ( Auth::user()->role !==1) {
-    //     // do something
-    //     return Redirect();
-    //   }
-
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
     Route::get('/dashboard2', [App\Http\Controllers\DashboardController::class, 'index2']);
     Route::get('/home', [App\Http\Controllers\DashboardController::class, 'index']);
@@ -147,6 +130,6 @@ Route::group(['namespace' => 'catalogue', 'middleware' => ['auth', 'role:admin|s
 
     //----------------------------------------import routes---------------------------------------------------
 
-    Route::post('/import_process', [\App\Http\Controllers\BiospecimenController::class, 'processImport'])->name('import_process');
+    Route::post('/import_process', [App\Http\Controllers\BiospecimenController::class, 'processImport'])->name('import_process');
 });
 require __DIR__.'/auth.php';

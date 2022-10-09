@@ -35,7 +35,7 @@
 
     <!-- ==== Custom Stylesheet ==== -->
     <link rel="stylesheet" href="{{url('site/css/custom.css')}}">
-    <link href="{{ asset('assets/plugins/datatable/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/plugins/datatable/css/dataTables.bootstrap5.min.css')}}" rel="stylesheet" type="text/css">
     {{-- <script src="{{ asset('assets/js/jquery.js') }}"></script> --}}
 
     <!-- ==== HTML5 Shim and Respond.js')}} IE8 support of HTML5 elements and media queries ==== -->
@@ -90,6 +90,7 @@
 
     <script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
 	<script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap5.min.js')}}"></script>
+	<script src="{{ asset('assets/plugins/datatable/js/responsive.bootstrap5.min.js')}}"></script>
     <script>
         $(document).ready(function() {
             $('#tableEx').DataTable({
@@ -101,7 +102,7 @@
             $('#tableEx2').DataTable({
                 lengthChange: true,
                 searching: true,
-                autoWidth: false,
+                autoWidth: true,
                 responsive: true,
             });
           } );

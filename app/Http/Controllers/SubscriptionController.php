@@ -44,6 +44,7 @@ class SubscriptionController extends Controller
             $value = new Subscription();
             $value->email = $request->input('email');
             $value->save();
+
             return redirect()->back()->with('success', 'Thanks your Email Successfully added !!');
         } catch(Exception $error) {
             return redirect()->back()->with('error', 'Thanks for loving us but your Email already exists in our database!!');
