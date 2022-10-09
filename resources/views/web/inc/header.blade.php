@@ -4,10 +4,7 @@
         <div class="container ">
             <!-- Header Topbar Links Start -->
             <ul class="header--topbar-links nav ff--primary float--left">
-
-
                     <li class="dropdown" id="google_translate_element"></li>
-
 
                     {{-- <script type="text/javascript">
                         function googleTranslateElementInit() {
@@ -67,7 +64,7 @@
                         <a  href="{{ route('register') }}" class="btn-link">
                             <span><i class="fa mr--8 fa-user-plus"></i>Register</span>
                         </a>
-                        <a  href="#" target="_blank" class="btn-link">
+                        <a  href="site/media/IBC_User_Guide_V1.pdf" target="_blank" class="btn-link">
                             <span><i class="fa mr--8 fa-question-circle"></i>Help</span>
                         </a>
 
@@ -111,8 +108,12 @@
                     <li><a href="#"><span>SARS-CoV-2</span></a></li>
                     <li><a href="{{url('tissues')}}"><span>Organs</span></a></li>
                     <li><a href="{{url('tissues')}}"><span>Tissues</span></a></li>
-                    <li><a href="{{url('projects')}}">Projects</a></li>
-                    <li><a href="#"><span>Policies</span></a></li>
+                    <li class="nav-item dropdown"><a href="" id='dropdownSubMenu1' href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' class='nav-link dropdown-toggle'>Resources <i class="fa fa-caret-down"></i></a>
+                        <ul class="dropdown-menu dropdown-toggle">
+                            <li id='dropdownSubMenu2' class='dropdown-item dropdown-hover'><a href="{{url('projects')}}">The Projects</a></li>
+                            <li id='dropdownSubMenu2' class='dropdown-item dropdown-hover'><a href="#"><span>Our Policies</span></a></li>
+                        </ul>
+                    </li>
                     <li><a href="#faq" target="_self"><span>FAQ</span></a></li>
                     <li><a href="{{url('contact')}}"><span>Contacts</span></a></li>
                 </ul>
