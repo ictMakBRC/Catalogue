@@ -97,7 +97,7 @@
                                             </div>
 
                                             <div class="desc text-gray fs--16">
-                                                <p>This overview of the organs in the body can help people understand how various organs and organ systems work together. Learn more here.</p>
+                                                <p>We're the leading Biopreservation and Biostorage provider in Sub-Saharan Africa.</p>
                                             </div>
 
                                             <div class="action text-uppercase">
@@ -141,13 +141,13 @@
                 <div class="row row--md-vc">
                     <div class="col-md-6 pb--10" data-scroll-reveal="group">
                         <!-- Text Block Start -->
-                        <div class="text--block pb--10">
+                        <div class="text--block pb--20">
                             <div class="title">
-                                <h2 class="h2 fw--600">Why Choose Us?</h2>
+                                <h3 class="h3 fw--600">Why Choose Us?</h3>
                             </div>
 
                             <div class="content fs--14">
-                                <p>We're the leading Biopreservation and biostorage provider in Sub-Saharan Africa. Trusted by many leading Research Institutions, Academic Institutions and Biomedical Companies for diagnostics, health care and basic research.</p>
+                                <p>We're the leading Biopreservation and Biostorage provider in Sub-Saharan Africa. Trusted by many leading Research Institutions, Academic Institutions and Biomedical Companies for diagnostics, health care and basic research.</p>
                             </div>
                         </div>
                         <!-- Text Block End -->
@@ -186,7 +186,7 @@
                                         </div>
 
                                         <div class="desc mt--8">
-                                            <p>We have the capacity to harvest, process and store high quality human biosamples needed for diagnostics, drug, or basic research.</p>
+                                            <p>We have the capacity to process and store high quality human biosamples needed for diagnostics, drug, or basic research.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -313,7 +313,7 @@
 
                                 <div class="info">
                                     <div class="title">
-                                        <h3 class="h4 fw--700">Read the Policies</h3>
+                                        <h3 class="h4 fw--700">1. Read the Policies</h3>
                                     </div>
 
                                     <div class="desc">
@@ -331,7 +331,7 @@
 
                                 <div class="info">
                                     <div class="title">
-                                        <h3 class="h4 fw--700">Search for Specimens</h3>
+                                        <h3 class="h4 fw--700">2. Search for Specimens</h3>
                                     </div>
 
                                     <div class="desc">
@@ -349,7 +349,7 @@
 
                                 <div class="info">
                                     <div class="title">
-                                        <h3 class="h4 fw--700">Create Shopping Cart</h3>
+                                        <h3 class="h4 fw--700">3. Create Shopping Cart</h3>
                                     </div>
 
                                     <div class="desc">
@@ -367,7 +367,7 @@
 
                                 <div class="info">
                                     <div class="title">
-                                        <h3 class="h4 fw--700">Make a Request</h3>
+                                        <h3 class="h4 fw--700">4. Make a Request</h3>
                                     </div>
 
                                     <div class="desc">
@@ -411,7 +411,7 @@
                                 <img class="member-photo" src="{{url('site/img/specimens/img-4.jpg')}}" alt="" Style="border: 5px solid rgba(217, 212, 212, 0.886); border-radius: 50%;">
                                 <div class="title">
                                     <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">121</span>+</h3>
-                                    <p><strong>Collaborators</strong></p>
+                                    <p><strong>Collaborations</strong></p>
                                 </div>
                             </div>
 
@@ -444,43 +444,6 @@
             </div>
         </section>
         <!-- Numbers Section End -->
-
-        <!-- Summary Biospecimen Section Start -->
-        {{-- <section class="section bg-lighter pt--10 pb--10">
-            <div class="container">
-                <div class="row AdjustRow">
-                    <div class="col-md-12 col-xs-12 col-xxs-12 pb--10">
-                        <!-- Feature Item Start -->
-                        <div class="section--title pb--10 text-center">
-                            <h3 id="About"> A snipet of the available Biospecimen </h3>
-                        </div>
-                        <!-- Feature Item End -->
-                    </div>
-
-                    @if(count($specimenTypes)>0)
-                    @php($i=1)
-                    @foreach($specimenTypes as $value)
-                    <div class="col-md-3 col-xs-6 col-xxs-6 pb--40">
-                        <!-- Feature Item Start -->
-                        <div class="feature--item bg-default text-center">
-
-
-                            <div class="sub-title">
-                                <h3 class="h2 fs--16">{{$value->specimen_type}}</h3>
-                            </div>
-
-                            <div class="desc">
-                                <p>Stored in {{$value->container_type}} at a temperature of {{$value->storage_temperature}}.</p>
-                            </div>
-                        </div>
-                        <!-- Feature Item End -->
-                    </div>
-                    @endforeach
-                    @endif
-                </div>
-            </div>
-        </section> --}}
-        <!-- Summary Biospecimen Section End -->
 
         <!-- FAQ and Download Section Start -->
         <section id="faq" class="section pt--50 pb--20">
@@ -538,7 +501,7 @@
                                 <div class="title">
                                     <h3 class="h6 fw--700 text-darker">
                                         <a href="#faqItem03" data-parent="#faqItems" data-toggle="collapse" class="collapsed">
-                                            <span>Qn 3. What is the Data and Biospecimen Access Committee</span>
+                                            <span>Qn 3. What is our experience and success stories?</span>
                                         </a>
                                     </h3>
                                 </div>
@@ -561,7 +524,7 @@
                                 <div class="title">
                                     <h3 class="h6 fw--700 text-darker">
                                         <a href="#faqItem04" data-parent="#faqItems" data-toggle="collapse" class="collapsed">
-                                            <span>Qn 4. What kind of samples we have and the storage capacity?</span>
+                                            <span>Qn 4. What kind of Biospecimens do we have and the quantiy?</span>
                                         </a>
                                     </h3>
                                 </div>
@@ -584,7 +547,7 @@
                                 <div class="title">
                                     <h3 class="h6 fw--700 text-darker">
                                         <a href="#faqItem05" data-parent="#faqItems" data-toggle="collapse" class="collapsed">
-                                            <span>Qn 5. Who can use our Biosamples</span>
+                                            <span>Qn 5. Who can request for these Biosamples</span>
                                         </a>
                                     </h3>
                                 </div>
@@ -664,6 +627,5 @@
             </div>
         </section>
         <!-- FAQ and Download Section End -->
-
 
 @endsection

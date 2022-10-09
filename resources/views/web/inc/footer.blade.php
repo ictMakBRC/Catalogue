@@ -163,7 +163,7 @@
                                 </div>
                                 <!-- Tags Widget End -->
 
-                            <div>
+                            <div class="pt--8">
                                 <ul class="header--topbar-social nav float--left">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>

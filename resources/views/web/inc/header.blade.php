@@ -4,10 +4,7 @@
         <div class="container ">
             <!-- Header Topbar Links Start -->
             <ul class="header--topbar-links nav ff--primary float--left">
-
-
                     <li class="dropdown" id="google_translate_element"></li>
-
 
                     {{-- <script type="text/javascript">
                         function googleTranslateElementInit() {
@@ -49,18 +46,16 @@
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li><a href="{{url('account')}}"><i class="fa fa-user"></i> My Account</a></li>
-                            <li>
-                                    <a  href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();" class="dropdown-item notify-item">
-                                        <i class="fa mr--8 fa-sign-out"></i>
-                                        Logout
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </a>
-                            </li>
-                    </li>
+                            <li><a href="{{url('account')}}">My Account</a></li>
+
+                                <a  href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();" class="dropdown-item notify-item">
+                           <i class="mdi mdi-logout me-1"></i>
+                           Logout
+                           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                               {{ csrf_field() }}
+                           </form>
+                       </a></li>
                         </ul>
                         @else
                         <a  href="{{ route('login') }}" class="btn-link">
@@ -69,7 +64,7 @@
                         <a  href="{{ route('register') }}" class="btn-link">
                             <span><i class="fa mr--8 fa-user-plus"></i>Register</span>
                         </a>
-                        <a  href="#" target="_blank" class="btn-link">
+                        <a  href="site/media/IBC_User_Guide_V1.pdf" target="_blank" class="btn-link">
                             <span><i class="fa mr--8 fa-question-circle"></i>Help</span>
                         </a>
 
@@ -108,15 +103,19 @@
             <div id="headerNav" class="navbar-collapse collapse float--right">
                 <!-- Header Nav Links Start -->
                 <ul class="header--nav-links style--1 nav ff--primary">
-                    <li class="{{ (request()->is('home')) ? 'active' : '' }}"><a  href="{{url('home')}}"><span>Home</span></a></li>
-                    <li class="{{ (request()->is('biospecimens*')) ? 'active' : '' }}"><a href="{{url('biospecimens')}}"><span>Biospecimens</span></a></li>
-                    <li class="{{ (request()->is('sars-cov-2*')) ? 'active' : '' }}"><a href="{{route('covid19')}}"><span>SARS-CoV-2</span></a></li>
-                    <li class="{{ (request()->is('organs*')) ? 'active' : '' }}"><a href="{{url('organs')}}"><span>Organs</span></a></li>
-                    <li class="{{ (request()->is('tissues*')) ? 'active' : '' }}"><a href="{{url('tissues')}}"><span>Tissues</span></a></li>
-                    <li class="{{ (request()->is('projects*')) ? 'active' : '' }}"><a href="{{url('projects')}}">Projects</a></li>
-                    <li class="{{ (request()->is('policies*')) ? 'active' : '' }}"><a href="#"><span>Policies</span></a></li>
-                    <li class="{{ (request()->is('faq*')) ? 'active' : '' }}"><a href="#faq" target="_self"><span>FAQ</span></a></li>
-                    <li class="{{ (request()->is('contact*')) ? 'active' : '' }}"><a href="{{url('contact')}}"><span>Contacts</span></a></li>
+                    <li><a  href="{{url('home')}}"><span>Home</span></a></li>
+                    <li><a href="{{url('biospecimens')}}"><span>Biospecimens</span></a></li>
+                    <li><a href="#"><span>SARS-CoV-2</span></a></li>
+                    <li><a href="{{url('tissues')}}"><span>Organs</span></a></li>
+                    <li><a href="{{url('tissues')}}"><span>Tissues</span></a></li>
+                    <li class="nav-item dropdown"><a href="" id='dropdownSubMenu1' href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' class='nav-link dropdown-toggle'>Resources <i class="fa fa-caret-down"></i></a>
+                        <ul class="dropdown-menu dropdown-toggle">
+                            <li id='dropdownSubMenu2' class='dropdown-item dropdown-hover'><a href="{{url('projects')}}">The Projects</a></li>
+                            <li id='dropdownSubMenu2' class='dropdown-item dropdown-hover'><a href="#"><span>Our Policies</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#faq" target="_self"><span>FAQ</span></a></li>
+                    <li><a href="{{url('contact')}}"><span>Contacts</span></a></li>
                 </ul>
                 <!-- Header Nav Links End -->
             </div>
