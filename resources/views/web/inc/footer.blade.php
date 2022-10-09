@@ -55,10 +55,10 @@
                         <div class="nav--widget">
                             <ul class="nav">
                                 <li>
-                                    <a href="{{url('web/tissues')}}">
+                                    <a href="{{route('covid19')}}">
                                         <i class="fa fa-folder-o"></i>
                                         <span class="text">SARS-CoV-2</span>
-                                        <span class="count">({{$tissuesAll}})</span>
+                                        <span class="count">({{$covAll}})</span>
                                     </a>
                                 </li>
                                 <li>
@@ -79,7 +79,7 @@
                                     <a href="#">
                                         <i class="fa fa-folder-o"></i>
                                         <span class="text">Human Organs</span>
-                                        <span class="count">(34)</span>
+                                        <span class="count">({{$organsAll}})</span>
                                     </a>
                                 </li>
                             </ul>
@@ -140,10 +140,10 @@
 
                                 <!-- Newsletter Widget Start -->
                                 <div class="newsletter--widget style--1" data-form="validate">
-                                    <form action="" method="post" name="mc-embedded-subscribe-form" target="_blank">
+                                    <form action="{{route('subscribe')}}" method="post" name="mc-embedded-subscribe-form" >
+                                            @csrf
                                         <div class="input-group">
-                                            <input type="email" name="EMAIL" placeholder="Enter your emil address" class="form-control" autocomplete="off" required>
-
+                                            <input type="email" name="email" placeholder="Enter your emil address" class="form-control" autocomplete="off" required>
                                             <div class="input-group-btn">
                                                 <button type="submit" class="btn-link"><i class="fa fa-send-o"></i></button>
                                             </div>
@@ -155,16 +155,10 @@
                                 <!-- Tags Widget Start -->
                                 <div class="tags--widget pt--10">
                                     <ul class="nav">
-                                        <li><a href="#">Plasma</a></li>
-                                        <li><a href="#">DNA</a></li>
-                                        <li><a href="#">Sperm</a></li>
-                                        <li><a href="#">Whole Blood</a></li>
-                                        <li><a href="#">Serum</a></li>
-                                        <li><a href="#">PBMC</a></li>
-                                        <li><a href="#">RNA</a></li>
-                                        <li><a href="#">Stool</a></li>
-                                        <li><a href="#">Cord Blood</a></li>
-
+                                        @foreach ($specimensAll as $item)    
+                                            <li><a href="#">{{$item->specimen_type}}</a></li>
+                                        @endforeach                                        
+                                        <li><a href="#"><small>All</small></a></li>
                                     </ul>
                                 </div>
                                 <!-- Tags Widget End -->

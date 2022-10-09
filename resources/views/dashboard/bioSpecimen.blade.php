@@ -26,7 +26,7 @@
 
                                     <a href="{{url('catalogue/biospecimen/new')}}" class="dropdown-item">New BioSpecimen</a>
 									<div class="dropdown-divider"></div>
-                                    <a type="button" class="dropdown-item" data-toggle="modal" data-target="#impBioSpecimen">Import CSV</a>
+                                    <a type="button" class="dropdown-item" data-toggle="modal" data-target="#importBio">Import CSV</a>
 								</div>
 							</div>
 						</div>

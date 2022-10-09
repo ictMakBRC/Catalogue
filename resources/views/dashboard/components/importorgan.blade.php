@@ -1,12 +1,12 @@
-<div class="modal fade" id="importBio" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="importOrgan" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Upload biospecimen CSV</h5>
+                <h5 class="modal-title">Upload CSV</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">	<span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ url('catalogue/biospecimen/import') }}" method="POST" name="importform"
+            <form action="{{ url('catalogue/organs/import') }}" method="POST" name="importform"
             enctype="multipart/form-data"  onsubmit="return checkfile()">
                 <div class="modal-body">
 
@@ -17,7 +17,7 @@
 
                                 <input type="hidden" name="batch" value="{{rand(400,9999).time()}}">
                                 <div class="mb-3">
-                                    <label  class="form-label">Upload a biospecimen CSV file</label>
+                                    <label  class="form-label">Upload an organ CSV file</label>
                                     <input type="file" name="file" id="image-uploadify" required class="form-control" onchange="checkfile(this);">
                                 </div>
 
@@ -45,7 +45,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary">Import</button>
                 </div>
             </form>
             <div class="fm-menu">

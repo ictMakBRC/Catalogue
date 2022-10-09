@@ -273,7 +273,7 @@
                                 <div class="title">
                                     <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">{{$biospecimens}}</span>+</h3>
                                 </div>
-                                <h2><a href="#">Biospecimens</a></h2>
+                                <h2><a href="{{url('biospecimens')}}">Biospecimens</a></h2>
                                 <p><a href="{{url('biospecimens')}}">View All</a></p>
 
                             </div>
@@ -282,10 +282,10 @@
                                 <img class="member-photo" src="{{url('site/img/specimens/Theatre.jpg')}}" alt="">
                                 <br>
                                 <div class="title">
-                                    <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">{{$biospecimens}}</span>+</h3>
+                                    <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">{{$organsAll}}</span>+</h3>
                                 </div>
-                                <h2><a href="#">Organs</a></h2>
-                                <p><a href="{{url('tissues')}}">View All</a></p>
+                                <h2><a href="{{url('organs')}}">Organs</a></h2>
+                                <p><a href="{{url('organs')}}">View All</a></p>
                             </div>
 
                             <div class="col-md-4 pb--15 team-member">
@@ -294,7 +294,7 @@
                                 <div class="title">
                                     <h3 class="h3 ff--default text-primary"><span data-trigger="counterup">{{$tissues}}</span>+</h3>
                                 </div>
-                                <h2><a href="#">Tissues</a></h2>
+                                <h2><a href="{{url('tissues')}}">Tissues</a></h2>
                                 <p><a href="{{url('tissues')}}">View All</a></p>
                             </div>
 
@@ -585,7 +585,8 @@
                                     <a href="mailTo:info@ibru.mak.ac.ug" class="btn btn-sm btn-primary"><i class="fa mr--8 fa-email"></i>info@ibru.mak.ac.ug</a>
                                     <a href="callTo:+256-782-752-582" class="btn btn-sm btn-danger"><i class="fa mr--8 fa-mobile"></i>+256-782-752-582</a>
                                 </div> --}}
-                                <form action="forms/contact-form.php" method="post">
+                                <form action="{{route('contact')}}" method="post">
+                                    @csrf
                                     <div class="row gutter--20">
                                         <div class="col-xs-6 col-xxs-12">
                                             <div class="form-group">
@@ -607,7 +608,7 @@
 
                                         <div class="col-xs-12">
                                             <div class="form-group">
-                                                <textarea name="message" placeholder="Message *" class="form-control" required></textarea>
+                                                <textarea name="text" placeholder="Message *" class="form-control" required></textarea>
                                             </div>
                                         </div>
 

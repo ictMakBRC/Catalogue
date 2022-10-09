@@ -81,7 +81,8 @@
                                 <h4 class="h6 fw--400 text-darkest">Please feel free to contact us for any inquiries.</h4>
                             </div>
 
-                            <form action="forms/contact-form.php" method="post">
+                            <form action="{{route('contact')}}" method="post">
+                                @csrf
                                 <div class="row gutter--20">
                                     <div class="col-xs-6 col-xxs-12">
                                         <div class="form-group">
@@ -103,7 +104,7 @@
 
                                     <div class="col-xs-12">
                                         <div class="form-group">
-                                            <textarea name="message" placeholder="Message *" class="form-control" required></textarea>
+                                            <textarea name="text" placeholder="Message *" class="form-control" required></textarea>
                                         </div>
                                     </div>
 

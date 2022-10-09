@@ -13,24 +13,29 @@ class organ extends Model
         'project_id',
         'ProjectAcronym',
         'Category',
-        'Sample_Type',
+        'specimen_type_id',
         'ParticipantID',
         'SampleID',
         'Quantity',
-        'Aliquot_Type',
+        'Aliqout',
         'Gender',
         'Age',
         'BMI',
         'Ethinicity',
-        'Collection_Date',
-        'Sample_status',
-        'Store_for',
+        'CollectionDate',
+        'Donor_Sample_Status',
+        'Stored_for',
         'user_id',
         'batch_No',
     ];
 
-    public function organ()
+    public function project()
     {
         return $this->belongsTo(project::class, 'ProjectAcronym', 'project_acronym');
+    }
+
+    public function sample()
+    {
+        return $this->belongsTo(SpecimenType::class, 'specimen_type_id', 'specimen_type');
     }
 }
