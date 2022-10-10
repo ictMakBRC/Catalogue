@@ -86,9 +86,7 @@
 
                                             <!-- Product Info Start -->
                                             <div class="product--info text-center">
-                                                <div class="cart">
-                                                    <p><i class="mr--8 fas fa-briefcase-medical"></i>Specimen Type</p>
-                                                </div>
+                                                
                                                 <div class="name">
                                                     <h3 class="h4 fs--16 text-primary">
                                                         <a href="{{url('organs/specimenType/'.$value->myspecimen)}}" class="btn-link">{{ $value->myspecimen}}</a>
@@ -163,8 +161,7 @@
                             <!-- Page Count Start -->
                             <div class="page--count pt--30">
                                 <label class="ff--primary fs--14 fw--500 text-darker">
-                                    <span>Viewing</span>
-
+                                    
                                     {{$organs->links('vendor.pagination.bootstrap-4') }}
                                 </label>
                             </div>

@@ -32,19 +32,26 @@
                                                     <h2 class="the_service_title">Project details</h2>
                                                     <span><strong class="h4"> Study acronym</strong>: {{$value->project_acronym}}</span><br>
                                                     <span><strong class="h4"> Study name</strong>: {{$value->project_name}}</span><br>
-                                                    <span class="h4">Study Design: </span>
-                                        <p class="card-text fs-6">
-                                            {{ $value->project_design}}
-                                        </p>
+                                                    <span><strong class="h4">Study Design</strong>:  {{ $value->project_design}}</span>
+      
                                         <hr>
-                                        <br>
+                                        <span><strong class="h4">Study Objective</strong>:  {{ $value->project_design}}</span> <br>
+                                        @if(count($objectives)>0)
+                                        <span class=" h4">Objectives: </span>
+                                        <ol style="list-style: circle">
+                                        @foreach($objectives as $objective)
+                                        <li class="">-{{$objective->objective_name}}</li>
+                                        @endforeach
+                                        </ol>
+                                        @endif
+                                        <hr>
                                         <span class=" h4 mt-4">Study Description: </span>
                                         <p class="card-text fs-6">
                                             {{ $value->project_description}}
                                         </p>
-                                        <p><strong>Disease:</strong> {{ $value->disease}}</p>
-                                        <p><strong>Funder:</strong> {{$value->project_funder}}</p>
-                                        <p><strong>H3Africa Affiliated:</strong> {{$value->H3_africa_affiliated}}</p>
+                                        <p class="g-para"><strong>Disease:</strong> {{ $value->disease}}
+                                        | <strong>Funder:</strong> {{$value->project_funder}}
+                                        | <strong>H3Africa Affiliated:</strong> {{$value->H3_africa_affiliated}}</p>
                  
                                         <hr>
                                                 @if(count($countries)>0)
@@ -66,14 +73,7 @@
                                                     </ul>
                                                     @endif
 
-                                                    @if(count($objectives)>0)
-                                                    <span class=" h4">Project objectives: </span>
-                                                    <ol style="list-style: circle">
-                                                    @foreach($objectives as $objective)
-                                                    <li class="">-{{$objective->objective_name}}</li>
-                                                    @endforeach
-                                                    </ol>
-                                                    @endif
+                                                  
                                                     <hr>
                                                     <div class="row mt-xl-5 mt-3 mb-125">
                                                         <h3 class="text-center"> Other Projects</h3>
