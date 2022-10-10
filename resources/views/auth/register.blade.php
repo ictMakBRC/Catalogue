@@ -1,5 +1,5 @@
 <x-guest-layout>
-
+	@section('title', 'Register')
     <div class="wrapper">
 		<div class="section-authentication-login d-flex align-items-center justify-content-center">
 			<div class="row">

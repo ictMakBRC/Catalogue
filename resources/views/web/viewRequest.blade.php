@@ -1,5 +1,5 @@
 @extends('web.layouts.webLayout')
-@section('title', 'Account')
+@section('title', 'Request')
 @section('content')
         <!-- Cover Header Start -->
    

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- ==== Document Title ==== -->
-    <title>@yield('title')</title>
+    <title>Catalog | @yield('title')</title>
 
     <!-- ==== Document Meta ==== -->
     <meta name="author" content="">
