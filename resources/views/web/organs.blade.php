@@ -40,10 +40,10 @@
                             <!-- Filter Nav Start -->
                             <div class="filter--nav pb--30 clearfix">
                                 <div class="filter--link float--left">
-                                    <h2 class="h4">List of all available Organs : @money($organcount)</h2>
+                                    <h2 class="h4">List of all available Organs : {{$organcount}}</h2>
                                 </div>
 
-                                <div class="filter--options float--right">
+                                {{-- <div class="filter--options float--right">
                                     <label>
                                         <span class="fs--14 ff--primary fw--500 text-darker">Show By :</span>
 
@@ -52,7 +52,7 @@
                                             <option value="alphabetical">Alphabetical</option>
                                         </select>
                                     </label>
-                                </div>
+                                </div> --}}
                             </div>
                             <!-- Filter Nav End -->
                            

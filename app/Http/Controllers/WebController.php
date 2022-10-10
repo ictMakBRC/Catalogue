@@ -114,7 +114,7 @@ class WebController extends Controller
         ->groupBy('biospecimens.specimen_type_id')
         //->groupBy('biospecimens.ProjectAcronym')
         ->select('ProjectAcronym', 'container_type', 'storage_temperature', 'biospecimens.specimen_type_id as myspecimen', DB::raw('count(biospecimens.id) as count'))
-        ->paginate(6);
+        ->paginate(6000);
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
 
         return view('web.biospecimens', compact('biospecimens', 'biocount'));
@@ -233,7 +233,8 @@ public function bioDeatiled($id, $name)
         $tissuecount = Tissue::count();
         $tissues = Tissue::leftJoin('specimen_types', 'tissues.specimen_type', '=', 'specimen_types.specimen_type')
         ->groupBy('tissues.specimen_type')
-        ->select('container_type', 'storage_temperature', 'tissues.specimen_type as myspecimen', DB::raw('count(tissues.id) as count'))
+        ->groupBy('tissues.aliqout_type')
+        ->select('aliqout_type','container_type', 'storage_temperature', 'tissues.specimen_type as myspecimen', DB::raw('count(tissues.id) as count'))
         ->paginate(1200);
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
 

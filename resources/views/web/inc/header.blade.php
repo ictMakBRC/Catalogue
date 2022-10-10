@@ -118,7 +118,9 @@
                             <li class="{{ (request()->is('policies*')) ? 'active' : '' }}"><a href="#"><span>Our Policies</span></a></li>
                         </ul>
                     </li> 
-                    <li class="{{ (request()->is('biospecimens*')) ? 'active' : '' }}"><a href="#faq" target="_self"><span>FAQ</span></a></li>
+                    @if ((request()->is('home')) )
+                    <li ><a href="#faq" target="_self"><span>FAQ</span></a></li>
+                    @endif                   
                     <li class="{{ (request()->is('biospecimens*')) ? 'active' : '' }}"><a href="{{url('contact')}}"><span>Contacts</span></a></li>
                 </ul>
                 <!-- Header Nav Links End -->

@@ -26,7 +26,10 @@ class BladeServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::directive('money', function ($money) {
-            return "<?php echo number_format($money, 2); ?>";
+            return "<?php echo number_format($money,2); ?>";
+        });
+        Blade::directive('numbers', function ($numbers) {
+            return "<?php echo number_format($numbers); ?>";
         });
 
         Blade::directive('datef1', function ($datef1) {
