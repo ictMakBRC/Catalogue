@@ -58,10 +58,10 @@
                             <!-- Filter Nav Start -->
                             <div class="filter--nav pb--30 clearfix">
                                 <div class="filter--link float--left">
-                                    <h2 class="h4">List of all available Tissues : @money($tissuecount )</h2>
+                                    <h2 class="h4">List of all available Tissues : {{$tissuecount}}</h2>
                                 </div>
 
-                                <div class="filter--options float--right">
+                                {{-- <div class="filter--options float--right">
                                     <label>
                                         <span class="fs--14 ff--primary fw--500 text-darker">Show By :</span>
 
@@ -70,7 +70,7 @@
                                             <option value="alphabetical">Card</option>
                                         </select>
                                     </label>
-                                </div>
+                                </div> --}}
                             </div>
                             <!-- Filter Nav End -->
                            @if (isset($card))
@@ -133,7 +133,8 @@
                                                         <th>#</th>
                                                         {{-- <th>Study</th> --}}
                                                         <th>Specimen type</th>
-                                                        <th>Qty Available</th>
+                                                        <th>Sample type</th>
+                                                        <th>Qty</th>
                                                         <th>Temp</th>
                                                         <th>Container</th>
                                                         <th>Details</th>
@@ -148,10 +149,11 @@
                                                         </td>
                                                         {{-- <td data-label="Products"> {{ $value->ProjectAcronym}}</td> --}}
                                                         <td data-label="Products"> {{ $value->myspecimen}}</td>
+                                                        <td data-label="Products"> {{ $value->aliqout_type}}</td>
                                                         <td>{{ $value->count}}</td>
-                                                        <td>{{ $value->storage_temperature ? $value->storage_temperature : 'N/A'}}</td>
+                                                        <td>{{ $value->storage_temperature ? $value->storage_temperature : 'N/A'}} &#8451</td>
                                                         <td>{{ $value->container_type ? $value->container_type : 'N/A'}}</td>
-                                                        <td><a href="{{url('tissues/specimenType/'.$value->myspecimen)}}" title="View the available samples in {{ $value->myspecimen}}" class="btn btn-block btn-outline-info btn-sm" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-shopping-cart"> </i> View </a></td>
+                                                        <td><a href="{{url('tissues/specimenType/'.$value->myspecimen)}}" title="View the available samples in {{ $value->myspecimen}}" class="a-tag btn-sm" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-shopping-cart"> </i> View </a></td>
                                                     </tr>
                                                     @endforeach
                                                     @endif
