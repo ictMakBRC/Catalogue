@@ -37,17 +37,17 @@
                 <livewire:cart-counter />
                 <li class="dropdown">
                     @if (Route::has('login'))
-                
+
                         @auth
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa mr--8 fa-user-o"></i>
                             <span>{{auth()->user()->name}}</span>
                             <i class="fa fa-caret-down"></i>
                         </a>
-                
+
                         <ul class="dropdown-menu">
                             <li><a href="{{url('account')}}">My Account</a></li>
-                
+
                                 <a  href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();" class="dropdown-item notify-item">
                            <i class="mdi mdi-logout me-1"></i>
@@ -64,14 +64,14 @@
                         <a  href="{{ route('register') }}" class="btn-link">
                             <span><i class="fa mr--8 fa-user-plus"></i>Register</span>
                         </a>
-                        <a  href="#" target="_blank" class="btn-link">
+                        <a  href="site/media/IBC_User_Guide_V1.pdf" target="_blank" class="btn-link">
                             <span><i class="fa mr--8 fa-question-circle"></i>Help</span>
                         </a>
-                
+
                         @endauth
-                
+
                     @endif
-                
+
                 </li>
             </ul>
             <!-- Header Topbar Links End -->
@@ -112,12 +112,12 @@
                             <span>Resources</span>
                             <i class="fa fa-caret-down"></i>
                         </a>
-                    
+
                         <ul class="dropdown-menu">
                             <li class="{{ (request()->is('projects*')) ? 'active' : '' }}"><a href="{{url('projects')}}">The Projects</a></span></a></li>
                             <li class="{{ (request()->is('policies*')) ? 'active' : '' }}"><a href="#"><span>Our Policies</span></a></li>
                         </ul>
-                    </li> 
+                    </li>
                     <li class="{{ (request()->is('biospecimens*')) ? 'active' : '' }}"><a href="#faq" target="_self"><span>FAQ</span></a></li>
                     <li class="{{ (request()->is('biospecimens*')) ? 'active' : '' }}"><a href="{{url('contact')}}"><span>Contacts</span></a></li>
                 </ul>
