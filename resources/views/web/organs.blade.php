@@ -64,8 +64,17 @@
                                         <div class="product--item drop--shadow"  data-scroll-reveal="bottom">
                                             <!-- Product Image Start -->
                                             <div class="product--img">
+                                                @if ($value->myspecimen =='Kidney')
+                                                <img src="{{url('site/img/organs/Kidney.jpg')}}" alt="">
+                                                @elseif ($value->myspecimen =='Liver')
+                                                <img src="{{url('site/img/organs/Liver.jpg')}}" alt="">
+                                                @elseif ($value->myspecimen =='Cornea')
+                                                <img src="{{url('site/img/organs/cornea.jpg')}}" alt="">
+                                                @elseif ($value->myspecimen =='Bone marrow')
+                                                <img src="{{url('site/img/organs/bone_marrow.jpg')}}" alt="">
+                                                @else
                                                 <img src="{{url('site/img/organs/organ.jpg')}}" alt="">
-
+                                                @endif
                                                 <div class="action">
                                                     <a href="{{url('organs/specimenType/'.$value->myspecimen)}}">
                                                         <i class="fa fa-eye"></i>
@@ -89,8 +98,8 @@
                                                     <h5>Qty: {{ $value->count}}</h5>
                                                 </div>
 
-                                                <div class="action fs--14">
-                                                    <a href="{{url('organs/specimenType/'.$value->myspecimen)}}" title="View available samples in {{ $value->myspecimen}}" class="btn-link" data-toggle="tooltip" data-placement="bottom">
+                                                <div class="actionn fs--14">
+                                                    <a href="{{url('organs/specimenType/'.$value->myspecimen)}}"  class="btn-link" data-toggle="tooltip" data-placement="bottom">
                                                         <i class="fa fa-eye"></i> View all
                                                     </a>
                                                 </div>
