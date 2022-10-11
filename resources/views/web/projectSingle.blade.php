@@ -21,8 +21,7 @@
                 <div class="row">
                     <!-- Main Content Start -->
                     <div class="main--content col-md-8 pb--60" data-trigger="stickyScroll">
-                        @if(count($projects)>0)
-                        @foreach($projects as $value)
+                        @if($project != null)
                         <div class="main--content--inner">
                             <div class="container">
                                 <div class="row justify-content-xl-between">
@@ -30,12 +29,12 @@
                                                 <div class="single_service_content">
 
                                                     <h2 class="the_service_title">Project details</h2>
-                                                    <span><strong class="h4"> Study acronym</strong>: {{$value->project_acronym}}</span><br>
-                                                    <span><strong class="h4"> Study name</strong>: {{$value->project_name}}</span><br>
-                                                    <span><strong class="h4">Study Design</strong>:  {{ $value->project_design}}</span>
+                                                    <span><strong class="h4"> Study acronym</strong>: {{$project->project_acronym}}</span><br>
+                                                    <span><strong class="h4"> Study name</strong>: {{$project->project_name}}</span><br>
+                                                    <span><strong class="h4">Study Design</strong>:  {{ $project->project_design}}</span>
       
                                         <hr>
-                                        <span><strong class="h4">Study Objective</strong>:  {{ $value->project_design}}</span> <br>
+                                        <span><strong class="h4">Study Objective</strong>:  {{ $project->project_design}}</span> <br>
                                         @if(count($objectives)>0)
                                         <span class=" h4">Objectives: </span>
                                         <ol style="list-style: circle">
@@ -47,13 +46,15 @@
                                         <hr>
                                         <span class=" h4 mt-4">Study Description: </span>
                                         <p class="card-text fs-6">
-                                            {{ $value->project_description}}
+                                            {{ $project->project_description}}
                                         </p>
-                                        <p class="g-para"><strong>Disease:</strong> {{ $value->disease}}
-                                        | <strong>Funder:</strong> {{$value->project_funder}}
-                                        | <strong>H3Africa Affiliated:</strong> {{$value->H3_africa_affiliated}}</p>
+                                        <p class="g-para"><strong>Disease:</strong> {{ $project->disease}}
+                                        | <strong>Funder:</strong> {{$project->project_funder}}
+                                        | <strong>H3Africa Affiliated:</strong> {{$project->H3_africa_affiliated}}</p>
                  
                                         <hr>
+                                        <div class="row">
+                                            <div class="col-md-6">
                                                 @if(count($countries)>0)
                                                 <span class=" h4 mt-4">Country of collection:</span>
                                                     <ul>
@@ -62,18 +63,19 @@
                                                         @endforeach
                                                     </ul>
                                                     @endif
+                                            </div>
+                                            <div class="col-md-6">
+                                                @if(count($sites)>0)
+                                                <span class=" h4">Collection Sites: </span>
+                                                <ul>
+                                                    @foreach($sites as $site)
+                                                    <li >{{$site->site_name}}</li>
+                                                    @endforeach
 
-                                                    @if(count($sites)>0)
-                                                    <span class=" h4">Collection Sites: </span>
-                                                    <ul>
-                                                        @foreach($sites as $site)
-                                                        <li >{{$site->site_name}}</li>
-                                                        @endforeach
-
-                                                    </ul>
-                                                    @endif
-
-                                                  
+                                                </ul>
+                                                @endif
+                                            </div>
+                                        </div>
                                                     <hr>
                                                     <div class="row mt-xl-5 mt-3 mb-125">
                                                         <h3 class="text-center"> Other Projects</h3>
@@ -83,8 +85,8 @@
                                                         <div class="col-lg-4 col-sm-6">
                                                             <div class="team-member">
 
-                                                                <h4><a href="{{ url('project/view/'.$value->pcode.'/'.$value->project_acronym) }}">{{$value->project_name}}</a></h4>
-                                                                <p><a href="{{ url('project/view/'.$value->pcode.'/'.$value->project_acronym) }}">{{ $value->project_acronym}}</a></p>
+                                                                <h4><a href="{{ url('project/view/'.$value->pcode.'/'.$value->project_acronym) }}">{{$value->project_acronym}}</a></h4>
+                                                                {{-- <p><a href="{{ url('project/view/'.$value->pcode.'/'.$value->project_acronym) }}">{{ $value->project_acronym}}</a></p> --}}
                                                             </div>
                                                         </div>
                                                         @endforeach
@@ -93,7 +95,25 @@
                                                     </div>
                                                 </div>
                                     </div>
+                                 
                                     <div class="main--sidebar col-md-3 pb--60" data-trigger="stickyScroll">
+                                        @if (isset($specimen))
+                                            <div class="widget">
+                                                <h2 class="h4 fw--700 widget--title">Available {{$specimen}} Samples:</h2>
+
+                                                <div class="links--widget">
+                                                    <ul class="nav">
+                                                        @foreach ($projectitems as $item)
+                                                        <li><a href="{{url('tissues/view/'.$item->tissue_id.'/'.$item->mySpecimen)}}">{{$item->mySpecimen.' | '.$item->ethinicity.' | Age('.$item->age.')'}}</a></li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                                <a href="{{url('tissues/all/'.$specimen.'/'.$project->project_acronym)}}" title="{{ $project->project_acronym}} {{$specimen}} samples" data-toggle="tooltip" class="">View All Samples</a>
+                                            </div>
+                                        @else
+                                            
+                                        @endif
+                                        
                                         <div class="widget">
                                             <h2 class="h4 fw--700 widget--title">Available Specimens:</h2>
 
@@ -130,7 +150,6 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
                         @endif
                     </div>
                     <!-- Main Content End -->

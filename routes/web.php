@@ -32,6 +32,11 @@ Route::get('projects/', [App\Http\Controllers\WebController::class, 'Allprojects
 
 Route::get('sars-cov-2/', [App\Http\Controllers\WebController::class, 'cov19'])->name('covid19');
 
+
+
+Route::get('project/view/{code}/{name}', [App\Http\Controllers\WebController::class, 'projectDeatiled']);
+Route::get('project/view/{code}/{name}/{specimen}', [App\Http\Controllers\WebController::class, 'tissueProjectDeatiled']);
+
 Route::get('biospecimens/', [App\Http\Controllers\WebController::class, 'biospecimen']);
 Route::get('biospecimens/specimenType/{id}', [App\Http\Controllers\WebController::class, 'biospecimenType']);
 Route::get('biospecimens/all/{specimen}/{project}', [App\Http\Controllers\WebController::class, 'bioAll']);
@@ -39,7 +44,6 @@ Route::get('biospecimens/view/{id}/{name}', [App\Http\Controllers\WebController:
 
 Route::get('tissues/specimenType/{id}', [App\Http\Controllers\WebController::class, 'tissueProSampleType']);
 Route::get('tissues/', [App\Http\Controllers\WebController::class, 'tissues']);
-Route::get('project/view/{code}/{name}', [App\Http\Controllers\WebController::class, 'projectDeatiled']);
 Route::get('tissues/all/{specimen}/{project}', [App\Http\Controllers\WebController::class, 'tissueAll']);
 Route::get('tissues/view/{id}/{name}', [App\Http\Controllers\WebController::class, 'tissueDeatiled']);
 

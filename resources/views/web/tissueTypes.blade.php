@@ -52,7 +52,7 @@
                                             </table>
                                             <div class="tags--widget2">
                                                 <ul class="nav">
-                                                    <li> <a target="_blank" href="{{ url('project/view/'.$value->pcode.'/'.$value->project_acronym) }}" data-toggle="tooltip" title="View {{$value->project_acronym}} project details" class="btn btn-default text-info">Read More<i class="icofont-arrow-right"></i></a></li>
+                                                    <li> <a target="_blank" href="{{ url('project/view/'.$value->pcode.'/'.$value->project_acronym.'/'.$value->mySpecimen) }}" data-toggle="tooltip" title="View {{$value->project_acronym}} project details" class="btn btn-default text-info">Read More<i class="icofont-arrow-right"></i></a></li>
                                                     <li class="m-"><a href="{{url('tissues/all/'.$id.'/'.$value->project_acronym)}}" title="{{ $value->project_acronym}} {{$id}} samples" data-toggle="tooltip" class="btn btn-default">View Samples</a></li>
                     
                                                 </ul>
