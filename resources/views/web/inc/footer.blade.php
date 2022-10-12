@@ -14,7 +14,7 @@
                                 <li>
                                     <a href="#">
                                         <i class="fa fa-map-marker"></i>
-                                        <span class="text">Makerere University</span>
+                                        <span class="text">Makerere University, College of Health Sciences, Department of Immunology and Molecular Biology</span>
 
                                     </a>
                                 </li>
@@ -46,48 +46,6 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 col-xs-6 col-xxs-12 pb--10">
-                    <!-- Widget Start -->
-                    <div class="widget">
-                        <h2 class="h4 fw--700 widget--title">Inventory Summary </h2>
-
-                        <!-- Nav Widget Start -->
-                        <div class="nav--widget">
-                            <ul class="nav">
-                                <li>
-                                    <a href="{{route('covid19')}}">
-                                        <i class="fa fa-folder-o"></i>
-                                        <span class="text">SARS-CoV-2</span>
-                                        <span class="count">({{$covAll}})</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{url('web/tissues')}}">
-                                        <i class="fa fa-folder-o"></i>
-                                        <span class="text">Tissues</span>
-                                        <span class="count">({{$tissuesAll}})</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{url('web/biospecimens')}}" >
-                                        <i class="fa fa-folder-o"></i>
-                                        <span class="text">Biospecimens</span>
-                                        <span class="count">({{$biospecimensAll}})</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-folder-o"></i>
-                                        <span class="text">Human Organs</span>
-                                        <span class="count">({{$organsAll}})</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Nav Widget End -->
-                    </div>
-                    <!-- Widget End -->
-                </div>
 
                 <div class="col-md-3 col-xs-6 col-xxs-12 pb--10">
                     <!-- Widget Start -->
@@ -120,6 +78,13 @@
                                 <li>
                                     <a href="#">
                                         <i class="fa fa-check-circle-o"></i>
+                                        <span class="text">School of Biomedical Sciences</span>
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-check-circle-o"></i>
                                         <span class="text">Makerere University</span>
 
                                     </a>
@@ -128,6 +93,56 @@
 
                         </div>
                         <!-- Tags Widget End -->
+                    </div>
+                    <!-- Widget End -->
+                </div>
+
+                <div class="col-md-3 col-xs-6 col-xxs-12 pb--10">
+                    <!-- Widget Start -->
+                    <div class="widget">
+                        <h2 class="h4 fw--700 widget--title">Inventory Summary </h2>
+
+                        <!-- Nav Widget Start -->
+                        <div class="nav--widget">
+                            <ul class="nav">
+                                <li>
+                                    <a href="{{route('covid19')}}">
+                                        <i class="fa fa-folder-o"></i>
+                                        <span class="text">SARS-CoV-2</span>
+                                        <span class="count">({{$covAll}})</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{url('web/biospecimens')}}" >
+                                        <i class="fa fa-folder-o"></i>
+                                        <span class="text">Biospecimens</span>
+                                        <span class="count">({{$biospecimensAll}})</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('covid19')}}">
+                                        <i class="fa fa-folder-o"></i>
+                                        <span class="text">DNA Samples</span>
+                                        <span class="count">({{$covAll}})</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{url('web/tissues')}}">
+                                        <i class="fa fa-folder-o"></i>
+                                        <span class="text">Tissues</span>
+                                        <span class="count">({{$tissuesAll}})</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-folder-o"></i>
+                                        <span class="text">Human Organs</span>
+                                        <span class="count">({{$organsAll}})</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Nav Widget End -->
                     </div>
                     <!-- Widget End -->
                 </div>
@@ -155,9 +170,9 @@
                                 <!-- Tags Widget Start -->
                                 <div class="tags--widget pt--10">
                                     <ul class="nav">
-                                        @foreach ($specimensAll as $item)    
+                                        @foreach ($specimensAll as $item)
                                             <li><a href="#">{{$item->specimen_type}}</a></li>
-                                        @endforeach                                        
+                                        @endforeach
                                         <li><a href="#"><small>All</small></a></li>
                                     </ul>
                                 </div>
