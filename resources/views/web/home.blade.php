@@ -62,7 +62,7 @@
                                             </div>
 
                                             <div class="desc text-gray fs--16">
-                                                <p>We have well annotated and quality controlled Nucleic acids (DNA & RNA), PLASMA, PBMCs, stool and many other Biospecimens.</p>
+                                                <p>Well annotated and quality controlled; Nucleic acids, PLASMA, PBMCs, Stool, Swabs, etc.</p>
                                             </div>
 
                                             <div class="action text-uppercase">
