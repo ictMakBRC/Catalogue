@@ -60,10 +60,11 @@ class CartController extends Controller
         } else {
             session(['guestuser' => time().rand(50, 1000)]);
         }
+        
         $this->validate($request, [
             'item_type' => 'required',
             'project_acronym' => 'required',
-            //'category'=>'required',
+            'quantity'=>'required',
             'specimen_type' => 'required',
             'sample_id' => 'required',
             'aliqout_type' => 'required',
@@ -74,13 +75,15 @@ class CartController extends Controller
         ]);
         $ip = request()->ip();
         $data = Location::get($ip);
-        $isExist = cart::select('*')
-            ->where('session_id', session('guestuser'))
-            ->where('sample_id', $request->input('sample_id'))
-            ->exists();
-        if ($isExist) {
-            return redirect()->back()->with('warning', 'Item already exists in the list !!');
-        } else {
+                $isExist = cart::select('*')
+                    ->where('session_id', session('guestuser'))
+                    ->where('sample_id', $request->input('sample_id'))
+                    ->where('item', $request->input('Tissue'))
+                    ->exists();
+                if ($isExist) {
+                    return redirect()->back()->with('warning', 'Item already exists in the list !!');
+                } 
+            else {
             //  return $data;
             $value = new cart();
             $value->session_id = session('guestuser');
@@ -94,6 +97,8 @@ class CartController extends Controller
             $value->age = $request->input('age');
             $value->ethinicity = $request->input('ethinicity');
             $value->donor_status = $request->input('donor_status');
+            $value->details = $request->input('details');            
+            $value->quantity = $request->input('quantity');            
             $value->save();
 
             //$this->cartcount();

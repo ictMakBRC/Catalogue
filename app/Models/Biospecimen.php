@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Biospecimen extends Model
 {
@@ -31,7 +32,9 @@ class Biospecimen extends Model
 
     public function biospecimen()
     {
-        return $this->belongsTo(project::class, 'ProjectAcronym', 'project_acronym');
+        return $this->belongsTo(project::class, 'ProjectAcronym', 'project_acronym')->select('*', 'specimen_type_id', DB::raw('count(biospecimen.id) as count'))
+        ->groupBy('ProjectAcronym');
+        
     }
 
     public function sample()

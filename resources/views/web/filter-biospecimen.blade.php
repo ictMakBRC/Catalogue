@@ -1,6 +1,6 @@
-{{-- @extends('web.layouts.webLayout')
+@extends('web.layouts.webLayout')
 @section('title', 'Biospecimens')
-@section('content') --}}
+@section('content')
 <div>
         <div class="page--header pt--60 pb--60 text-center" data-bg-img="{{url('site/img/page-header-img/biobg.jpg')}}" data-overlay="0.75">
             <div class="container">
@@ -33,7 +33,8 @@
                                         
                                                 <!-- Buddy Finder Widget Start -->
                                                 <div class="buddy-finder--widget">
-                                                    <form  wire:submit.prevent="filter">
+                                                    <form  method="POST" action="{{url('biospecimens/filter/'.$bioid)}}">
+                                                        @csrf
                                                         <div class="row">
                                                             <div class="col-xs-4 col-xxs-12">
                                                                 <div class="form-group">
@@ -41,10 +42,9 @@
                                                                         <span class="text-darker ff--primary fw--500">Genger</span>
                                         
                                                                         <select name="gender" wire:model='gender' class="form-control form-sm">
-                                                                            <option value="">-------</option>
+                                                                            <option value="{{$gender}}">{{$gender}}</option>
                                                                             <option value="M">Male</option>
                                                                             <option value="F">Female</option>
-                                                                            <option value="other">All</option>
                                                                         </select>
                                                                     </label>
                                                                 </div>
@@ -55,8 +55,8 @@
                                                                     <label>
                                                                         <span class="text-darker ff--primary fw--500">Ethninicity</span>
                                         
-                                                                        <select name="lookingfor" class="form-control form-sm" >                                                                
-                                                                            <option value="">--------------</option>
+                                                                        <select name="ethinicity" class="form-control form-sm" >                                                                
+                                                                            <option value="{{$ethinicity}}">{{$ethinicity}}</option>
                                                                         </select>
                                                                     </label>
                                                                 </div>
@@ -68,7 +68,7 @@
                                                                         <span class="text-darker ff--primary fw--500">Age</span>
                                         
                                                                         <select name="age" wire:model='age' class="form-control form-sm">
-                                                                            <option value="">All</option>
+                                                                            <option value="{{$age}}">{{$age}}</option>
                                                                             <option value="0,18">18-</option>
                                                                             <option value="18,25">18 to 25</option>
                                                                             <option value="25,30">25 to 30</option>
@@ -85,7 +85,7 @@
                                                                     <label>
                                                                         <span class="text-darker ff--primary fw--500">Type</span>
                                         
-                                                                        <select wire:model="bioid" class="form-control form-sm">
+                                                                        <select wire:model="bioid" name="bioid" class="form-control form-sm">
                                                                             <option value="{{$bioid}}">{{$bioid}}</option>
                                                                             @foreach ($biospecimensType as $item)
                                                                                 <option value="{{$item->specimen_type_id}}">{{$item->specimen_type_id}}</option>
@@ -100,15 +100,13 @@
                                                                     <label>
                                                                         <span class="text-darker ff--primary fw--500">Disease status</span>
                                         
-                                                                        <select wire:model="status" class="form-control form-sm">
-                                                                            <option value="">------</option>
+                                                                        <select wire:model="status" name="status" class="form-control form-sm">
+                                                                            <option value="{{$status}}">{{$status}}</option>
                                                                             @forelse ($Casestatus as $item)
                                                                                 <option value="{{$item->CaseControl}}">{{$item->CaseControl}}</option>
                                                                                 @empty
                                                                                 <option value="">------</option>
                                                                                 @endforelse
-                                                                                
-                                                                           
                                                                         </select>
                                                                     </label>
                                                                 </div>
@@ -119,8 +117,8 @@
                                                                     <label>
                                                                         <span class="text-darker ff--primary fw--500">Study acronym</span>
                                         
-                                                                        <select wire:model="project" class="form-control form-sm" >
-                                                                            <option value="">------</option>
+                                                                        <select wire:model="project" name="project" class="form-control form-sm" >
+                                                                            <option value="{{$project}}">{{$project}}</option>
                                                                             @foreach ($study as $item)
                                                                                 <option value="{{$item->ProjectAcronym}}">{{$item->ProjectAcronym}}</option>
                                                                             @endforeach
@@ -128,21 +126,6 @@
                                                                     </label>
                                                                 </div>
                                                             </div>
-                                        
-                                                            {{-- <div class="col-xs-12 d-none">
-                                                                <div class="form-group">
-                                                                    <label>
-                                                                        <span class="text-darker ff--primary fw--500">Filter Country</span>
-                                        
-                                                                        <select name="city" class="form-control form-sm" data-trigger="selectmenu">
-                                                                            <option value="unitedstates">United States</option>
-                                                                            <option value="australia">Australia</option>
-                                                                            <option value="turkey">Turkey</option>
-                                                                            <option value="vietnam">Vietnam</option>
-                                                                        </select>
-                                                                    </label>
-                                                                </div>
-                                                            </div> --}}
                                         
                                                             <div class="col-xs-12">
                                                                 <button type="submit" class="btn btn-primary float-end">Filter</button>
@@ -170,9 +153,9 @@
                             <div class="member--items">
                                 <div class="main--content-inner drop--shadow">
                                     <!-- Topics List Start -->
-                                    <div class="box--items">
+                                    <div class="box--items">                                   
                                         <div class="table-responsive">
-                                            <table class="table table-striped"  style="width:100%">
+                                            <table class="table table-striped" style="width:100%" >
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
@@ -183,25 +166,35 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody class="fs--14 text-darkest">
-                                                    @if(count($data)>0)
+                                                @if(count($data)>0)
                                                     @foreach($data as $key=>$value)                                                    
-                                                    <form  wire:submit.prevent="request" action="{{ url('cart/add') }}" id="{{ $value->ProjectAcronym}}" method="POST">
-                                                        @csrf
-                                                        <tr>
-                                                                <td data-label="Rate">
-                                                                    {{$key+1}}
-                                                                </td>
-                                                                <td data-label="Products"> {{ $value->ProjectAcronym}}</td>
-                                                                <td>{{ $value->count}} <input type="hidden" readonly name="qty" id="qty" value="{{ $value->count}}" required></td>
-                                                                <td> <input type="number" max="{{ $value->count}}" required name="required" class="form-control" style=" width:70px " id=""> 
-                                                                    <input type="hidden" value="Age:{{$age}}, Gender:{{$gender}}, Case control:{{$status}}, Study:{{$project}}, Specimen:{{$bioid}}" name="details" id="">
-                                                                </td>
-                                                                <td> <button form="{{ $value->ProjectAcronym}}" class="btn-success btn btn-sm" type="submit">Add To Request</button></td>
-                                                            
-                                                        </tr>
-                                                    </form>
+                                                        <form action="{{ url('cart/add') }}"  id="{{ $value->ProjectAcronym}}" method="POST">
+                                                            @csrf
+                                                            <tr>
+                                                                    <td data-label="Rate">
+                                                                        {{$key+1}}
+                                                                    </td>
+                                                                    <td data-label="Products"> {{ $value->ProjectAcronym}}</td>
+                                                                    <td>{{ $value->count}} <input type="hidden" readonly name="qty" id="qty" value="{{ $value->count}}" required></td>
+                                                                    <td> 
+                                                                        <input type="hidden"  value="Biospecimens" class="form-control" name="item_type">
+                                                                        <input type="hidden"  value="{{$value->ProjectAcronym}}" class="form-control" name="sample_id">
+                                                                        <input type="hidden"  value="{{ $age}}" class="form-control" name="age">
+                                                                        <input type="hidden"  value="{{ $ethinicity}}" class="form-control" name="ethinicity">
+                                                                        <input type="hidden"  value="{{ $gender}}" class="form-control" name="gender">
+                                                                        <input type="hidden"  value="{{ $bioid}}" class="form-control" name="specimen_type">
+                                                                        <input type="hidden"  value="{{ $bioid}}" class="form-control" name="aliqout_type">
+                                                                        <input type="hidden"  value="{{ $status}}" class="form-control" name="donor_status">
+                                                                        <input type="hidden" name="project_acronym" value="{{$value->ProjectAcronym}}">
+                                                                        <input type="number" max="{{ $value->count}}" required name="quantity" class="form-control" style=" width:70px " id=""> 
+                                                                        <input type="hidden" value="Age:{{$age}}, Gender:{{$gender}}, Case control:{{$status}}, Study:{{$project}}, Specimen:{{$bioid}}" name="details" id="">
+                                                                    </td>
+                                                                    <td> <button class="btn-success btn btn-sm" form="{{ $value->ProjectAcronym}}" type="submit">Add To Request</button></td>
+                                                                
+                                                            </tr>
+                                                        </form>
                                                     @endforeach
-                                                    @endif
+                                                @endif
                                                 </tbody>
                                             </table>
                                         </div>
@@ -222,4 +215,4 @@
             </div>
         </section>
 </div>
-{{-- @endsection --}}
+@endsection

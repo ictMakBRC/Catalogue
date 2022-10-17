@@ -58,6 +58,7 @@
                             @endauth
                             @endif
                             <input type="hidden"  value="Tissue" class="form-control" name="item_type">
+                            <input type="hidden"  value="1" class="form-control" name="quantity">
                             <input type="hidden"  value="{{ $value->sample_id}}" class="form-control" name="sample_id">
                             <input type="hidden"  value="{{ $value->age}}" class="form-control" name="age">
                             <input type="hidden"  value="{{ $value->ethinicity}}" class="form-control" name="ethinicity">
@@ -66,6 +67,7 @@
                             <input type="hidden"  value="{{ $value->aliqout_type}}" class="form-control" name="aliqout_type">
                             <input type="hidden"  value="{{ $value->donor_status}}" class="form-control" name="donor_status">
                             <input type="hidden" name="project_acronym" value="{{$value->project_acronym}}">
+                            <input type="hidden" value="Age:{{ $value->age}}, Gender:{{ $value->gender}}, Donor_State:{{ $value->donor_status}}, Study:{{$value->project_acronym}}, Specimen:{{$value->specimen_type}}" name="details" id="">
                             <div class="action fs--14">
                                 @if ($cartitems->where('sample_id',$value->sample_id)->count())
                                 <button class="btn-success btn btn-sm" disabled type="submit">Already in cart</button>
