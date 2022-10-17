@@ -185,7 +185,7 @@
                                                 <tbody class="fs--14 text-darkest">
                                                     @if(count($data)>0)
                                                     @foreach($data as $key=>$value)                                                    
-                                                    <form wire:submit.prevent="request" method="POST" action="">
+                                                    <form action="{{ url('cart/add') }}" method="POST">
                                                         <tr>
                                                                 <td data-label="Rate">
                                                                     {{$key+1}}
@@ -195,7 +195,7 @@
                                                                 <td> <input type="number" max="{{ $value->count}}" required name="required" class="form-control" style=" width:70px " id=""> 
                                                                     <input type="hidden" value="Age:{{$age}}, Gender:{{$gender}}, Case control:{{$status}}, Study:{{$project}}, Specimen:{{$bioid}}" name="details" id="">
                                                                 </td>
-                                                                <td><button class="btn btn-primary" @if ($value->count ==null ||$value->count <=0 ) disabled @endif type="submit"><i class="fa fa-shopping-cart"> </i>Request</button></td>
+                                                                <td> <button class="btn-success btn btn-sm" type="submit">Add To Request</button></td>
                                                             
                                                         </tr>
                                                     </form>

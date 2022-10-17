@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Biospecimen;
+use App\Models\BioSpecimenRequest;
 use App\Models\organ;
 use App\Models\SpecimenType;
 use App\Models\Tissue;
@@ -29,7 +30,7 @@ class FilterBiospecimenComponent extends Component
 
     public $organsAll;
 
-    public $data, $bioid, $status;
+    public $data, $bioid, $status, $details, $quantity;
   //  public $rgender, $rethinicity, $rage, $rstudy, $rcase;
 
     public function mount($specimentype)
@@ -37,9 +38,9 @@ class FilterBiospecimenComponent extends Component
         $this->bioid = $specimentype;
         DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
       // if($this->project != null){
-            $this->data = Biospecimen::select('*',DB::raw('count(biospecimens.id) as count'))
-            ->where('biospecimens.specimen_type_id', $this->bioid)->groupBy('ProjectAcronym')->get();
-           // $this->data = [];
+            // $this->data = Biospecimen::select('*',DB::raw('count(biospecimens.id) as count'))
+            // ->where('biospecimens.specimen_type_id', $this->bioid)->groupBy('ProjectAcronym')->get();
+            $this->data = [];
       // }
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
     }
@@ -68,6 +69,23 @@ class FilterBiospecimenComponent extends Component
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
     }
 
+    public function request()
+    {
+        $this->validate([
+            'quantity' => 'required',
+            'details' => 'required',
+        ]);
+        $value = new BioSpecimenRequest();
+        $value->session_id = session()->get('guestuser');
+        $value->quantity = $this->quantity;
+        $value->details = $this->details;
+        $value->save();
+        session()->flash('success', 'Test Category data created successfully.');
+        $this->quantity = '';
+        $this->details = '';
+        $guest = session()->get('guestuser');
+        session()->flash('success', 'request successfully. added');
+    }
     public function render()
     {
         DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
