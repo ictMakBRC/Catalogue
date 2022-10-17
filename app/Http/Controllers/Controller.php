@@ -28,22 +28,22 @@ class Controller extends BaseController
         // $guest = session()->get('guestuser');
         // $mycartitems = cart::Where('session_id', $guest)->where('state', 'pending')->get();
         // $cartcount = cart::where('session_id', $guest)->get();
-        $specimens = SpecimenType::orderBy('specimen_type', 'ASC')->limit(12)->get();
-        $biospecimens = Biospecimen::count();
-        $cov19 = Biospecimen::where('ProjectAcronym', 'COVID-19')->count();
-        $tissues = Tissue::count();
-        $organs = organ::count();
+        // $specimens = SpecimenType::orderBy('specimen_type', 'ASC')->limit(12)->get();
+        // $biospecimens = Biospecimen::count();
+        // $cov19 = Biospecimen::where('ProjectAcronym', 'COVID-19')->count();
+        // $tissues = Tissue::count();
+        // $organs = organ::count();
         View::share('appName', $appName);
         View::share('bizcontact', $bizcontact);
         View::share('bizname', $bizname);
         View::share('bizlocation', $bizlocation);
         View::share('bizemail', $email);
         // View::share('cartount', $cartcount);
-        // View::share('mycartitems', $mycartitems);
-        View::share('biospecimensAll', $biospecimens);
-        View::share('covAll', $cov19);
-        View::share('tissuesAll', $tissues);
-        View::share('organsAll', $organs);
-        View::share('specimensAll', $specimens);
+        // // View::share('mycartitems', $mycartitems);
+        // View::share('biospecimensAll', $biospecimens);
+        // View::share('covAll', $cov19);
+        // View::share('tissuesAll', $tissues);
+        // View::share('organsAll', $organs);
+        // View::share('specimensAll', $specimens);
     }
 }

@@ -58,28 +58,52 @@
                                     <a href="{{route('covid19')}}">
                                         <i class="fa fa-folder-o"></i>
                                         <span class="text">SARS-CoV-2</span>
-                                        <span class="count">({{$covAll}})</span>
+                                        <span class="count">
+                                            @if (isset($covAll))
+                                            ({{$covAll}})
+                                            @else    
+                                            (0)                                     
+                                            @endif
+                                        </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{url('web/tissues')}}">
                                         <i class="fa fa-folder-o"></i>
                                         <span class="text">Tissues</span>
-                                        <span class="count">({{$tissuesAll}})</span>
+                                        <span class="count">
+                                            ( @if (isset($tissuesAll))
+                                            {{$tissuesAll}}
+                                            @else    
+                                            0                                        
+                                            @endif)
+                                    </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{url('web/biospecimens')}}" >
                                         <i class="fa fa-folder-o"></i>
                                         <span class="text">Biospecimens</span>
-                                        <span class="count">({{$biospecimensAll}})</span>
+                                        <span class="count">
+                                            @if (isset($biospecimensAll))
+                                            ({{$biospecimensAll}})
+                                            @else    
+                                            (0)                                        
+                                            @endif
+                                        </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <i class="fa fa-folder-o"></i>
                                         <span class="text">Human Organs</span>
-                                        <span class="count">({{$organsAll}})</span>
+                                        <span class="count">
+                                            @if (isset($organsAll))
+                                            ({{$organsAll}})
+                                            @else    
+                                            (0)                                        
+                                            @endif
+                                        </span>
                                     </a>
                                 </li>
                             </ul>
@@ -155,10 +179,12 @@
                                 <!-- Tags Widget Start -->
                                 <div class="tags--widget pt--10">
                                     <ul class="nav">
+                                        @if (isset($specimensAll))
                                         @foreach ($specimensAll as $item)    
                                             <li><a href="#">{{$item->specimen_type}}</a></li>
                                         @endforeach                                        
                                         <li><a href="#"><small>All</small></a></li>
+                                        @endif
                                     </ul>
                                 </div>
                                 <!-- Tags Widget End -->

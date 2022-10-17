@@ -71,6 +71,7 @@ class SpecimenRequestController extends Controller
             $value->save();
             cart::Where('session_id', $request->input('session'))->update(['state' => 'submited']);
             session(['guestuser' => time().rand(50, 1000)]);
+
             return redirect('request/view/'.$request->input('session'))->with('success', 'Record Successfully added !!');
 
             return redirect('home')->with('success', 'Record Successfully added !!');

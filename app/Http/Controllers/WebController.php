@@ -92,7 +92,6 @@ class WebController extends Controller
 
     public function projectDeatiled($code, $name)
     {
-
         $biospecimens = Biospecimen::where('project_id', $name)->count();
         $tissues = Tissue::where('project_acronym', $name)->count();
         $countries = country::where('project_code', $code)->orderBy('country', 'asc')->get();
@@ -100,15 +99,14 @@ class WebController extends Controller
         $sites = collectionSite::where('project_code', $code)->orderBy('site_name', 'asc')->get();
         $objectives = ProjectObjective::where('project_code', $code)->orderBy('objective_name', 'asc')->get();
         $project = project::where('pcode', $code)->first();
-        $projectitems=null;
+        $projectitems = null;
         $otherprojects = project::orderBy('id', 'desc')->limit(3)->get();
 
-        return view('web.projectSingle', compact('projectitems','project', 'name', 'sites', 'countries', 'publications', 'objectives', 'biospecimens', 'tissues', 'otherprojects'));
+        return view('web.projectSingle', compact('projectitems', 'project', 'name', 'sites', 'countries', 'publications', 'objectives', 'biospecimens', 'tissues', 'otherprojects'));
     }
 
     public function tissueProjectDeatiled($code, $name, $specimen)
     {
-
         $biospecimens = Biospecimen::where('project_id', $name)->count();
         $tissues = Tissue::where('project_acronym', $name)->count();
         $countries = country::where('project_code', $code)->orderBy('country', 'asc')->get();
@@ -116,17 +114,17 @@ class WebController extends Controller
         $sites = collectionSite::where('project_code', $code)->orderBy('site_name', 'asc')->get();
         $objectives = ProjectObjective::where('project_code', $code)->orderBy('objective_name', 'asc')->get();
         $project = project::where('pcode', $code)->first();
-        if($specimen != null){
+        if ($specimen != null) {
             $projectitems = project::leftJoin('tissues', 'tissues.project_acronym', '=', 'projects.project_acronym')
            // ->leftJoin('specimen_types', 'tissues.specimen_type', '=', 'specimen_types.specimen_type')
-            ->select('tissues.specimen_type as mySpecimen', 'aliqout_type',  'age', 'ethinicity','tissues.id as tissue_id')
+            ->select('tissues.specimen_type as mySpecimen', 'aliqout_type', 'age', 'ethinicity', 'tissues.id as tissue_id')
             ->where('tissues.specimen_type', $specimen)->where('pcode', $code)->limit(10)->get();
-        }else{
-            $projectitems=null;
+        } else {
+            $projectitems = null;
         }
         $otherprojects = project::orderBy('id', 'desc')->limit(3)->get();
 
-        return view('web.projectSingle', compact('specimen','projectitems','project', 'name', 'sites', 'countries', 'publications', 'objectives', 'biospecimens', 'tissues', 'otherprojects'));
+        return view('web.projectSingle', compact('specimen', 'projectitems', 'project', 'name', 'sites', 'countries', 'publications', 'objectives', 'biospecimens', 'tissues', 'otherprojects'));
     }
 
     public function biospecimen()
@@ -242,7 +240,7 @@ public function bioDeatiled($id, $name)
         $tissues = Tissue::orderBy('tissues.id', 'desc')
         ->leftJoin('specimen_types', 'tissues.specimen_type', '=', 'specimen_types.specimen_type')
         ->leftJoin('projects', 'tissues.project_acronym', '=', 'projects.project_acronym')
-        ->select('tissues.specimen_type as mySpecimen','project_funder', 'project_design', 'aliqout_type', 'pcode', 'projects.project_acronym as project_acronym', 'project_description', 'project_name', 'projects.id as pro_id', 'tissues.created_at as tissuedate', DB::raw('count(tissues.id) as tcount'))
+        ->select('tissues.specimen_type as mySpecimen', 'project_funder', 'project_design', 'aliqout_type', 'pcode', 'projects.project_acronym as project_acronym', 'project_description', 'project_name', 'projects.id as pro_id', 'tissues.created_at as tissuedate', DB::raw('count(tissues.id) as tcount'))
         ->where('tissues.specimen_type', $id)
         ->groupBy('tissues.project_acronym')
         ->paginate(6);
@@ -259,7 +257,7 @@ public function bioDeatiled($id, $name)
         $tissues = Tissue::leftJoin('specimen_types', 'tissues.specimen_type', '=', 'specimen_types.specimen_type')
         ->groupBy('tissues.specimen_type')
         ->groupBy('tissues.aliqout_type')
-        ->select('aliqout_type','container_type', 'storage_temperature', 'tissues.specimen_type as myspecimen', DB::raw('count(tissues.id) as count'))
+        ->select('aliqout_type', 'container_type', 'storage_temperature', 'tissues.specimen_type as myspecimen', DB::raw('count(tissues.id) as count'))
         ->paginate(1200);
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
 

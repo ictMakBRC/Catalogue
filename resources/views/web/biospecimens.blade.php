@@ -85,7 +85,8 @@
                                                         <td>{{ $value->count}}</td>
                                                         <td>{{ $value->storage_temperature ? $value->storage_temperature : 'N/A'}} &#8451</td>
                                                         <td>{{ $value->container_type ? $value->container_type : 'N/A'}}</td>
-                                                        <td><a href="{{url('biospecimens/specimenType/'.$value->myspecimen)}}" title="View all {{ $value->myspecimen}} " class="a-tag btn-sm"  data-toggle="tooltip" data-placement="bottom"><i class="fa fa-shopping-cart"> </i> View</a></td>
+                                                        {{-- <td><a href="{{url('biospecimens/specimenType/'.$value->myspecimen)}}" title="View all {{ $value->myspecimen}} " class="a-tag btn-sm"  data-toggle="tooltip" data-placement="bottom"><i class="fa fa-shopping-cart"> </i> View</a></td> --}}
+                                                        <td><a href="{{url('biospecimens/filter/'.$value->myspecimen)}}" title="View all {{ $value->myspecimen}} " class="a-tag btn-sm"  data-toggle="tooltip" data-placement="bottom"><i class="fa fa-shopping-cart"> </i> View</a></td>
                                                     </tr>
                                                     @endforeach
                                                     @endif

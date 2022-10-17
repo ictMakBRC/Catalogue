@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Livewire\FilterBiospecimenComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +33,7 @@ Route::get('projects/', [App\Http\Controllers\WebController::class, 'Allprojects
 
 Route::get('sars-cov-2/', [App\Http\Controllers\WebController::class, 'cov19'])->name('covid19');
 
-
+Route::get('biospecimens/filter/{specimentype}', FilterBiospecimenComponent::class)->name('biospecimenfilter');
 
 Route::get('project/view/{code}/{name}', [App\Http\Controllers\WebController::class, 'projectDeatiled']);
 Route::get('project/view/{code}/{name}/{specimen}', [App\Http\Controllers\WebController::class, 'tissueProjectDeatiled']);
@@ -65,7 +66,7 @@ Route::post('user/contact', [ContactMessageController::class, 'store'])->name('c
 
 //------------------------------------Admin Login Routes------------------------------------------------------
 Route::group(['namespace' => 'catalogue', 'middleware' => ['auth', 'role:admin|superadmin|user'], 'prefix' => 'catalogue'], function () {
-    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
+    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard2', [App\Http\Controllers\DashboardController::class, 'index2']);
     Route::get('/home', [App\Http\Controllers\DashboardController::class, 'index']);
 
