@@ -49,73 +49,6 @@
                 <div class="col-md-3 col-xs-6 col-xxs-12 pb--10">
                     <!-- Widget Start -->
                     <div class="widget">
-                        <h2 class="h4 fw--700 widget--title">Inventory Summary </h2>
-
-                        <!-- Nav Widget Start -->
-                        <div class="nav--widget">
-                            <ul class="nav">
-                                <li>
-                                    <a href="{{route('covid19')}}">
-                                        <i class="fa fa-folder-o"></i>
-                                        <span class="text">SARS-CoV-2</span>
-                                        <span class="count">
-                                            @if (isset($covAll))
-                                            ({{$covAll}})
-                                            @else    
-                                            (0)                                     
-                                            @endif
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{url('web/tissues')}}">
-                                        <i class="fa fa-folder-o"></i>
-                                        <span class="text">Tissues</span>
-                                        <span class="count">
-                                            ( @if (isset($tissuesAll))
-                                            {{$tissuesAll}}
-                                            @else    
-                                            0                                        
-                                            @endif)
-                                    </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{url('web/biospecimens')}}" >
-                                        <i class="fa fa-folder-o"></i>
-                                        <span class="text">Biospecimens</span>
-                                        <span class="count">
-                                            @if (isset($biospecimensAll))
-                                            ({{$biospecimensAll}})
-                                            @else    
-                                            (0)                                        
-                                            @endif
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-folder-o"></i>
-                                        <span class="text">Human Organs</span>
-                                        <span class="count">
-                                            @if (isset($organsAll))
-                                            ({{$organsAll}})
-                                            @else    
-                                            (0)                                        
-                                            @endif
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Nav Widget End -->
-                    </div>
-                    <!-- Widget End -->
-                </div>
-
-                <div class="col-md-3 col-xs-6 col-xxs-12 pb--10">
-                    <!-- Widget Start -->
-                    <div class="widget">
                         <h2 class="h4 fw--700 widget--title">Important Links</h2>
                         <!-- Nav Widget Start -->
                         <div class="nav--widget">
@@ -237,7 +170,7 @@
                                 <div class="tags--widget pt--10">
                                     <ul class="nav">
                                         @if (isset($specimensAll))
-                                        @foreach ($specimensAll as $item)   
+                                        @foreach ($specimensAll as $item)
                                             <li><a href="#">{{$item->specimen_type}}</a></li>
                                         @endforeach
                                         <li><a href="#"><small>All</small></a></li>
