@@ -19,7 +19,7 @@
                                         <!-- Banner Content Start -->
                                         <div class="banner--content pt--70 pb--80 text-center">
                                             <div class="title">
-                                                <h1 class="h1 text-lightgray">The Catalog og uganda</h1>
+                                                <h1 class="h1 text-lightgray">The Catalog</h1>
                                             </div>
 
                                             <div class="sub-title">
