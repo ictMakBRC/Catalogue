@@ -155,7 +155,7 @@ class WebController extends Controller
         ->paginate(6);
         DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
 
-        return view('web.covid.sarscov2', compact('biospecimens', 'biocount'));
+        return view('web.biospecimens', compact('biospecimens', 'biocount'));
     }
 
     /**
