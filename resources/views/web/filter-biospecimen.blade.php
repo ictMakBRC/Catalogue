@@ -189,7 +189,7 @@
                                                                         <input type="number" max="{{ $value->count}}" required name="quantity" class="form-control" style=" width:70px " id=""> 
                                                                         <input type="hidden" value="Age:{{$age}}, Gender:{{$gender}}, Case control:{{$status}}, Study:{{$project}}, Specimen:{{$bioid}}" name="details" id="">
                                                                     </td>
-                                                                    <td> <button class="btn-success btn btn-sm" form="{{ $value->ProjectAcronym}}" type="submit">Add To Request</button></td>
+                                                                    <td> <button class="a-tag btn-success btn btn-sm" form="{{ $value->ProjectAcronym}}" type="submit"><i class="fa fa-shopping-cart"> </i> Request</button></td>
                                                                 
                                                             </tr>
                                                         </form>
