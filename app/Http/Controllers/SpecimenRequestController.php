@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\cart;
-use App\Models\SpecimenRequest;
+use App\Models\FacilityInformation;
 use Illuminate\Http\Request;
+use App\Models\SpecimenRequest;
+use App\Notifications\RequestNotification;
+use Illuminate\Support\Facades\Notification;
+use PhpParser\Node\Stmt\TryCatch;
 
 class SpecimenRequestController extends Controller
 {
@@ -72,6 +76,30 @@ class SpecimenRequestController extends Controller
             cart::Where('session_id', $request->input('session'))->update(['state' => 'submited']);
             session(['guestuser' => time().rand(50, 1000)]);
 
+            $greeting='Hello'.' '.$request->name;
+            $body='Your request titled'.' '.$request->subject;
+            $actiontext='Click to viewy, download or track status, track code is:'.$request->input('session');
+            $details=[
+                'greeting'=>$greeting,
+                'body'=>$body,
+                'actiontext'=>$actiontext,
+                'actionurl'=>'http://catalog.makbrc.online/request/view/'.$request->input('session')
+            ];
+            $detail=[
+                'greeting'=>'Hello Admin',
+                'body'=>$request->name.' Has submitted a new specimen request titled'.' '.$request->subject,
+                'actiontext'=>$actiontext,
+                'actionurl'=>'http://catalog.makbrc.online/request/view/'.$request->input('session')
+            ];
+            try{
+            $inserted=SpecimenRequest::findOrFail($value->id);
+            Notification::send( $inserted,new RequestNotification($details));
+
+            $admin=FacilityInformation::findOrFail(1);
+            Notification::send($admin,new RequestNotification($detail));
+            }catch(\Exception $error){
+                return redirect('request/view/'.$request->input('session'))->with('success', 'Record Successfully added !!');
+            }
             return redirect('request/view/'.$request->input('session'))->with('success', 'Record Successfully added !!');
 
             return redirect('home')->with('success', 'Record Successfully added !!');
