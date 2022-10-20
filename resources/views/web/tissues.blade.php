@@ -172,7 +172,7 @@
                             <!-- Page Count Start -->
                             <div class="page--count pt--30">
                                 <label class="ff--primary fs--14 fw--500 text-darker">
-                                    <span>Viewing</span>
+                                
 
                                     {{$tissues->links('vendor.pagination.bootstrap-4') }}
                                 </label>
