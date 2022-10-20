@@ -61,7 +61,7 @@
                                     <!-- Topics List Start -->
                                     <div class="box--items">
                                         <div class="table-responsive">
-                                            <table class="table table-striped" style="width:100%" id="tableEx2">
+                                            <table class="table table-striped table-responsive-stack" style="width:100%" id="tableEx2">
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>

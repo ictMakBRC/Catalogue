@@ -698,7 +698,7 @@ a:focus {
     outline: 0;
 }
 .form-request {
-    height: auto;
+    height: 13px;
     padding: 8px 15px;
     border-color: #e5e5e5;
     border-radius: 2px;
@@ -4532,6 +4532,21 @@ body.isScrolling #backToTop {
     border-radius: 2px;
 }
 
+    @media screen and (min-width: 68px) {
+    .see-more{ display: block; }  /* show it on smaller screen */
+    }
+    @media screen and (min-width: 401px) and (max-width: 1024px) {
+    .see-more{ display: none; }   /* hide it on larger screens */
+    }
+
+    @media (max-width: 767px){
+        table,tr,td{
+          display: block;
+          float: left\9;
+          width:100%;
+          
+        }
+      }
 /* 8.7. NEWSLETTER WIDGET */
 .newsletter--widget {
     border-radius: 2px;

@@ -148,9 +148,9 @@
                                                     <input type="hidden" value="{{$guest}}" name="session" >
 
                                                     @if($data !="")
-                                                    <input name="requesterip" type="hidden" class="form-control" value="{{ $data->ip }}" required autofocus>
-                                                    <input name="requestercounry" type="hidden" class="form-control" value="{{ $data->countryName }}"  required autofocus>
-                                                    <input name="requestercity" type="hidden" class="form-control" value="{{ $data->cityName }}"  required autofocus>
+                                                    <input name="requesterip" type="hiddenn" class="form-control" value="{{ $data->ip }}" required autofocus>
+                                                    <input name="requestercounry" type="hiddenn" class="form-control" value="{{ $data->countryName }}"  required autofocus>
+                                                    <input name="requestercity" type="hiddenn" class="form-control" value="{{ $data->cityName }}"  required autofocus>
                                                     @endif
                                             <div class="row">
                                                     <div class="col-sm-4">

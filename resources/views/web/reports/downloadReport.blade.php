@@ -19,13 +19,15 @@
         table {
   border-collapse: collapse;
 }
+
+
 .btop{
- border:none;border-top:1px solid #DDDDDD 1.0pt;mso-border-top-alt:
+    border: 0.4px solid rgb(133, 130, 130);
+    border-top:1px solid #DDDDDD 1.0pt;mso-border-top-alt:
   solid #DDDDDD .75pt;mso-border-top-alt:
   solid #DDDDDD .75pt;mso-border-bottom-alt:
   solid #DDDDDD .75pt;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 1px;
   border-block-start-style: outset;
 }
 </style>
@@ -104,7 +106,7 @@
          
            <br>
           <tr style="border-bottom: 1px solid rgb(f, f, f); margin-top: 20px">
-            <td colspan="3" class="btop">
+            <td colspan="3" class="btop2">
                 <div style="display:block; border: 1px solid rgb(221, 213, 213); border-radius: 4px; padding-right:10px; padding-left:10px; line-height:1">
                     <h3><u>Additional Details of the sample request :</u></h3>
                     <p> {{$user->details}}
@@ -113,20 +115,21 @@
                 </div>
             </td>
         </tr>
+        <br>
           <tr>
-            <td class="btop">
+            <td class="btop2">
               _____________________
                 <br>
                   <strong>Requested By: </strong><br>
                    [{{$user->name}}]
                 </td>
-            <td class="btop">
+            <td class="btop2">
               _____________________
                   <br>
                   <strong>Reviewed By: </strong><br>
                    [Kia Praiscillia]
                 </td>
-            <td class="btop"> 
+            <td class="btop2"> 
               _____________________
               <br>
                   <strong>Approved by: </strong> <br>
@@ -174,5 +177,6 @@
             $pdf->page_text(60, $pdf->get_height() - 50, "{PAGE_NUM} of {PAGE_COUNT}", null, 12, array(0,0,0));
         }
     </script>
+   
     </body>
 </html>

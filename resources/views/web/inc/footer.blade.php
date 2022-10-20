@@ -54,35 +54,35 @@
                         <div class="nav--widget">
                             <ul class="nav">
                                 <li>
-                                    <a href="#">
+                                    <a target="_blank" href="http://ibru.mak.ac.ug/">
                                         <i class="fa fa-check-circle-o"></i>
                                         <span class="text">The IBRH3AU Biorepository</span>
 
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a target="_blank" href="https://www.brc.mak.ac.ug">
                                         <i class="fa fa-check-circle-o"></i>
                                         <span class="text">Makerere Biomedical Research Center</span>
 
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a target="_blank" href="#">
                                         <i class="fa fa-check-circle-o"></i>
                                         <span class="text">Genomics, Molecular & Immunolgy Labs</span>
 
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a target="_blank" href="#">
                                         <i class="fa fa-check-circle-o"></i>
                                         <span class="text">School of Biomedical Sciences</span>
 
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a target="_blank" href="https://www.mak.ac.ug/">
                                         <i class="fa fa-check-circle-o"></i>
                                         <span class="text">Makerere University</span>
 
