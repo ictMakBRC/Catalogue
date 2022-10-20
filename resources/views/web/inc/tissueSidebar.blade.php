@@ -1,6 +1,6 @@
 <div class="main--sidebar col-md-4 pb--60" data-trigger="stickyScroll">
     <!-- Widget Start -->
-    <div class="widget">
+    {{-- <div class="widget">
         <h2 class="h4 fw--700 widget--title">Search for samples</h2>
 
         <!-- Buddy Finder Widget Start -->
@@ -88,7 +88,7 @@
             </form>
         </div>
         <!-- Buddy Finder Widget End -->
-    </div> <br />
+    </div> <br /> --}}
     <!-- Widget End -->
 
     <!-- Widget Start -->

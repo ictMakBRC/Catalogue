@@ -10,7 +10,7 @@
                 </div>
 
                 <ul class="breadcrumb text-gray ff--primary">
-                    <li><a href="home-1.html" class="btn-link">Home</a></li>
+                    <li><a href="{{url('home')}}" class="btn-link">Home</a></li>
                     <li class="active"><span class="text-primary">Contact</span></li>
                 </ul>
             </div>

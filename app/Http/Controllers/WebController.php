@@ -17,6 +17,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Stevebauman\Location\Facades\Location;
+use PDF;
 
 class WebController extends Controller
 {
@@ -249,6 +250,36 @@ public function bioDeatiled($id, $name)
         return view('web.tissueTypes', compact('tissues', 'id'));
     }
 
+    public function organProjects($id)
+    {
+        //$this->cartcount();
+        DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
+        $organs = organ::orderBy('organs.id', 'desc')
+        ->leftJoin('specimen_types', 'organs.specimen_type_id', '=', 'specimen_types.specimen_type')
+        ->leftJoin('projects', 'organs.ProjectAcronym', '=', 'projects.project_acronym')
+        ->select('organs.specimen_type_id as mySpecimen', 'project_funder', 'project_design', 'Aliqout as aliqout_type', 'pcode', 'project_acronym', 'project_description', 'project_name', 'projects.id as pro_id', 'organs.created_at as organdate', DB::raw('count(organs.id) as count'))
+        ->where('organs.specimen_type_id', $id)
+        ->groupBy('organs.ProjectAcronym')
+        ->paginate(6);
+        DB::statement("SET sql_mode=(SELECT CONCAT(@@sql_mode, ',ONLY_FULL_GROUP_BY'));");
+
+        return view('web.tissueTypes', compact('organs', 'id'));
+    }
+
+    public function organAll($specimen, $project)
+    {    $cartitems = cart::Where('session_id', session()->get('guestuser'))->get();
+        $organtypes = organ::select('organs.specimen_type_id as myspecimen')->get();
+        $organcount = organ::where('organs.specimen_type_id', $specimen)->where('organs.ProjectAcronym', $project)->count();
+        $organs = organ::orderBy('organs.id', 'desc')
+        ->leftJoin('specimen_types', 'organs.specimen_type_id', '=', 'specimen_types.specimen_type')
+        ->leftJoin('projects', 'organs.ProjectAcronym', '=', 'projects.project_acronym')
+        ->where('organs.specimen_type_id', $specimen)
+        ->where('organs.ProjectAcronym', $project)
+        ->select('*', 'organs.id as organ_id', 'organs.is_active as state')
+        ->paginate(9);
+
+        return view('web.organItems', compact('organs', 'organcount','specimen','project','cartitems','organtypes'));
+    }
     public function tissues()
     {
         DB::statement("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
@@ -329,6 +360,22 @@ public function bioDeatiled($id, $name)
         $requestItems = cart::where('session_id', $id)->get();
 
         return view('web.viewRequest', compact('user', 'requestItems'));
+    }
+
+    
+    public function downloadRequest($id)
+    {
+        $user = SpecimenRequest::where('session', $id)->first();
+        //$this->cartcount();
+        $requestItems = cart::where('session_id', $id)->get();
+
+        $pdf = PDF::loadView('web.reports.downloadReport',compact('user','requestItems'));
+        // $pdf = \App::make('dompdf.wrapper');
+        $pdf->getDOMPdf()->set_option('isPhpEnabled', true);
+
+        return $pdf->download(rand().'.pdf');
+
+        return view('web.reports.downloadReport',compact('user','requestItems'));
     }
 
     public function myRequest($id)

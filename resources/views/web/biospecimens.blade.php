@@ -4,7 +4,7 @@
         <div class="page--header pt--60 pb--60 text-center" data-bg-img="{{url('site/img/page-header-img/biobg.jpg')}}" data-overlay="0.75">
             <div class="container">
                 <div class="title">
-                    <h2 class="h1 text-white">Biospecimens</h2>
+                    <h2 class="h1 text-white">{{ Request::routeIs('covid19') ? 'Sars COV-2' : '' }} Biospecimens</h2>
                 </div>
 
                 <ul class="breadcrumb text-gray ff--primary">
@@ -27,7 +27,7 @@
                                 <div class="box--items">
                                     <div class="row gutter--15 AdjustRow">
                                         <div class="col-md-12 col-xxs-12 col-xxs-12">
-                                            <h4 class="card-title">Our Biospecimens Inventory</h4>
+                                            <h4 class="card-title">Our {{ Request::routeIs('covid19') ? 'Sars COV-2' : '' }} Biospecimens Inventory</h4>
                                             <p>Through collaborations involving organ donation organizations and transplantation programs across Africa we are working 
                                                 to increase organ and organ donation, access to transplants and improve patient care. 
                                             </p>
@@ -39,7 +39,7 @@
                             <!-- Filter Nav Start -->
                             <div class="filter--nav pb--30 clearfix">
                                 <div class="filter--link float--left">
-                                    <h2 class="h4">List of all available Biospecimens : {{$biocount}}</h2>
+                                    <h2 class="h4">List of all available {{ Request::routeIs('covid19') ? 'Sars COV-2' : '' }} Biospecimens : {{$biocount}}</h2>
                                 </div>
 
                                 {{-- <div class="filter--options float--right d-none">
@@ -102,8 +102,7 @@
                             <!-- Page Count Start -->
                             <div class="page--count pt--30">
                                 <label class="ff--primary fs--14 fw--500 text-darker">
-                                    <span>Viewing</span>
-
+                                    
                                     {{$biospecimens->links('vendor.pagination.bootstrap-4') }}
                                 </label>
                             </div>

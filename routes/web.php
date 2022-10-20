@@ -25,7 +25,7 @@ Route::group(['middleware' => ['auth', 'role:guest']], function () {
     Route::post('account/update/{user}', [App\Http\Controllers\Auth\RegisteredUserController::class, 'update'])->name('updateguest');
     Route::resource('guestusers', RegisteredUserController::class);
 });
-Route::get('home', [App\Http\Controllers\WebController::class, 'index']);
+Route::get('home', [App\Http\Controllers\WebController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\WebController::class, 'index']);
 Route::get('web', [App\Http\Controllers\WebController::class, 'index']);
 Route::get('faq', [App\Http\Controllers\WebController::class, 'faq']);
@@ -52,9 +52,9 @@ Route::get('tissues/', [App\Http\Controllers\WebController::class, 'tissues']);
 Route::get('tissues/all/{specimen}/{project}', [App\Http\Controllers\WebController::class, 'tissueAll']);
 Route::get('tissues/view/{id}/{name}', [App\Http\Controllers\WebController::class, 'tissueDeatiled']);
 
-Route::get('organs/specimenType/{id}', [App\Http\Controllers\WebController::class, 'tissueProSampleType']);
+Route::get('organs/specimenType/{id}', [App\Http\Controllers\WebController::class, 'organProjects']);
 Route::get('organs/', [App\Http\Controllers\WebController::class, 'organs']);
-Route::get('organs/all/{specimen}/{project}', [App\Http\Controllers\WebController::class, 'tissueAll']);
+Route::get('organs/all/{specimen}/{project}', [App\Http\Controllers\WebController::class, 'organAll']);
 Route::get('organs/view/{id}/{name}', [App\Http\Controllers\WebController::class, 'tissueDeatiled']);
 
 Route::get('cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart');
@@ -62,6 +62,7 @@ Route::post('cart/add', [App\Http\Controllers\CartController::class, 'store']);
 Route::get('/cart/delete/{cart}', [App\Http\Controllers\CartController::class, 'destroy']);
 Route::post('/request/add', [App\Http\Controllers\SpecimenRequestController::class, 'store']);
 Route::get('/request/view/{id}', [App\Http\Controllers\WebController::class, 'viewRequest']);
+Route::get('/request/download/{id}', [App\Http\Controllers\WebController::class, 'downloadRequest']);
 Route::post('/request/register', [App\Http\Controllers\Auth\RegisteredUserController::class, 'store2'])->name('Reqregister');
 
 //-------------------------user subscription-----------------------------------------------

@@ -48,30 +48,7 @@
                                                             <tbody class="fs--14 text-darkest">
                                                                 @if(count($cartitems)>0)
                                                                 @foreach($cartitems as $value)
-                                                                @if($value->item =='Tissue')
-                                                                    <tr>
-                                                                        <td data-label="Rate">
-                                                                            {{ $value->item}}
-                                                                        </td>
-                                                                        <td data-label="Products">
-                                                                            {{ $value->specimen_type}}
-                                                                        </td>
-
-                                                                        <td data-label="Total Price">
-                                                                            <p>Gender: {{ $value->gender}}, 
-                                                                                Age: {{ $value->age}}, 
-                                                                                Ethinicity: {{ $value->ethinicity}},
-                                                                                Donor Status: {{ $value->donor_status}}
-                                                                            </p>
-                                                                        </td>
-                                                                        <td>{{$value->project_acronym}}</td>
-                                                                        <td>{{$value->quantity}}</td>
-                                                                        <td>
-                                                                            <a href="{{url('cart/delete/'.$value->id)}}" class="text-danger" > <i class="fa fa-trash"></i> </a>
-
-                                                                        </td>
-                                                                    </tr>
-                                                                @endif
+                                                              
                                                                 @if($value->item =='Biospecimens')
                                                                 <tr>
                                                                     <td data-label="Rate">
@@ -83,6 +60,29 @@
 
                                                                     <td data-label="Total Price">
                                                                         <p>{{ $value->details}}
+                                                                        </p>
+                                                                    </td>
+                                                                    <td>{{$value->project_acronym}}</td>
+                                                                    <td>{{$value->quantity}}</td>
+                                                                    <td>
+                                                                        <a href="{{url('cart/delete/'.$value->id)}}" class="text-danger" > <i class="fa fa-trash"></i> </a>
+
+                                                                    </td>
+                                                                </tr>
+                                                                @else
+                                                                <tr>
+                                                                    <td data-label="Rate">
+                                                                        {{ $value->item}}
+                                                                    </td>
+                                                                    <td data-label="Products">
+                                                                        {{ $value->specimen_type}}
+                                                                    </td>
+
+                                                                    <td data-label="Total Price">
+                                                                        <p>Gender: {{ $value->gender}}, 
+                                                                            Age: {{ $value->age}}, 
+                                                                            Ethinicity: {{ $value->ethinicity}},
+                                                                            Donor Status: {{ $value->donor_status}}
                                                                         </p>
                                                                     </td>
                                                                     <td>{{$value->project_acronym}}</td>

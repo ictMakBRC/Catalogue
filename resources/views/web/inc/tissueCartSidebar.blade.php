@@ -20,11 +20,20 @@
         <!-- Links Widget Start -->
         <div class="links--widget">
             <ul class="nav">
+            @if (isset($types))                
                 @if(count($types)>0)
-                @foreach($types as $value)
-                <li><a href="{{url('tissues/specimenType/'.$value->myspecimen)}}">{{$value->myspecimen}}</a></li>
-              @endforeach
+                    @foreach($types as $value)
+                    <li><a href="{{url('tissues/specimenType/'.$value->myspecimen)}}">{{$value->myspecimen}}</a></li>
+                    @endforeach
+                @endif    
               @endif
+              @if (isset($organtypes))                
+              @if(count($organtypes)>0)
+                  @foreach($organtypes as $value)
+                  <li><a href="{{url('organs/specimenType/'.$value->myspecimen)}}">{{$value->myspecimen}}</a></li>
+                  @endforeach
+              @endif    
+            @endif
             </ul>
         </div>
         <!-- Links Widget End -->

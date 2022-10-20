@@ -35,9 +35,10 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('number', function ($value) {
             return "<?php echo number_format($value); ?>";
         });
-        View::share('specimensAll', SpecimenType::orderBy('specimen_type', 'ASC')->limit(12)->get());
+        View::share('specimensAll', Biospecimen::select('specimen_type_id')->groupBy('specimen_type_id')->orderBy('specimen_type_id', 'ASC')->limit(12)->get());
         View::share('biospecimensAll', Biospecimen::count());
         View::share('covAll', Biospecimen::where('ProjectAcronym', 'COVID-19')->count());
+        View::share('dnaAll', Biospecimen::where('specimen_type_id', 'DNA')->count());
         View::share('tissuesAll', Tissue::count());
         View::share('organsAll', organ::count());
     }

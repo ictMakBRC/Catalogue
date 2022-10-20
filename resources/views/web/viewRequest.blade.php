@@ -16,7 +16,8 @@
                             <div class="content--nav pb--30">
                                 <ul class="nav ff--primary fs--14 fw--500 bg-lighter">
                                     <li class="active"><a href="#">My Request</a></li>
-                                    <li><a href="">{{$user->session}}</a></li>
+                                    <li class=""><a href="#">{{$user->session}}</a></li>
+                                    <li><a href="{{url('request/download/'.$user->session)}}"><i class="fa fa-download"></i></a></li>
                                     
                                 </ul>
                                 {{-- {!! QrCode::size(120)->generate($user->session) !!} --}}
@@ -128,6 +129,7 @@
                                 <!-- Profile Item End -->
                             </div>
                             <!-- Profile Details End -->
+                            <a class="a-tag" href="{{url('request/download/'.$user->session)}}"><i class="fa fa-download"></i> Download</a>
                         </div>
                     </div>
                     <!-- Main Content End -->

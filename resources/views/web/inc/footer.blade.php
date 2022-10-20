@@ -112,28 +112,28 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('web/biospecimens')}}" >
+                                    <a href="{{url('biospecimens')}}" >
                                         <i class="fa fa-folder-o"></i>
                                         <span class="text">Biospecimens</span>
                                         <span class="count">({{$biospecimensAll}})</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{route('covid19')}}">
+                                    <a href="{{url('biospecimens/filter/DNA')}}">
                                         <i class="fa fa-folder-o"></i>
                                         <span class="text">DNA Samples</span>
-                                        <span class="count">({{$covAll}})</span>
+                                        <span class="count">({{$dnaAll}})</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('web/tissues')}}">
+                                    <a href="{{url('tissues')}}">
                                         <i class="fa fa-folder-o"></i>
                                         <span class="text">Tissues</span>
                                         <span class="count">({{$tissuesAll}})</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{url('organs')}}">
                                         <i class="fa fa-folder-o"></i>
                                         <span class="text">Human Organs</span>
                                         <span class="count">({{$organsAll}})</span>
@@ -171,9 +171,9 @@
                                     <ul class="nav">
                                         @if (isset($specimensAll))
                                         @foreach ($specimensAll as $item)
-                                            <li><a href="#">{{$item->specimen_type}}</a></li>
+                                            <li><a href="{{url('biospecimens/filter/'.$item->specimen_type_id)}}">{{$item->specimen_type_id}}</a></li>
                                         @endforeach
-                                        <li><a href="#"><small>All</small></a></li>
+                                        <li><a href="{{url('biospecimens')}}"><small>View All</small></a></li>
                                         @endif
                                     </ul>
                                 </div>

@@ -697,6 +697,18 @@ a:focus {
     transition-duration: .25s;
     outline: 0;
 }
+.form-request {
+    height: auto;
+    padding: 8px 15px;
+    border-color: #e5e5e5;
+    border-radius: 2px;
+    box-shadow: none;
+    font-size: 12px;
+    line-height: 22px;
+    font-weight: 400;
+    transition-duration: .25s;
+    outline: 0;
+}
 
 .form-control.form-sm {
     height: 30px;
@@ -710,6 +722,10 @@ textarea.form-control.form-sm {
 
 .form-control:focus {
     border-color: #1da1f2;
+    box-shadow: none;
+}
+.form-request:focus {
+    border-color: #08992e;
     box-shadow: none;
 }
 

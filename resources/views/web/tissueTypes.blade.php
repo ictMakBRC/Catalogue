@@ -24,52 +24,100 @@
                 <div class="row">
                     <!-- Main Content Start -->
                     <div class="main--content col-md-8 pb--60" data-trigger="stickyScroll">
-                        
-                        @if(count($tissues)>0)
-                        @php($i=1)
-                        @foreach($tissues as $value)
-                        <div class="main--content-inner drop--shadow">
-                            <!-- Topics List Start -->
-                            <div class="box--items">
-                                <div class="row gutter--15 AdjustRow">
-                                    <div class="col-md-12 col-xxs-12 col-xxs-12">
-                                        <div class="box--items text-dacker">
-                                            <div class="card-header">
-                                                <h5 class="card-title"><strong>Study Acronym:</strong> {{ $value->project_acronym}}</h5>
+                        @if (isset($tissues))
+                                @if(count($tissues)>0)
+                                        @php($i=1)
+                                        @foreach($tissues as $value)
+                                        <div class="main--content-inner drop--shadow">
+                                            <!-- Topics List Start -->
+                                            <div class="box--items">
+                                                <div class="row gutter--15 AdjustRow">
+                                                    <div class="col-md-12 col-xxs-12 col-xxs-12">
+                                                        <div class="box--items text-dacker">
+                                                            <div class="card-header">
+                                                                <h5 class="card-title"><strong>Study Acronym:</strong> {{ $value->project_acronym}}</h5>
+                                                            </div>
+                                                            <div class="card-body mb-20">
+                                                                <p> <strong>Study name:</strong> {{$value->project_name}}</p>
+                                                                <p class="card-text"><strong>Study design:</strong> {{ $value->project_design}}</p>
+                                                            </div>
+                                                            <br>
+                                                            <table class="table mt-20">
+                                                                <tr style="border-bottom: 2px solid #f2f4f2; color:#00B249">
+                                                                    <td><b>Sample Type: </b>{{ $value->aliqout_type}}</td>
+                                                                    <td><b>Total Available: </b>{{ $value->tcount}}</td>
+                                                                    <td><b>Funder: </b>{{ $value->project_funder}}</td>
+                                                                </tr>
+                                                            
+                                                            </table>
+                                                            <div class="tags--widget2">
+                                                                <ul class="nav">
+                                                                    <li> <a target="_blank" href="{{ url('project/view/'.$value->pcode.'/'.$value->project_acronym.'/'.$value->mySpecimen) }}" data-toggle="tooltip" title="View {{$value->project_acronym}} project details" class="btn btn-default text-info">Read More<i class="icofont-arrow-right"></i></a></li>
+                                                                    <li class="m-"><a href="{{url('tissues/all/'.$id.'/'.$value->project_acronym)}}" title="{{ $value->project_acronym}} {{$id}} samples" data-toggle="tooltip" class="btn btn-default">View Samples</a></li>
+                                    
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
-                                            <div class="card-body mb-20">
-                                                <p> <strong>Study name:</strong> {{$value->project_name}}</p>
-                                                <p class="card-text"><strong>Study design:</strong> {{ $value->project_design}}</p>
-                                            </div>
-                                            <br>
-                                            <table class="table mt-20">
-                                                <tr style="border-bottom: 2px solid #f2f4f2; color:#00B249">
-                                                    <td><b>Sample Type: </b>{{ $value->aliqout_type}}</td>
-                                                    <td><b>Total Available: </b>{{ $value->tcount}}</td>
-                                                    <td><b>Funder: </b>{{ $value->project_funder}}</td>
-                                                </tr>
-                                               
-                                            </table>
-                                            <div class="tags--widget2">
-                                                <ul class="nav">
-                                                    <li> <a target="_blank" href="{{ url('project/view/'.$value->pcode.'/'.$value->project_acronym.'/'.$value->mySpecimen) }}" data-toggle="tooltip" title="View {{$value->project_acronym}} project details" class="btn btn-default text-info">Read More<i class="icofont-arrow-right"></i></a></li>
-                                                    <li class="m-"><a href="{{url('tissues/all/'.$id.'/'.$value->project_acronym)}}" title="{{ $value->project_acronym}} {{$id}} samples" data-toggle="tooltip" class="btn btn-default">View Samples</a></li>
-                    
-                                                </ul>
-                                            </div>
+
                                         </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <br>
-                        
-                        @endforeach
+                                        <br>
+                                        
+                                        @endforeach
+                                @endif
+                                {{$tissues->links('vendor.pagination.bootstrap-4') }}
                         @endif
 
-                        {{$tissues->links('vendor.pagination.bootstrap-4') }}
+
+                        @if (isset($organs))
+                                @if(count($organs)>0)
+                                        @php($i=1)
+                                        @foreach($organs as $value)
+                                        <div class="main--content-inner drop--shadow">
+                                            <!-- Topics List Start -->
+                                            <div class="box--items">
+                                                <div class="row gutter--15 AdjustRow">
+                                                    <div class="col-md-12 col-xxs-12 col-xxs-12">
+                                                        <div class="box--items text-dacker">
+                                                            <div class="card-header">
+                                                                <h5 class="card-title"><strong>Study Acronym:</strong> {{ $value->project_acronym}}</h5>
+                                                            </div>
+                                                            <div class="card-body mb-20">
+                                                                <p> <strong>Study name:</strong> {{$value->project_name}}</p>
+                                                                <p class="card-text"><strong>Study design:</strong> {{ $value->project_design}}</p>
+                                                            </div>
+                                                            <br>
+                                                            <table class="table mt-20">
+                                                                <tr style="border-bottom: 2px solid #f2f4f2; color:#00B249">
+                                                                    <td><b>Sample Type: </b>{{ $value->aliqout_type}}</td>
+                                                                    <td><b>Total Available: </b>{{ $value->count}}</td>
+                                                                    <td><b>Funder: </b>{{ $value->project_funder}}</td>
+                                                                </tr>
+                                                            
+                                                            </table>
+                                                            <div class="tags--widget2">
+                                                                <ul class="nav">
+                                                                    <li> <a target="_blank" href="{{ url('project/view/'.$value->pcode.'/'.$value->project_acronym.'/'.$value->mySpecimen) }}" data-toggle="tooltip" title="View {{$value->project_acronym}} project details" class="btn btn-default text-info">Read More<i class="icofont-arrow-right"></i></a></li>
+                                                                    <li class="m-"><a href="{{url('organs/all/'.$id.'/'.$value->project_acronym)}}" title="{{ $value->project_acronym}} {{$id}} samples" data-toggle="tooltip" class="btn btn-default">View Samples</a></li>
+                                    
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <br>
+                                        
+                                        @endforeach
+                                @endif
+                                {{$organs->links('vendor.pagination.bootstrap-4') }}
+                        @endif
                     </div>
                     <!-- Main Content End -->
 

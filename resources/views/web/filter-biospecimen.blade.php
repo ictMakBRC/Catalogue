@@ -186,7 +186,7 @@
                                                                         <input type="hidden"  value="{{ $bioid}}" class="form-control" name="aliqout_type">
                                                                         <input type="hidden"  value="{{ $status}}" class="form-control" name="donor_status">
                                                                         <input type="hidden" name="project_acronym" value="{{$value->ProjectAcronym}}">
-                                                                        <input type="number" max="{{ $value->count}}" required name="quantity" class="form-control" style=" width:70px " id=""> 
+                                                                        <input type="number" max="{{ $value->count}}" required name="quantity" class="form-request" style=" width:70px " id=""> 
                                                                         <input type="hidden" value="Age:{{$age}}, Gender:{{$gender}}, Case control:{{$status}}, Study:{{$project}}, Specimen:{{$bioid}}" name="details" id="">
                                                                     </td>
                                                                     <td> <button class="a-tag btn-success btn btn-sm" form="{{ $value->ProjectAcronym}}" type="submit"><i class="fa fa-shopping-cart"> </i> Request</button></td>
