@@ -45,7 +45,7 @@ class BioSpecimenRequestController extends Controller
             $Casestatus = Biospecimen::select('CaseControl')->groupBy('CaseControl')->get();
             $study = Biospecimen::select('ProjectAcronym')->groupBy('ProjectAcronym')->get();
 
-            $data = Biospecimen::select('*',DB::raw('count(biospecimens.id) as count'))
+            $data = Biospecimen::select('*',DB::raw('count(biospecimens.id) as count'))->with('project')
             ->where('biospecimens.specimen_type_id', $bioid)
             ->when($project != 'ALL', function ($query) use ($request) {
                 $query->where('ProjectAcronym',$request->project);

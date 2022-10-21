@@ -96,29 +96,49 @@
                                                     <th>Specimen type</th>
                                                     <th>Description</th>
                                                     <th>Project</th>
+                                                    <th>Qty</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="fs--14 text-darkest">
                                                 @if(count($requestItems)>0)
                                                 @foreach($requestItems as $value)
-                                                @if($value->item =='Tissue')
-                                                <tr>
-                                                    <td data-label="Rate">
-                                                        {{ $value->item}}
-                                                    </td>
-                                                    <td data-label="Products">
-                                                        {{ $value->specimen_type}}
-                                                    </td>
-    
-                                                    <td data-label="Total Price">
-                                                        <p>Gender: {{ $value->gender}}, 
-                                                            Age: {{ $value->age}}, 
-                                                            Ethinicity: {{ $value->ethinicity}},
-                                                            Donor Status: {{ $value->donor_status}}</p>
-                                                    </td>
-                                                    <td>{{$value->project_acronym}}</td>
-                                                   
-                                                </tr>
+                                                @if($value->item =='Biospecimens')
+                                                                <tr>
+                                                                    <td data-label="Rate">
+                                                                        {{ $value->item}}
+                                                                    </td>
+                                                                    <td data-label="Products">
+                                                                        {{ $value->specimen_type}}
+                                                                    </td>
+
+                                                                    <td data-label="Total Price">
+                                                                        <p>{{ $value->details}}
+                                                                        </p>
+                                                                    </td>
+                                                                    <td>{{$value->project_acronym}}</td>
+                                                                    <td>{{$value->quantity}}</td>
+                                              
+                                                                </tr>
+                                                                @else
+                                                                <tr>
+                                                                    <td data-label="Rate">
+                                                                        {{ $value->item}}
+                                                                    </td>
+                                                                    <td data-label="Products">
+                                                                        {{ $value->specimen_type}}
+                                                                    </td>
+
+                                                                    <td data-label="Total Price">
+                                                                        <p>Gender: {{ $value->gender}}, 
+                                                                            Age: {{ $value->age}}, 
+                                                                            Ethinicity: {{ $value->ethinicity}},
+                                                                            Donor Status: {{ $value->donor_status}}
+                                                                        </p>
+                                                                    </td>
+                                                                    <td>{{$value->project_acronym}}</td>
+                                                                    <td>{{$value->quantity}}</td>
+                                                                
+                                                                </tr>
                                                 @endif
                                                 @endforeach
                                                 @endif

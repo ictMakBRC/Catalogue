@@ -174,7 +174,7 @@
                                                                     <td data-label="Rate">
                                                                         {{$key+1}}
                                                                     </td>
-                                                                    <td data-label="Products"> {{ $value->ProjectAcronym}}</td>
+                                                                    <td data-label="Products"><a target="_blank" href="{{ url('project/view/'.$value->project->pcode.'/'.$value->ProjectAcronym.'/'.$bioid) }}" data-toggle="tooltip" title="View {{$value->project_acronym}} project details" class="strong">{{$value->ProjectAcronym}}<i class="icofont-arrow-right"></i></a></td>
                                                                     <td>{{ $value->count}} <input type="hidden" readonly name="qty" id="qty" value="{{ $value->count}}" required></td>
                                                                     <td> 
                                                                         <input type="hidden"  value="Biospecimens" class="form-control" name="item_type">

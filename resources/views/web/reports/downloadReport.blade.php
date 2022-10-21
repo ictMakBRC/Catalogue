@@ -22,12 +22,12 @@
 
 
 .btop{
-    border: 0.4px solid rgb(133, 130, 130);
-    border-top:1px solid #DDDDDD 1.0pt;mso-border-top-alt:
-  solid #DDDDDD .75pt;mso-border-top-alt:
-  solid #DDDDDD .75pt;mso-border-bottom-alt:
-  solid #DDDDDD .75pt;
-  padding: 1px;
+    border: 0.2px solid rgb(245, 243, 243);
+    border-top:0.2px solid #f5f4f4 1.0pt;mso-border-top-alt:
+  solid #edebeb .7pt;mso-border-top-alt:
+  solid #DDDDDD .7pt;mso-border-bottom-alt:
+  solid #DDDDDD .7pt;
+  padding: 3px;
   border-block-start-style: outset;
 }
 </style>
@@ -72,41 +72,61 @@
                     <th class="btop">Specimen type</th>
                     <th class="btop">Description</th>
                     <th class="btop">Project</th>
+                    <th class="btop">Qty</th>
                 </tr>
             </thead>
             <tbody class="fs--14 text-darkest">
                 @if(count($requestItems)>0)
                 @foreach($requestItems as $value)
-                @if($value->item =='Tissue')
-                <tr class="btop">
-                    <td data-label="Rate" class="btop">
-                        {{ $value->item}}
-                    </td>
-                    <td data-label="Products" class="btop">
-                        {{ $value->specimen_type}}
-                    </td>
+                @if($value->item =='Biospecimens')
+                    <tr class="btop">
+                        <td class="btop">
+                            {{ $value->item}}
+                        </td>
+                        <td class="btop">
+                            {{ $value->specimen_type}}
+                        </td>
 
-                    <td data-label="Total Price" class="btop">
-                        <p>Gender: {{ $value->gender}}, 
-                            Age: {{ $value->age}}, 
-                            Ethinicity: {{ $value->ethinicity}},
-                            Donor Status: {{ $value->donor_status}}</p>
-                    </td>
-                    <td class="btop">{{$value->project_acronym}}</td>
-                   
-                </tr>
+                        <td class="btop">
+                            <p>{{ $value->details}}
+                            </p>
+                        </td>
+                        <td class="btop">{{$value->project_acronym}}</td>
+                        <td class="btop">{{$value->quantity}}</td>
+
+                    </tr>
+                @else
+                    <tr class="btop">
+                        <td class="btop">
+                            {{ $value->item}}
+                        </td>
+                        <td class="btop">
+                            {{ $value->specimen_type}}
+                        </td>
+
+                        <td class="btop">
+                            <p>Gender: {{ $value->gender}}, 
+                                Age: {{ $value->age}}, 
+                                Ethinicity: {{ $value->ethinicity}},
+                                Donor Status: {{ $value->donor_status}}
+                            </p>
+                        </td>
+                        <td class="btop">{{$value->project_acronym}}</td>
+                        <td class="btop">{{$value->quantity}}</td>
+                    
+                    </tr>
                 @endif
                 @endforeach
                 @endif
             </tbody>
         </table>
-        <table  class="table dt-responsive nowrap">
+        <table  class="table dt-responsive nowrap" with="100%">
             
           <tbody>
          
            <br>
           <tr style="border-bottom: 1px solid rgb(f, f, f); margin-top: 20px">
-            <td colspan="3" class="btop2">
+            <td colspan="3">
                 <div style="display:block; border: 1px solid rgb(221, 213, 213); border-radius: 4px; padding-right:10px; padding-left:10px; line-height:1">
                     <h3><u>Additional Details of the sample request :</u></h3>
                     <p> {{$user->details}}
@@ -117,19 +137,19 @@
         </tr>
         <br>
           <tr>
-            <td class="btop2">
+            <td >
               _____________________
                 <br>
                   <strong>Requested By: </strong><br>
                    [{{$user->name}}]
-                </td>
-            <td class="btop2">
+            </td>
+            <td >
               _____________________
                   <br>
                   <strong>Reviewed By: </strong><br>
                    [Kia Praiscillia]
-                </td>
-            <td class="btop2"> 
+            </td>
+            <td > 
               _____________________
               <br>
                   <strong>Approved by: </strong> <br>

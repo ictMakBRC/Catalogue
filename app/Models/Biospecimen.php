@@ -30,6 +30,11 @@ class Biospecimen extends Model
         'batch_No',
     ];
 
+    public function project()
+    {
+        return $this->belongsTo(project::class, 'ProjectAcronym', 'project_acronym');
+        
+    }
     public function biospecimen()
     {
         return $this->belongsTo(project::class, 'ProjectAcronym', 'project_acronym')->select('*', 'specimen_type_id', DB::raw('count(biospecimen.id) as count'))
