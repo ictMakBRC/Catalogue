@@ -22,14 +22,13 @@
                     <!-- Main Content Start -->
                     <div class="main--content col-md-8 pb--60" data-trigger="stickyScroll">
                         <div class="main--content-inner">
-                            <div class="main--content-inner drop--shadow">
+                            <div class="main--content-inner bg-secondary drop--shadow">
                                 <!-- Topics List Start -->
                                 <div class="box--items">
                                     <div class="row gutter--15 AdjustRow">
                                         <div class="col-md-12 col-xxs-12 col-xxs-12">
-                                            <h4 class="card-title">Our {{ Request::routeIs('covid19') ? 'Sars COV-2' : '' }} Biospecimens Inventory</h4>
-                                            <p>Through collaborations involving organ donation organizations and transplantation programs across Africa we are working 
-                                                to increase organ and organ donation, access to transplants and improve patient care. 
+                                            <h4 class="card-title">The {{ Request::routeIs('covid19') ? 'SARS-CoV-2' : '' }} Biospecimens Inventory</h4>
+                                            <p>The Catalog is updated regularly with the latest Biospecimens data from the LIMS for all the studies at the <a href="https://www.ibru.mak.ac.ug" target="_blank">IBRH3AU Biorepository</a>. Providing you with access to a pool of well annotated Biospecimens.
                                             </p>
                                         </div>
                                     </div>
@@ -39,7 +38,7 @@
                             <!-- Filter Nav Start -->
                             <div class="filter--nav pb--30 clearfix">
                                 <div class="filter--link float--left">
-                                    <h2 class="h4">List of all available {{ Request::routeIs('covid19') ? 'Sars COV-2' : '' }} Biospecimens : {{$biocount}}</h2>
+                                    <h2 class="h4">List of all the available {{ Request::routeIs('covid19') ? 'SARS-CoV-2' : '' }} Biospecimens: {{$biocount}}</h2>
                                 </div>
 
                                 {{-- <div class="filter--options float--right d-none">
@@ -95,14 +94,14 @@
                                         </div>
                                     </div>
                                 </div>
-                               
+
                             </div>
                             <!-- Member Items End -->
 
                             <!-- Page Count Start -->
                             <div class="page--count pt--30">
                                 <label class="ff--primary fs--14 fw--500 text-darker">
-                                    
+
                                     {{$biospecimens->links('vendor.pagination.bootstrap-4') }}
                                 </label>
                             </div>

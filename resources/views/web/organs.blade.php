@@ -19,7 +19,7 @@
         <section class="page--wrapper pt--80 pb--20">
             <div class="container">
                 <div class="row">
-                         
+
                     <!-- Main Content Start -->
                     <div class="main--content col-md-8 pb--60" data-trigger="stickyScroll">
                         <div class="main--content-inner">
@@ -28,9 +28,9 @@
                                 <div class="box--items">
                                     <div class="row gutter--15 AdjustRow">
                                         <div class="col-md-12 col-xxs-12 col-xxs-12">
-                                            <h4 class="card-title">Our Organ Inventory</h4>
-                                            <p>Through collaborations involving organ donation organizations and transplantation programs across Africa we are working 
-                                                to increase organ and organ donation, access to transplants and improve patient care. 
+                                            <h4 class="card-title">Available Organs</h4>
+                                            <p>Many ailments that were once incurable such as infertility, sickle cell anaemia, leukaemia, kidney and liver failure have been addressed through tissue or organ donation. Through our collaborations involving organ donation organizations and transplantation programs across Africa we are working
+                                                to increase organ and tissue donation, access to transplants and improve patient care.
                                             </p>
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@
                                 </div> --}}
                             </div>
                             <!-- Filter Nav End -->
-                           
+
                             <div class="row AdjustRow">
                                 @if(count($organs)>0)
                                 @foreach($organs as $value)
@@ -86,7 +86,7 @@
 
                                             <!-- Product Info Start -->
                                             <div class="product--info text-center">
-                                                
+
                                                 <div class="name">
                                                     <h3 class="h4 fs--16 text-primary">
                                                         <a href="{{url('organs/specimenType/'.$value->myspecimen)}}" class="btn-link">{{ $value->myspecimen}}</a>
@@ -108,7 +108,7 @@
                                     </div>
                                 @endforeach
                                 @endif
-                             
+
                             </div>
                             <!-- Member Items Start -->
                             {{-- <div class="member--items d-none">
@@ -161,7 +161,7 @@
                             <!-- Page Count Start -->
                             <div class="page--count pt--30">
                                 <label class="ff--primary fs--14 fw--500 text-darker">
-                                    
+
                                     {{$organs->links('vendor.pagination.bootstrap-4') }}
                                 </label>
                             </div>

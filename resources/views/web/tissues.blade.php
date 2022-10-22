@@ -22,17 +22,17 @@
                             <!-- Main Content Start -->
                             {{-- <div class="main--content col-md-12 pb--30">
                                 <div class="main--content-inner">
-                                   
-        
+
+
                                     <!-- Page Count Start -->
                                     <div class="page--count pb--30">
                                         <label class="ff--primary fs--14 fw--500 text-darker">
                                             <span>Viewing</span>
-        
+
                                             <a href="#" class="btn-link"><i class="fa fa-caret-left"></i></a>
                                             <input type="number" name="page-count" value="01" class="form-control form-sm">
                                             <a href="#" class="btn-link"><i class="fa fa-caret-right"></i></a>
-        
+
                                             <span>of 28</span>
                                         </label>
                                     </div>
@@ -48,7 +48,7 @@
                                     <div class="row gutter--15 AdjustRow">
                                         <div class="col-md-12 col-xxs-12 col-xxs-12">
                                             <h4 class="card-title">Our Tissue Inventory</h4>
-                                            <p>Through collaborations involving organ donation organizations and transplantation programs across Africa we are working to increase organ and tissue donation, access to transplants and improve patient care. 
+                                            <p>Our objective is to facilitate research that will benefit study participants and the general public through making publically available the Biospecimens, Organs, Tissues and data following the necessary guidelines.
                                             </p>
                                         </div>
                                     </div>
@@ -119,9 +119,9 @@
                                         </div>
                                     @endforeach
                                     @endif
-                                
+
                                 </div>
-                           @else                                 
+                           @else
                             <div class="member--items">
                                 <div class="main--content-inner drop--shadow">
                                     <!-- Topics List Start -->
@@ -165,14 +165,14 @@
                                         </div>
                                     </div>
                                 </div>
-                               
+
                             </div>
                            @endif
-                         
+
                             <!-- Page Count Start -->
                             <div class="page--count pt--30">
                                 <label class="ff--primary fs--14 fw--500 text-darker">
-                                
+
 
                                     {{$tissues->links('vendor.pagination.bootstrap-4') }}
                                 </label>
